@@ -1,5 +1,6 @@
-#ifndef ADC_ATMEGA88_H_
+﻿#ifndef ADC_ATMEGA88_H_
 #define ADC_ATMEGA88_H_
+//test1
 
 namespace Adc{
 	void EnableInterrupt(){
