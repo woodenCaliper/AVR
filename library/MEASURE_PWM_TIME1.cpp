@@ -17,7 +17,7 @@ class MeasurePwmInt{
 	public:
 	float highUsec, lowUsec;
 
-	MeasurePwmInt(){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
+	MeasurePwmInt(){	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿(å¤‰æ•°ã®åˆæœŸåŒ–ã¨ã‚¿ã‚¤ãƒãƒ¼è¨­å®š)
 		bitUsec=0.0;
 		nowCount=0;
 		upTcnt=0;
@@ -35,10 +35,10 @@ class MeasurePwmInt{
 		setTimer(256);
 	}
 	void setTimer(uint16_t division){
-		Tm1Ctrl::setDivision(division);	//¸“x12.8us@Œv‘ª‰Â”\ŠÔ–ñ55ks=15h
+		Tm1Ctrl::setDivision(division);	//ç²¾åº¦12.8usã€€è¨ˆæ¸¬å¯èƒ½æ™‚é–“ç´„55ks=15h
 		Tm1Ctrl::setWGM(0b000);
 		bitUsec = division/(F_CPU/1000000.0);	//1bit=12.8us
-		sbi(TIMSK1, TOIE1);	//ovfŠ„‚è‚İ‹–‰Â
+		sbi(TIMSK1, TOIE1);	//ovfå‰²ã‚Šè¾¼ã¿è¨±å¯
 		sei();
 	}
 	inline void __countUp(){
@@ -94,7 +94,7 @@ class measureInt0 : public MeasurePwmInt{
 	public:
 	measureInt0(){
 	}
-	//lowMaxAhighMax‚ÍŒv‘ª‚ÌÅ‘å’lA0‚È‚ç‚Îİ’è‚µ‚È‚¢
+	//lowMaxã€highMaxã¯è¨ˆæ¸¬ã®æœ€å¤§å€¤ã€0ãªã‚‰ã°è¨­å®šã—ãªã„
 	void begin(){
 		cbi(DDRD, 2);
 		sbi(PORTD,2);
@@ -141,25 +141,25 @@ class measureInt1 : public MeasurePwmInt{
 	}
 }measureInt1;
 
-ISR(INT0_vect){	
+ISR(INT0_vect){
 	uint16_t _tcnt = TCNT1;
-	if(measureInt0.isPulseUp()){	//—§‚¿ã‚ª‚è
+	if(measureInt0.isPulseUp()){	//ç«‹ã¡ä¸ŠãŒã‚Š
 		measureInt0.__pulseUpAction(_tcnt);
-		cbi(EICRA, ISC00);	//—§‚¿‰º‚è‚ÅŠ„‚è‚İİ’è
+		cbi(EICRA, ISC00);	//ç«‹ã¡ä¸‹ã‚Šã§å‰²ã‚Šè¾¼ã¿è¨­å®š
 	}
-	else if(measureInt0.isPulseDown()){	//—§‚¿‰º‚ª‚è
+	else if(measureInt0.isPulseDown()){	//ç«‹ã¡ä¸‹ãŒã‚Š
 		measureInt0.__pulseDownAction(_tcnt);
 		sbi(EICRA, ISC00);
 	}
-	
+
 }
 ISR(INT1_vect){
 	uint16_t _tcnt = TCNT1;
-	if(measureInt1.isPulseUp()){	//—§‚¿ã‚ª‚è
+	if(measureInt1.isPulseUp()){	//ç«‹ã¡ä¸ŠãŒã‚Š
 		measureInt1.__pulseUpAction(_tcnt);
-		cbi(EICRA, ISC10);	//—§‚¿‰º‚è‚ÅŠ„‚è‚İİ’è
+		cbi(EICRA, ISC10);	//ç«‹ã¡ä¸‹ã‚Šã§å‰²ã‚Šè¾¼ã¿è¨­å®š
 	}
-	else if(measureInt1.isPulseDown()){	//—§‚¿‰º‚ª‚è
+	else if(measureInt1.isPulseDown()){	//ç«‹ã¡ä¸‹ãŒã‚Š
 		measureInt1.__pulseDownAction(_tcnt);
 		sbi(EICRA, ISC10);
 	}

@@ -3,7 +3,7 @@
 #define IR2302_H_
 #include <avr/io.h>
 #include <stdlib.h>
-#include <avr/interrupt.h>	//äÑÇËçûÇ›ÉwÉbÉ_
+#include <avr/interrupt.h>	//Ââ≤„ÇäËæº„Åø„Éò„ÉÉ„ÉÄ
 
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
@@ -14,7 +14,7 @@
 IN1	SD1	HO	LO
 0	0	0	0	OFF
 0	1	0	1	LOW_SIDE_ON
-1	0	0	0Å~	égópÇµÇ»Ç¢(OFF)
+1	0	0	0√ó	‰ΩøÁî®„Åó„Å™„ÅÑ(OFF)
 1	1	1	0	HIGH_SIDE_ON
 
 IN1	SD1 IN2	SD2	|	HO1	LO1	HO2	LO2 |	M1	M2
@@ -39,22 +39,22 @@ class Ir2302Tm0{
 		float duty;
 		uint8_t state;
 	};
-	
+
 	avrPin in1, in2, sd;
 	volatile float maxDuty;
 	volatile uint8_t MAX_OCR;
 	volatile float slope, startTime, startDuty;
-	
+
 	motorState current, goal;
-	
+
 
 	Ir2302Tm0(){
 		current.duty = 0.0;
 		current.state = NEUTRAL;
 		goal.duty = 0.0;
 		goal.state = NEUTRAL;
-		
-		maxDuty = MAX_OCR/255.0*100.0;	//99.6078%			
+
+		maxDuty = MAX_OCR/255.0*100.0;	//99.6078%
 		slope = 0.0;
 		MAX_OCR = 254;
 	}
@@ -69,7 +69,7 @@ class Ir2302Tm0{
 //<<<<<virtural
 	void setTimer(uint16_t division){
 		Tm0Ctrl::setDivision(division);
-		Tm0Ctrl::setWGM(0b000);	//ïWèÄìÆçÏ
+		Tm0Ctrl::setWGM(0b000);	//Ê®ôÊ∫ñÂãï‰Ωú
 		Tm0Cntr::begin(division);
 		sei();
 	}
@@ -83,8 +83,8 @@ class Ir2302Tm0{
 		__doNeutral();
 	}
 	void __doNeutral(){
-		cbi( *(in1.port), in1.pinNum );		
-		cbi( *(in2.port), in2.pinNum );		
+		cbi( *(in1.port), in1.pinNum );
+		cbi( *(in2.port), in2.pinNum );
 		cbi( *(sd.port),  sd.pinNum );
 	}
 	void __doTurn(){
@@ -126,10 +126,10 @@ class Ir2302Tm0{
 				__doBrake();
 			break;
 			case BRAKE:
-				if(getOCR() >= MAX_OCR){	//OCR0BÇ™maxÇÃÇ∆Ç´ÇæÇØ
+				if(getOCR() >= MAX_OCR){	//OCR0B„Ååmax„ÅÆ„Å®„Åç„Å†„Åë
 					__doBrake();
 				}
-				else{	//Ç”Ç¬Ç§ÇÕÇ±Ç¡Çø
+				else{	//„Åµ„Å§„ÅÜ„ÅØ„Åì„Å£„Å°
 					__doNeutral();
 				}
 			break;
@@ -138,7 +138,7 @@ class Ir2302Tm0{
 			break;
 		}
 	}
-	
+
 	inline uint8_t dutyToOCR(float duty){
 		return (uint8_t)(duty/100.0*255.0);
 	}
@@ -168,8 +168,8 @@ class Ir2302Tm0{
 		setOCR( dutyToOCR( abs(next.duty) ) );
 	}
 
-	inline motorState __calcNextFromGoal(){	
-		float duty = slope*(Tm0Cntr::getMsec()-startTime) + startDuty;		
+	inline motorState __calcNextFromGoal(){
+		float duty = slope*(Tm0Cntr::getMsec()-startTime) + startDuty;
 		if(slope>=0 && duty>=goal.duty){
 			duty = goal.duty;
 		}
@@ -182,7 +182,7 @@ class Ir2302Tm0{
 		return next;
 	}
 
-	//ÉÜÅ[ÉUÅ[
+	//„É¶„Éº„Ç∂„Éº
 	void setDuty(float goalDuty, uint16_t timeMs=0, bool brakeFlag=false){
 		goal = toMotorState(goalDuty, brakeFlag);
 		if(timeMs<=1){
@@ -203,14 +203,14 @@ class GateDriveA : public Ir2302Tm0{
 		setTimer(64);
 	}
 	void begin(){
-		sbi(TIMSK0, TOIE0);		//ovfäÑÇËçûÇ›
-		sbi(TIMSK0, OCIE0A);	//¿≤œ/∂≥›¿0î‰ärBäÑÇËçûÇ›
+		sbi(TIMSK0, TOIE0);		//ovfÂâ≤„ÇäËæº„Åø
+		sbi(TIMSK0, OCIE0A);	//ÔæÄÔΩ≤Ôæè/ÔΩ∂ÔΩ≥ÔæùÔæÄ0ÊØîËºÉBÂâ≤„ÇäËæº„Åø
 		setDuty(0,0,false);
 		sei();
 	}
 	void stop(){
-		cbi(TIMSK0, TOIE0);		//ovfAäÑÇËçûÇ›
-		cbi(TIMSK0, OCIE0A);	//¿≤œ/∂≥›¿0î‰ärBäÑÇËçûÇ›
+		cbi(TIMSK0, TOIE0);		//ovfAÂâ≤„ÇäËæº„Åø
+		cbi(TIMSK0, OCIE0A);	//ÔæÄÔΩ≤Ôæè/ÔΩ∂ÔΩ≥ÔæùÔæÄ0ÊØîËºÉBÂâ≤„ÇäËæº„Åø
 	}
 	void setOCR(uint8_t num){
 		OCR0A = num;
@@ -225,14 +225,14 @@ class GateDriveB : public Ir2302Tm0{
 		setTimer(64);
 	}
 	void begin(){
-		sbi(TIMSK0, TOIE0);		//ovfäÑÇËçûÇ›
-		sbi(TIMSK0, OCIE0B);	//¿≤œ/∂≥›¿0î‰ärBäÑÇËçûÇ›
+		sbi(TIMSK0, TOIE0);		//ovfÂâ≤„ÇäËæº„Åø
+		sbi(TIMSK0, OCIE0B);	//ÔæÄÔΩ≤Ôæè/ÔΩ∂ÔΩ≥ÔæùÔæÄ0ÊØîËºÉBÂâ≤„ÇäËæº„Åø
 		setDuty(0,0,false);
 		sei();
 	}
 	void stop(){
-		cbi(TIMSK0, TOIE0);		//ovfäÑÇËçûÇ›
-		cbi(TIMSK0, OCIE0B);	//¿≤œ/∂≥›¿0î‰ärBäÑÇËçûÇ›
+		cbi(TIMSK0, TOIE0);		//ovfÂâ≤„ÇäËæº„Åø
+		cbi(TIMSK0, OCIE0B);	//ÔæÄÔΩ≤Ôæè/ÔΩ∂ÔΩ≥ÔæùÔæÄ0ÊØîËºÉBÂâ≤„ÇäËæº„Åø
 	}
 	void setOCR(uint8_t num){
 		OCR0B = num;
@@ -241,17 +241,17 @@ class GateDriveB : public Ir2302Tm0{
 		return OCR0B;
 	}
 }gateDriveB;
-ISR(TIMER0_COMPA_vect){//OFFÇ…ìñÇΩÇÈìÆçÏ
+ISR(TIMER0_COMPA_vect){//OFF„Å´ÂΩì„Åü„ÇãÂãï‰Ωú
 	gateDriveA.__offAction();
 }
-ISR(TIMER0_COMPB_vect){//OFFÇ…ìñÇΩÇÈìÆçÏ
-	gateDriveB.__offAction();	
+ISR(TIMER0_COMPB_vect){//OFF„Å´ÂΩì„Åü„ÇãÂãï‰Ωú
+	gateDriveB.__offAction();
 }
-ISR(TIMER0_OVF_vect){//ON(âÒì])ìÆçÏ
+ISR(TIMER0_OVF_vect){//ON(ÂõûËª¢)Âãï‰Ωú
 	Tm0Cntr::upCount();
 	gateDriveA.__onAction();
-	gateDriveB.__onAction();	
-	
+	gateDriveB.__onAction();
+
 	Ir2302Tm0::motorState next;
 	next = gateDriveA.__calcNextFromGoal();
 	gateDriveA.__updateOCR(next);

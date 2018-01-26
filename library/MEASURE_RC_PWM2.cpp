@@ -1,12 +1,12 @@
 /*
-ğŒ
-pwm‚Ìoff‚ÆŸ‚Ìpwm‚ÌON‚ÌŠÔ‚É‚Í7.28usˆÈã•K—v
+æ¡ä»¶
+pwmã®offã¨æ¬¡ã®pwmã®ONã®é–“ã«ã¯7.28usä»¥ä¸Šå¿…è¦
   pwm1    pwm2        pwm1    pwm2
 __|---|___|--|________|---|___|--|__
        <->                 <->
-       7.28usˆÈã          7.28usˆÈã
-Œv‘ªƒsƒ“‚Ì‚Ù‚©Aor‰ñ˜H‚ğ’Ê‚µ‚ÄAƒCƒ“ƒvƒbƒgƒLƒƒƒvƒ`ƒƒPIN‚ÉÚ‘±‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-PWMM†‚É‚æ‚Á‚Ä“¯‚É•¡”ƒsƒ“‚ªON‚ÌuŠÔ‚ª‚ ‚Á‚Ä‚Í‚È‚ç‚È‚¢
+       7.28usä»¥ä¸Š          7.28usä»¥ä¸Š
+è¨ˆæ¸¬ãƒ”ãƒ³ã®ã»ã‹ã€orå›è·¯ã‚’é€šã—ã¦ã€ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã‚­ãƒ£ãƒ—ãƒãƒ£PINã«æ¥ç¶šã—ãªã‘ã‚Œã°ãªã‚‰ãªã„
+PWMä¿¡å·ã«ã‚ˆã£ã¦åŒæ™‚ã«è¤‡æ•°ãƒ”ãƒ³ãŒONã®ç¬é–“ãŒã‚ã£ã¦ã¯ãªã‚‰ãªã„
 */
 
 
@@ -57,7 +57,7 @@ uint16_t MeasureRc::nowCount=0;
 float MeasureRc::bitToUsec=0;
 MeasureRc *objPtr[32];
 
-MeasureRc::MeasureRc(avrPin pin){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
+MeasureRc::MeasureRc(avrPin pin){	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿(å¤‰æ•°ã®åˆæœŸåŒ–ã¨ã‚¿ã‚¤ãƒãƒ¼è¨­å®š)
 	objPtr[measureNum] = this;
 	measureNum++;
 	measurePin = pin;
@@ -67,11 +67,11 @@ MeasureRc::MeasureRc(avrPin pin){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
 	updateFlag=false;
 }
 void MeasureRc::begin(uint16_t division=256){
-	Tm1Ctrl::setDivision(division);	//¸“x12.8us@Œv‘ª‰Â”\ŠÔ–ñ55ks=15h
+	Tm1Ctrl::setDivision(division);	//ç²¾åº¦12.8usã€€è¨ˆæ¸¬å¯èƒ½æ™‚é–“ç´„55ks=15h
 	division = Tm1Ctrl::getDivision();
 	MeasureRc::bitToUsec = division/(F_CPU/1000000.0);	//1bit=12.8us
 	Tm1Ctrl::enableCaptIrpt();
-	Tm1Ctrl::enableOvfIrpt();//ovfŠ„‚è‚İ‹–‰Â
+	Tm1Ctrl::enableOvfIrpt();//ovfå‰²ã‚Šè¾¼ã¿è¨±å¯
 	MeasureRc::__setUpMode();
 	sei();
 }
@@ -101,7 +101,7 @@ inline void MeasureRc::__pulseUpAction(uint16_t upTcnt){
 inline void MeasureRc::__pulseDownAction(uint16_t downTcnt){
 	onTime.endCount = nowCount;
 	onTime.endTcnt  = downTcnt;
-	bufferOnTime = onTime;	//ƒoƒbƒtƒ@‚ÉƒRƒs[
+	bufferOnTime = onTime;	//ãƒãƒƒãƒ•ã‚¡ã«ã‚³ãƒ”ãƒ¼
 	updateFlag = true;
 }
 inline void MeasureRc::__countUp(){
@@ -130,11 +130,11 @@ ISR(TIMER1_CAPT_vect){
 	sbi(PORTD,4);
 	//uint16_t _icr1 = ICR1;
 
-	if(MeasureRc::__isDownMode()){	//—§‚¿‰º‚ª‚Á‚½‚Ì‚È‚ç
+	if(MeasureRc::__isDownMode()){	//ç«‹ã¡ä¸‹ãŒã£ãŸã®ãªã‚‰
 		objPtr[measuringObj]->__pulseDownAction(ICR1);
 		MeasureRc::__setUpMode();
 	}
-	else{	//—§‚¿‚ ‚ª‚Á‚½‚Ì‚È‚ç
+	else{	//ç«‹ã¡ã‚ãŒã£ãŸã®ãªã‚‰
 		for(uint8_t i=0; i<MeasureRc::measureNum; i++){
 			if( checkBit( *(objPtr[i]->measurePin.pin), objPtr[i]->measurePin.pinNum )==1 ){
 				measuringObj = i;

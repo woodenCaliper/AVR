@@ -45,8 +45,8 @@ class Uart : public TransceiverQueue{
 	Uart() : TransceiverQueue(50, 50){	}
 	Uart(uint16_t txBuffer, uint16_t rxBuffer) : TransceiverQueue(txBuffer, rxBuffer){	}
 
-//ƒI[ƒo[ƒ‰ƒCƒh>>>>>
-	int16_t txIn(char data){	//ƒLƒ…[‚É’Ç‰Á‚µ‚½•¶š”
+//ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰>>>>>
+	int16_t txIn(char data){	//ã‚­ãƒ¥ãƒ¼ã«è¿½åŠ ã—ãŸæ–‡å­—æ•°
 		bool success = transmitter.lastIn(data);
 		if(success){
 			sbi(UCSR0B, 5);
@@ -54,7 +54,7 @@ class Uart : public TransceiverQueue{
 		}
 		return 0;
 	}
-//<<<<<ƒI[ƒo[ƒ‰ƒCƒh
+//<<<<<ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
 
 	void enableTxInterrupt(){
 		sbi(UCSR0B, 5);
@@ -64,10 +64,10 @@ class Uart : public TransceiverQueue{
 	}
 
 	void begin(uint32_t baud, uint8_t config=SERIAL_8N1){
-		unsigned int ubrr = (F_CPU / 8 / baud -1);	//U2Xn=1(”{‘¬‹–‰Â)‚Ìê‡
-		//int ubrr = (main_clock / 16 / baud -1);	//U2Xn=0(”{‘¬•s‹–‰Â)‚Ìê‡
-		//	UBRR= 16000000/8/9600-1;	//ƒ|[ƒŒ[ƒg•ªü’l
-		//ƒVƒXƒeƒ€ƒNƒƒbƒN/“¯ŠúğŒ/ƒ|[ƒŒ[ƒg-1
+		unsigned int ubrr = (F_CPU / 8 / baud -1);	//U2Xn=1(å€é€Ÿè¨±å¯)ã®å ´åˆ
+		//int ubrr = (main_clock / 16 / baud -1);	//U2Xn=0(å€é€Ÿä¸è¨±å¯)ã®å ´åˆ
+		//	UBRR= 16000000/8/9600-1;	//ãƒãƒ¼ãƒ¬ãƒ¼ãƒˆåˆ†å‘¨å€¤
+		//ã‚·ã‚¹ãƒ†ãƒ ã‚¯ãƒ­ãƒƒã‚¯/åŒæœŸæ¡ä»¶/ãƒãƒ¼ãƒ¬ãƒ¼ãƒˆ-1
 		UCSR0A = 0b00000010;
 		UCSR0B = 0b10011000;
 		changebyte(UCSR0C, config, 0b00111111);
@@ -82,7 +82,7 @@ class Uart : public TransceiverQueue{
 };
 Uart uart(TX_BUFFER_NUM, RX_BUFFER_NUM);
 
-ISR(USART_UDRE_vect){	//‘½dŠ„‚è‚İ—LŒø‚É‚·‚é‚ÆA–³ŒÀ‚ÉŠ„‚è‚İ‚ª”­¶‚·‚é‚Ì‚Å’ˆÓ
+ISR(USART_UDRE_vect){	//å¤šé‡å‰²ã‚Šè¾¼ã¿æœ‰åŠ¹ã«ã™ã‚‹ã¨ã€ç„¡é™ã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã™ã‚‹ã®ã§æ³¨æ„
 	if(uart.transmitter.isEmpty()){
 		uart.disableTxInterrupt();
 	}

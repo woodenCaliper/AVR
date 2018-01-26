@@ -19,7 +19,7 @@ class TransceiverQueue{
 	}
 
 
-//ƒI[ƒo[ƒ‰ƒCƒh—pŠÖ”>>>>>
+//ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ç”¨é–¢æ•°>>>>>
 	virtual	int16_t txIn(char data){
 		return transmitter.lastIn(data);
 	}
@@ -32,19 +32,19 @@ class TransceiverQueue{
 	virtual int16_t rxOut(){
 		return receiver.firstOut();
 	}
-//<<<<<ƒI[ƒo[ƒ‰ƒCƒh—pŠÖ”
+//<<<<<ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ç”¨é–¢æ•°
 
 //>>>>>bufferCtrl
-	//¬Œ÷=1A–³s“®=0A¸”s=-1
-	//cmd‚ª“Í‚«‚«‚Á‚Ä‚¢‚È‚¢ê‡A‰½‚à‚µ‚È‚¢Bˆê’v‚µ‚½‚È‚çƒLƒ…[‚ğæ‚èo‚·B•sˆê’v‚È‚çíœ
+	//æˆåŠŸæ™‚=1ã€ç„¡è¡Œå‹•æ™‚=0ã€å¤±æ•—æ™‚=-1
+	//cmdãŒå±Šããã£ã¦ã„ãªã„å ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚ä¸€è‡´ã—ãŸãªã‚‰ã‚­ãƒ¥ãƒ¼ã‚’å–ã‚Šå‡ºã™ã€‚ä¸ä¸€è‡´ãªã‚‰å‰Šé™¤
 	//MD???{+-}{01}???
 	int8_t cmdCheckQueue(const char* trueCmd, char* resultStrage){
 		uint16_t len = receiver.index(*trueCmd)+1;
-		if(len==0){	//‘¶İ‚µ‚È‚¢‚È‚ç‹ó‚É
+		if(len==0){	//å­˜åœ¨ã—ãªã„ãªã‚‰ç©ºã«
 			receiver.doEmpty();
 			return -1;
 		}
-		else{	//æ“ª•¶š‚ªˆê’v‚·‚é‚Æ‚±‚ë‚Ü‚Åíœ
+		else{	//å…ˆé ­æ–‡å­—ãŒä¸€è‡´ã™ã‚‹ã¨ã“ã‚ã¾ã§å‰Šé™¤
 			for(uint8_t i=0;i<len-1;i++){
 				rxOut();
 			}
@@ -53,19 +53,19 @@ class TransceiverQueue{
 		uint16_t copyNum = receiver.copy(bufferCopy);
 		int16_t	cmdError = cmdCheck(trueCmd, bufferCopy, copyNum);
 
-		if(cmdError>0){	//‘Sˆê’v‚È‚çƒLƒ…[‚ğæ‚èo‚µ‚Ä“n‚·
+		if(cmdError>0){	//å…¨ä¸€è‡´ãªã‚‰ã‚­ãƒ¥ãƒ¼ã‚’å–ã‚Šå‡ºã—ã¦æ¸¡ã™
 			for(int16_t i=0; i<cmdError; i++){
 				*(resultStrage+i) = rxOut();
 			}
 			return 1;
 		}
-		else if(cmdError<0){	//•sˆê’v‚ğŠm”F‚µ‚½‚çŠÔˆá‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚Ü‚ÅƒLƒ…[‚ğíœ
+		else if(cmdError<0){	//ä¸ä¸€è‡´ã‚’ç¢ºèªã—ãŸã‚‰é–“é•ã£ã¦ã„ã‚‹ã¨ã“ã‚ã¾ã§ã‚­ãƒ¥ãƒ¼ã‚’å‰Šé™¤
 			for(int16_t i=0; i>cmdError; i--){
 				rxOut();
 			}
 			return -1;
 		}
-		else{	//cmd‚ª‚»‚ë‚Á‚Ä‚¢‚È‚¢‚½‚ß‰½‚à‚µ‚È‚¢
+		else{	//cmdãŒãã‚ã£ã¦ã„ãªã„ãŸã‚ä½•ã‚‚ã—ãªã„
 			return 0;
 		}
 	}
@@ -76,11 +76,11 @@ class TransceiverQueue{
 
 
 //read>>>>>
-	int16_t read(){	//‹ó‚È‚ç-1
+	int16_t read(){	//ç©ºãªã‚‰-1
 		return rxOut();
 	}
 	template <class freeType>
-	int16_t read(char* dataPath, freeType len){	//w’è”‚ğæ‚èo‚·
+	int16_t read(char* dataPath, freeType len){	//æŒ‡å®šæ•°ã‚’å–ã‚Šå‡ºã™
 		if(receiver.len() < (uint16_t)len){
 			return -1;
 		}
@@ -90,27 +90,27 @@ class TransceiverQueue{
 		return len;
 	}
 
-	//stopData‚Ü‚Å(stopData‚ğŠÜ‚ß)‚ğæ‚èo‚·A‚È‚¯‚ê‚Î-1
+	//stopDataã¾ã§(stopDataã‚’å«ã‚)ã‚’å–ã‚Šå‡ºã™ã€ãªã‘ã‚Œã°-1
 	int16_t read(char* dataPath, char stopData){
 		return read(dataPath, receiver.index(stopData)+1);
 	}
 
 	template <class freeType>
-	int16_t read(int16_t zero, freeType len){	//w’è”‚ğæ‚èo‚·
+	int16_t read(int16_t zero, freeType len){	//æŒ‡å®šæ•°ã‚’å–ã‚Šå‡ºã™
 		if(receiver.len() < (uint16_t)len){
 			return -1;
 		}
 		for(uint16_t i=0; i<(uint16_t)len; i++){
-			read();	
+			read();
 		}
 		return len;
 	}
 
 
-	int16_t readStr(char* strPath){	//\0‚ª‚È‚¯‚ê‚Î-1
+	int16_t readStr(char* strPath){	//\0ãŒãªã‘ã‚Œã°-1
 		return read(strPath, '\0');
 	}
-	int32_t readStrInt(char stopData='\0'){	//–ß‚è’l‚ªint‚Ì‚½‚ßAfloat‚ğ•Ô‚¹‚È‚¢
+	int32_t readStrInt(char stopData='\0'){	//æˆ»ã‚Šå€¤ãŒintã®ãŸã‚ã€floatã‚’è¿”ã›ãªã„
 		uint16_t strLen = receiver.index(stopData)+1;
 		char str[12];
 		if(strLen <= 1){
@@ -120,7 +120,7 @@ class TransceiverQueue{
 			return -1;
 		}
 		read(str, strLen);
-		*(str+strLen-1) = '\0';	//stopData‚ÌêŠ‚ğ\0‚Åã‘‚«
+		*(str+strLen-1) = '\0';	//stopDataã®å ´æ‰€ã‚’\0ã§ä¸Šæ›¸ã
 		return atol(str);
 	}
 	float readStrFloat(char stopData='\0'){
@@ -143,7 +143,7 @@ class TransceiverQueue{
 //read<<<<<
 
 //write>>>>>
-	int16_t write(char data){	//ƒLƒ…[‚É’Ç‰Á‚µ‚½•¶š”
+	int16_t write(char data){	//ã‚­ãƒ¥ãƒ¼ã«è¿½åŠ ã—ãŸæ–‡å­—æ•°
 		return txIn(data);
 	}
 	int16_t write(char* buf, uint16_t size){
@@ -157,7 +157,7 @@ class TransceiverQueue{
 		}
 		return i;
 	}
-	int16_t write(char* str){	//0‚àŠÜ‚ß‚Ä‘—‚é
+	int16_t write(char* str){	//0ã‚‚å«ã‚ã¦é€ã‚‹
 		int16_t n;
 		n = write(str, getStringLen(str));
 		n += write('\0');
@@ -167,11 +167,11 @@ class TransceiverQueue{
 //<<<<<write
 
 //print>>>>>
-	int16_t print(unsigned long n, int base=10){	//”’l‚ğ•¶š—ñ‚Æ‚µ‚Ä‘—M(®”)
+	int16_t print(unsigned long n, int base=10){	//æ•°å€¤ã‚’æ–‡å­—åˆ—ã¨ã—ã¦é€ä¿¡(æ•´æ•°)
 		return printNumber(n, base);
 	}
-	int16_t print(long n, int base=10){	//”’l‚ğ•¶š—ñ‚Æ‚µ‚Ä‘—M(®”)
-		if((base==10) && (n<0)){	//•‰‚Ìê‡
+	int16_t print(long n, int base=10){	//æ•°å€¤ã‚’æ–‡å­—åˆ—ã¨ã—ã¦é€ä¿¡(æ•´æ•°)
+		if((base==10) && (n<0)){	//è² ã®å ´åˆ
 			int t = write('-');
 			return print((unsigned long)(-n), 10) + t;
 		}
@@ -179,16 +179,16 @@ class TransceiverQueue{
 			return print((unsigned long)n, base);
 		}
 	}
-	int16_t print(double num, int digits=8){	//”’l‚ğ•¶š—ñ‚Æ‚µ‚Ä‘—M(•‚“®¬”“_)
+	int16_t print(double num, int digits=8){	//æ•°å€¤ã‚’æ–‡å­—åˆ—ã¨ã—ã¦é€ä¿¡(æµ®å‹•å°æ•°ç‚¹)
 		return printFloat(num, digits);
 	}
-	int16_t print(char data){	//ASCƒR[ƒh‚ğ‘—M
+	int16_t print(char data){	//ASCã‚³ãƒ¼ãƒ‰ã‚’é€ä¿¡
 		return write(data);
 	}
-	int16_t print(char* data, int len){	//”z—ñ‚Æ’·‚³
+	int16_t print(char* data, int len){	//é…åˆ—ã¨é•·ã•
 		return write(data, len);
 	}
-	int16_t print(char* str){	//•¶š—ñi\0‚Í‘—‚ç‚È‚¢j
+	int16_t print(char* str){	//æ–‡å­—åˆ—ï¼ˆ\0ã¯é€ã‚‰ãªã„ï¼‰
 		int n=0;
 		int16_t success;
 		while(*str != '\0'){

@@ -13,7 +13,7 @@ class MeasurePwmCapt{
 	uint32_t highBit, lowBit;
 	bool highUpdateFlag, lowUpdateFlag;
 
-	MeasurePwmTime1(){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
+	MeasurePwmTime1(){	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿(å¤‰æ•°ã®åˆæœŸåŒ–ã¨ã‚¿ã‚¤ãƒãƒ¼è¨­å®š)
 		nowCount=0;
 		upTcnt=0;
 		upCount=0;
@@ -30,11 +30,11 @@ class MeasurePwmCapt{
 		setTimer(256);
 	}
 	void begin(uint16_t division=256){
-		Tm1Ctrl::setDivision(division);	//¸“x12.8us@Œv‘ª‰Â”\ŠÔ–ñ55ks=15h
+		Tm1Ctrl::setDivision(division);	//ç²¾åº¦12.8usã€€è¨ˆæ¸¬å¯èƒ½æ™‚é–“ç´„55ks=15h
 		division = Tm1Ctrl::getDivision();
 		bitToUsec = division/(F_CPU/1000000.0);	//1bit=12.8us
 		Tm1Ctrl::enableCaptIrpt();
-		Tm1Ctrl::enableOvfIrpt();//ovfŠ„‚è‚İ‹–‰Â
+		Tm1Ctrl::enableOvfIrpt();//ovfå‰²ã‚Šè¾¼ã¿è¨±å¯
 		sei();
 	}
 	void end(){

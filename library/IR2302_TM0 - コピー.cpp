@@ -3,7 +3,7 @@
 #define IR2302_H_
 #include <avr/io.h>
 #include <stdlib.h>
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
@@ -12,7 +12,7 @@
 IN1	SD1	HO	LO
 0	0	0	0	OFF
 0	1	0	1	LOW_SIDE_ON
-1	0	0	0~	g—p‚µ‚È‚¢(OFF)
+1	0	0	0Ã—	ä½¿ç”¨ã—ãªã„(OFF)
 1	1	1	0	HIGH_SIDE_ON
 
 IN1	SD1 IN2	SD2	|	HO1	LO1	HO2	LO2 |	M1	M2
@@ -38,7 +38,7 @@ class Ir2302Tm0{
 	volatile uint8_t	*IN1_PORT, *SD1_PORT, *IN2_PORT, *SD2_PORT;
 	uint8_t				 IN1_PIN,   SD1_PIN,   IN2_PIN,   SD2_PIN;
 	uint8_t maxDuty;
-	
+
 
 	Ir2302Tm0(){
 		outState = NEUTRAL;
@@ -55,7 +55,7 @@ class Ir2302Tm0{
 //<<<<<virtural
 	static void setTimer(uint16_t division){
 		Tm0Ctrl::setDivision(division);
-		Tm0Ctrl::setWGM(0b000);	//•W€“®ì
+		Tm0Ctrl::setWGM(0b000);	//æ¨™æº–å‹•ä½œ
 	}
 
 	void setIn1(volatile uint8_t *DDR, volatile uint8_t *PORT,  uint8_t PinNum){
@@ -142,10 +142,10 @@ class Ir2302Tm0{
 				doBrake();
 			break;
 			case BRAKE:
-				if(getOCR() >= maxDuty){	//OCR0B‚ªmax‚Ì‚Æ‚«‚¾‚¯
+				if(getOCR() >= maxDuty){	//OCR0BãŒmaxã®ã¨ãã ã‘
 					doBrake();
 				}
-				else{	//‚Ó‚Â‚¤‚Í‚±‚Á‚¿
+				else{	//ãµã¤ã†ã¯ã“ã£ã¡
 					doNeutral();
 				}
 			break;
@@ -154,7 +154,7 @@ class Ir2302Tm0{
 			break;
 		}
 	}
-	
+
 	void setDutyByte(int16_t dutyByte, bool brakeFlag=false){
 		if(dutyByte == 0){
 			outState = NEUTRAL;
@@ -186,14 +186,14 @@ class GateDriveA : public Ir2302Tm0{
 		setTimer(64);
 	}
 	void begin(){
-		sbi(TIMSK0, TOIE0);		//ovfŠ„‚è‚İ
-		sbi(TIMSK0, OCIE0A);	//À²Ï/¶³İÀ0”äŠrBŠ„‚è‚İ
+		sbi(TIMSK0, TOIE0);		//ovfå‰²ã‚Šè¾¼ã¿
+		sbi(TIMSK0, OCIE0A);	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒBå‰²ã‚Šè¾¼ã¿
 		setDutyByte(0);
 		sei();
 	}
 	void stop(){
-		cbi(TIMSK0, TOIE0);		//ovfAŠ„‚è‚İ
-		cbi(TIMSK0, OCIE0A);	//À²Ï/¶³İÀ0”äŠrBŠ„‚è‚İ
+		cbi(TIMSK0, TOIE0);		//ovfAå‰²ã‚Šè¾¼ã¿
+		cbi(TIMSK0, OCIE0A);	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒBå‰²ã‚Šè¾¼ã¿
 	}
 	void setOCR(uint8_t num){
 		OCR0A = num;
@@ -209,14 +209,14 @@ class GateDriveB : public Ir2302Tm0{
 		setTimer(64);
 	}
 	void begin(){
-		sbi(TIMSK0, TOIE0);		//ovfŠ„‚è‚İ
-		sbi(TIMSK0, OCIE0B);	//À²Ï/¶³İÀ0”äŠrBŠ„‚è‚İ
+		sbi(TIMSK0, TOIE0);		//ovfå‰²ã‚Šè¾¼ã¿
+		sbi(TIMSK0, OCIE0B);	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒBå‰²ã‚Šè¾¼ã¿
 		setDutyByte(0);
 		sei();
 	}
 	void stop(){
-		cbi(TIMSK0, TOIE0);		//ovfŠ„‚è‚İ
-		cbi(TIMSK0, OCIE0B);	//À²Ï/¶³İÀ0”äŠrBŠ„‚è‚İ
+		cbi(TIMSK0, TOIE0);		//ovfå‰²ã‚Šè¾¼ã¿
+		cbi(TIMSK0, OCIE0B);	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒBå‰²ã‚Šè¾¼ã¿
 	}
 	void setOCR(uint8_t num){
 		OCR0B = num;
@@ -226,14 +226,14 @@ class GateDriveB : public Ir2302Tm0{
 	}
 }gateDriveB;
 
-ISR(TIMER0_COMPA_vect){//OFF‚É“–‚½‚é“®ì
+ISR(TIMER0_COMPA_vect){//OFFã«å½“ãŸã‚‹å‹•ä½œ
 	gateDriveA.offAction();
 }
-ISR(TIMER0_COMPB_vect){//OFF‚É“–‚½‚é“®ì
+ISR(TIMER0_COMPB_vect){//OFFã«å½“ãŸã‚‹å‹•ä½œ
 	gateDriveB.offAction();
 }
 
-ISR(TIMER0_OVF_vect){//ON(‰ñ“])“®ì
+ISR(TIMER0_OVF_vect){//ON(å›è»¢)å‹•ä½œ
 	gateDriveA.onAction();
 	gateDriveB.onAction();
 }

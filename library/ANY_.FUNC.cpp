@@ -1,4 +1,4 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef ANY_FUNC_H_
 #define ANY_FUNC_H_
 
@@ -20,7 +20,7 @@ void byteToStr(char byte, char* str){
 	}
 	*(str+10) = '\0';
 }
-//”’lvs•¶š—ñ•ÏŠ·
+//æ•°å€¤vsæ–‡å­—åˆ—å¤‰æ›
 //itoa(255, str, 16) ==> ff
 //itoa(int num, char* str, int radix);
 

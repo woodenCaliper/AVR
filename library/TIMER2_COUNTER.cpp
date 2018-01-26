@@ -1,8 +1,8 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef TIMER2_COUNTER_H_
 #define TIMER2_COUNTER_H_
 
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
 

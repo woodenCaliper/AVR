@@ -1,19 +1,19 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef TIMER_INTERRUPT_H_
 #define TIMER_INTERRUPT_H_
 
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
 
 //ISR TIMER0_COMPA_vect()
 namespace Tm0Irpt{
-	//irpt_bit(OCR0A)*•ªü”ä/CLK‚²‚Æ‚Éƒ^ƒCƒ}[Š„‚è‚İ‚ğ”­¶‚³‚¹‚éİ’è
+	//irpt_bit(OCR0A)*åˆ†å‘¨æ¯”/CLKã”ã¨ã«ã‚¿ã‚¤ãƒãƒ¼å‰²ã‚Šè¾¼ã¿ã‚’ç™ºç”Ÿã•ã›ã‚‹è¨­å®š
 	void setOvf(uint16_t division=0){
 		if(division!=0){
 			Tm0Ctrl::setDivision(division);
 		}
-		Tm0Ctrl::enableOvfIrpt();	//À²Ï/¶³İÀ0ˆì‚êŠ„‚è‚İ‹–‰Â
+		Tm0Ctrl::enableOvfIrpt();	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æº¢ã‚Œå‰²ã‚Šè¾¼ã¿è¨±å¯
 		sei();
 	}
 	void setBitA(uint8_t irpt_bit, uint16_t division=0){
@@ -21,11 +21,11 @@ namespace Tm0Irpt{
 			Tm0Ctrl::setDivision(division);
 		}
 		Tm0Ctrl::setWGM(0b010);
-		Tm0Ctrl::enableCompaIrpt();	//À²Ï/¶³İÀ0”äŠrAŠ„‚è‚İ‹–‰Â
-		TCNT0 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
-		OCR0A = irpt_bit;	//irpt_bit’l
+		Tm0Ctrl::enableCompaIrpt();	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒAå‰²ã‚Šè¾¼ã¿è¨±å¯
+		TCNT0 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
+		OCR0A = irpt_bit;	//irpt_bitå€¤
 		sei();
-		//Š„‚è‚İŠÔŠu = irpt_bit(OCR0A) * •ªü”ä / CLK
+		//å‰²ã‚Šè¾¼ã¿é–“éš” = irpt_bit(OCR0A) * åˆ†å‘¨æ¯” / CLK
 	}
 	void setUsecA(uint32_t usec){
 		uint8_t irpt_bit;
@@ -42,7 +42,7 @@ namespace Tm1Irpt{
 		if(division!=0){
 			Tm1Ctrl::setDivision(division);
 		}
-		Tm1Ctrl::enableOvfIrpt();	//À²Ï/¶³İÀ1ˆì‚êŠ„‚è‚İ‹–‰Â
+		Tm1Ctrl::enableOvfIrpt();	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€1æº¢ã‚Œå‰²ã‚Šè¾¼ã¿è¨±å¯
 		sei();
 	}
 	void enableCapt(uint16_t division=0){
@@ -57,11 +57,11 @@ namespace Tm1Irpt{
 			Tm1Ctrl::setDivision(division);
 		}
 		Tm1Ctrl::setWGM(0b0100);
-		Tm1Ctrl::enableCompaIrpt();		//À²Ï/¶³İÀ1”äŠrAŠ„‚è‚İ‹–‰Â
-		TCNT1 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
-		OCR1A = irpt_bit;	//irpt_bit’l
+		Tm1Ctrl::enableCompaIrpt();		//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€1æ¯”è¼ƒAå‰²ã‚Šè¾¼ã¿è¨±å¯
+		TCNT1 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
+		OCR1A = irpt_bit;	//irpt_bitå€¤
 		sei();
-		//Š„‚è‚İŠÔŠu = irpt_bit(OCR0A) * •ªü”ä / CLK
+		//å‰²ã‚Šè¾¼ã¿é–“éš” = irpt_bit(OCR0A) * åˆ†å‘¨æ¯” / CLK
 	}
 	void setUsecA(uint32_t usec){
 		uint16_t irpt_bit, division;
@@ -76,7 +76,7 @@ namespace Tm2Irpt{
 		if(division!=0){
 			Tm2Ctrl::setDivision(division);
 		}
-		Tm2Ctrl::enableOvfIrpt();	//À²Ï/¶³İÀ0ˆì‚êŠ„‚è‚İ‹–‰Â
+		Tm2Ctrl::enableOvfIrpt();	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æº¢ã‚Œå‰²ã‚Šè¾¼ã¿è¨±å¯
 		sei();
 	}
 	void setBitA(uint8_t irpt_bit, uint16_t division=0){
@@ -84,10 +84,10 @@ namespace Tm2Irpt{
 			Tm2Ctrl::setDivision(division);
 		}
 		Tm2Ctrl::setWGM(0b010);
-		Tm2Ctrl::enableCompaIrpt();	//À²Ï/¶³İÀ0”äŠrAŠ„‚è‚İ‹–‰Â
-		TCNT2 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
-		OCR2A = irpt_bit;	//irpt_bit’l
-		//Š„‚è‚İŠÔŠu = irpt_bit(OCR0A) * •ªü”ä / CLK
+		Tm2Ctrl::enableCompaIrpt();	//ï¾€ï½²ï¾/ï½¶ï½³ï¾ï¾€0æ¯”è¼ƒAå‰²ã‚Šè¾¼ã¿è¨±å¯
+		TCNT2 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
+		OCR2A = irpt_bit;	//irpt_bitå€¤
+		//å‰²ã‚Šè¾¼ã¿é–“éš” = irpt_bit(OCR0A) * åˆ†å‘¨æ¯” / CLK
 		sei();
 	}
 	void setUsec(uint32_t usec){

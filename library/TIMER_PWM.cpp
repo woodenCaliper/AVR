@@ -1,4 +1,4 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef TIMER_PWM_H_
 #define TIMER_PWM_H_
 
@@ -7,13 +7,13 @@
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
 namespace Tm0Pwm{
-	//OCR0B(PD5)‚Åo—Í
+	//OCR0B(PD5)ã§å‡ºåŠ›
 	void OneOutBit(uint8_t on_bit, uint8_t period_bit, uint16_t division){
 		sbi(DDRD,5);	//OC0B
 		Tm0Ctrl::setDivision(division);
 		Tm0Ctrl::setWGM(0b111);
 		Tm0Ctrl::setCOMB(0b10);
-		TCNT0 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT0 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR0A = period_bit;	//period
 		OCR0B = on_bit;	//on_time
 	}
@@ -31,7 +31,7 @@ namespace Tm0Pwm{
 		on_bit = (uint8_t)(period_bit*duty/100);
 		Tm0Pwm::OneOutBit(on_bit, period_bit, division);
 	}
-	//OCR0A(PD6)AOCR0B(PD5)‚Åo—Í
+	//OCR0A(PD6)ã€OCR0B(PD5)ã§å‡ºåŠ›
 	void TwoOutBit(uint8_t on_bit_a, uint8_t on_bit_b, uint16_t division){
 		sbi(DDRD,6);	//OC01
 		sbi(DDRD,5);	//OC0B
@@ -39,7 +39,7 @@ namespace Tm0Pwm{
 		Tm0Ctrl::setWGM(0b011);
 		Tm0Ctrl::setCOMA(0b10);
 		Tm0Ctrl::setCOMB(0b10);
-		TCNT0 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT0 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR0A = on_bit_a;
 		OCR0B = on_bit_b;
 	}
@@ -60,13 +60,13 @@ namespace Tm0Pwm{
 }
 
 namespace Tm1Pwm{
-	//OCR1B(PB2)‚Åo—Í
+	//OCR1B(PB2)ã§å‡ºåŠ›
 	void OneOutBit(uint16_t on_bit, uint16_t period_bit, uint16_t division){
 		sbi(DDRB,2);	//OC1B
 		Tm1Ctrl::setDivision(division);
 		Tm1Ctrl::setWGM(0b1111);
 		Tm1Ctrl::setCOMB(0b10);
-		TCNT1 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT1 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR1A = period_bit;	//period
 		OCR1B = on_bit;	//on_time
 	}
@@ -82,7 +82,7 @@ namespace Tm1Pwm{
 		on_bit = (uint16_t)(period_bit*duty/100);
 		Tm1Pwm::OneOutBit(on_bit, period_bit, division);
 	}
-	//OCR1A(PB1)AOCR1B(PB2)‚Åo—Í
+	//OCR1A(PB1)ã€OCR1B(PB2)ã§å‡ºåŠ›
 	void TwoOutBit(uint16_t on_bit_a, uint16_t on_bit_b, uint16_t period_bit, uint16_t division){
 		sbi(DDRB,1);	//OC1A
 		sbi(DDRB,2);	//OC1B
@@ -90,10 +90,10 @@ namespace Tm1Pwm{
 		Tm1Ctrl::setWGM(0b1110);
 		Tm1Ctrl::setCOMA(0b10);
 		Tm1Ctrl::setCOMB(0b10);
-		TCNT1 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT1 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR1A = on_bit_a;
 		OCR1B = on_bit_b;
-		ICR1 = period_bit;	//üŠú(top’l)
+		ICR1 = period_bit;	//å‘¨æœŸ(topå€¤)
 	}
 	void TwoOutUsec(uint32_t on_usec_a, uint32_t on_usec_b, uint32_t period_usec){
 		uint16_t on_bit_a, on_bit_b, period_bit, division;
@@ -117,7 +117,7 @@ namespace Tm2Pwm{
 		Tm2Ctrl::setDivision(division);
 		Tm2Ctrl::setWGM(0b111);
 		Tm2Ctrl::setCOMB(0b10);
-		TCNT2 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT2 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR2A = period_bit;	//period
 		OCR2B = on_bit;	//on_time
 	}
@@ -142,7 +142,7 @@ namespace Tm2Pwm{
 		Tm2Ctrl::setWGM(0b011);
 		Tm2Ctrl::setCOMA(0b10);
 		Tm2Ctrl::setCOMB(0b10);
-		TCNT2 = 0;	//ƒJƒEƒ“ƒg’l(ƒ}ƒCƒRƒ“‚ª”‚¦‚Ä‚¢‚é”‚ª“ü‚é)
+		TCNT2 = 0;	//ã‚«ã‚¦ãƒ³ãƒˆå€¤(ãƒã‚¤ã‚³ãƒ³ãŒæ•°ãˆã¦ã„ã‚‹æ•°ãŒå…¥ã‚‹)
 		OCR2A = on_bit_a;
 		OCR2B = on_bit_b;
 	}

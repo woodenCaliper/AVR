@@ -4,7 +4,7 @@
 
 #include <avr/io.h>
 #include <stdlib.h>
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 
 #include ".\BIT_CTRL.cpp"
 #include ".\TIMER_CTRL.cpp"
@@ -31,7 +31,7 @@ class BrinkLed{
 		pinNum = _pinNum;
 
 		Tm2Ctrl::setDivision(1024);
-		Tm2Ctrl::setWGM(0b000);	//•W€“®ì
+		Tm2Ctrl::setWGM(0b000);	//æ¨™æº–å‹•ä½œ
 		sbi(TIMSK2, TOIE2);
 		blPtr[funcNum]=this;
 		funcNum++;
@@ -69,7 +69,7 @@ class BrinkLed{
 			}
 		}
 		else if(count == periodActionCount){
-			cbi(*PORTx, pinNum);	//o—Í1
+			cbi(*PORTx, pinNum);	//å‡ºåŠ›1
 			brinkActionCount  = count + brinkCount;
 			periodActionCount += periodCount;
 			brinkActionNum    = 0;

@@ -17,7 +17,7 @@ class MeasureRc{
 
 	static uint8_t pinNum;
 	static uint16_t nowCount;
-	
+
 	MeasureRc(Pin pin);
 	void begin(uint16_t division);
 	void end();
@@ -29,7 +29,7 @@ class MeasureRc{
 	inline void __setDownMode();
 	void __pulseUpAction(uint16_t _upTcnt);
 	void __pulseDownAction(uint16_t _downTcnt);
-	
+
 	static void __countUp();
 	static bool __isUpMode();
 	static bool __isDownMode();
@@ -38,7 +38,7 @@ uint8_t MeasureRc::pinNum=0;
 uint16_t MeasureRc::nowCount=0;
 MeasureRc *objPtr;
 
-MeasureRc::MeasureRc(Pin _pin){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
+MeasureRc::MeasureRc(Pin _pin){	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿(å¤‰æ•°ã®åˆæœŸåŒ–ã¨ã‚¿ã‚¤ãƒãƒ¼è¨­å®š)
 	objPtr = this;
 	pin = _pin;
 	pinNum++;
@@ -53,11 +53,11 @@ MeasureRc::MeasureRc(Pin _pin){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^(•Ï”‚Ì‰Šú‰»‚Æƒ^ƒCƒ}[İ’è)
 	lowUpdateFlag=false;
 }
 void MeasureRc::begin(uint16_t division=256){
-	Tm1Ctrl::setDivision(division);	//¸“x12.8us@Œv‘ª‰Â”\ŠÔ–ñ55ks=15h
+	Tm1Ctrl::setDivision(division);	//ç²¾åº¦12.8usã€€è¨ˆæ¸¬å¯èƒ½æ™‚é–“ç´„55ks=15h
 	division = Tm1Ctrl::getDivision();
 	bitToUsec = division/(F_CPU/1000000.0);	//1bit=12.8us
 	Tm1Ctrl::enableCaptIrpt();
-	Tm1Ctrl::enableOvfIrpt();//ovfŠ„‚è‚İ‹–‰Â
+	Tm1Ctrl::enableOvfIrpt();//ovfå‰²ã‚Šè¾¼ã¿è¨±å¯
 	sei();
 }
 void MeasureRc::end(){
@@ -123,17 +123,17 @@ ISR(TIMER1_OVF_vect){
 }
 ISR(TIMER1_CAPT_vect){
 	sbi(PORTD,7);
-	uint16_t _icr1 = ICR1;	
-	
+	uint16_t _icr1 = ICR1;
+
 	for(uint8_t i=0; i<MeasureRc::pinNum; i++){
 		if( checkBit(objPtr->pin.port, objPtr->pin.pinNum)==1 ){
-			
+
 			objPtr->__pulseUpAction(_icr1);
 		}
 	}
 /*
 	if(MeasureRc::__isUpMode()){
-		
+
 		MeasurePwmCapt.__pulseUpAction(hoge);
 		MeasurePwmCapt.__setDownMode();
 	}

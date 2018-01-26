@@ -11,7 +11,7 @@ class Queue{
 	volatile uint16_t bufferNum;
 
 	public:
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^Eƒfƒgƒ‰ƒNƒ^>>>>>
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ»ãƒ‡ãƒˆãƒ©ã‚¯ã‚¿>>>>>
 	Queue(){
 		head=0;
 		tail=0;
@@ -25,31 +25,31 @@ class Queue{
 	~Queue(){
 		free((void*)buffer);
 	}
-	//<<<<<ƒRƒ“ƒXƒgƒ‰ƒNƒ^Eƒfƒgƒ‰ƒNƒ^
+	//<<<<<ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ»ãƒ‡ãƒˆãƒ©ã‚¯ã‚¿
 
 	void setBufferNum(uint16_t _bufferNum){
 		bufferNum = _bufferNum+1;
-	//	buffer = new char[bufferNum];	//“®“Iƒƒ‚ƒŠŠm•Û
-		buffer = (char*)malloc(sizeof(char)*bufferNum);	//“®“Iƒƒ‚ƒŠŠm•Û
+	//	buffer = new char[bufferNum];	//å‹•çš„ãƒ¡ãƒ¢ãƒªç¢ºä¿
+		buffer = (char*)malloc(sizeof(char)*bufferNum);	//å‹•çš„ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	}
 	void init(uint16_t _bufferNum){
 		setBufferNum(_bufferNum);
 	}
 
-	//”²‚«o‚µ‚½ƒf[ƒ^A‹ó‚È‚ç-1
+	//æŠœãå‡ºã—ãŸãƒ‡ãƒ¼ã‚¿ã€ç©ºãªã‚‰-1
 	int16_t out(){
 		char data;
-		if( !isEmpty() ){	//buffer‚ª‹ó‚Å‚È‚¢
+		if( !isEmpty() ){	//bufferãŒç©ºã§ãªã„
 			data = buffer[head];
 			head = (head+1) % bufferNum;
 			return data;
 		}
 		return -1;
 	}
-	//return=¬”Û
-	bool in(char data){	//’Ç‰Á
-		if(isFull()){	//buffer‚ªfull
-			// out();	//ŒÃ‚¢ƒf[ƒ^‚ðŽÌ‚Ä‚é
+	//return=æˆå¦
+	bool in(char data){	//è¿½åŠ 
+		if(isFull()){	//bufferãŒfull
+			// out();	//å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ¨ã¦ã‚‹
 			// buffer[tail]=data;
 			// tail = (tail+1) % bufferNum;
 			return false;
@@ -69,10 +69,10 @@ class Queue{
 	void doEmpty(){
 		head=tail;
 	}
-	uint16_t getBufferLen(){//Š—Lƒf[ƒ^”
+	uint16_t getBufferLen(){//æ‰€æœ‰ãƒ‡ãƒ¼ã‚¿æ•°
 		return (tail-head+bufferNum)%bufferNum;
 	}
-	//’l‚ª‚È‚¢‚Æ‚«‚Í0
+	//å€¤ãŒãªã„ã¨ãã¯0
 	uint16_t untilValueLen(char value){
 		for(uint16_t i=0; i<getBufferLen(); i++){
 			if(buffer[(head+i)%bufferNum]==value){

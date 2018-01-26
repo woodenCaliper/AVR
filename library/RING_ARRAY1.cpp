@@ -7,13 +7,13 @@ template <class freeType>
 class RingArray{
 	protected:
 	volatile freeType* buffer;
-	//head=ƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éæ“ª
-	//tail=ƒf[ƒ^‚ª“ü‚Á‚Ä‚È‚¢––”ö
+	//head=ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹å…ˆé ­
+	//tail=ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ãªã„æœ«å°¾
 	volatile uint16_t head, tail;
 	volatile uint16_t bufferNum;
 
 	public:
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^Eƒfƒgƒ‰ƒNƒ^>>>>>
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ»ãƒ‡ãƒˆãƒ©ã‚¯ã‚¿>>>>>
 	RingArray(){
 		head=0;
 		tail=0;
@@ -27,21 +27,21 @@ class RingArray{
 	~RingArray(){
 		free((void*)buffer);
 	}
-	//<<<<<ƒRƒ“ƒXƒgƒ‰ƒNƒ^Eƒfƒgƒ‰ƒNƒ^
+	//<<<<<ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ»ãƒ‡ãƒˆãƒ©ã‚¯ã‚¿
 
 	void setBufferNum(uint16_t _bufferNum){
 		bufferNum = _bufferNum+1;
-	//	buffer = new char[bufferNum];	//“®“Iƒƒ‚ƒŠŠm•Û
-		buffer = (freeType*)malloc(sizeof(freeType)*bufferNum);	//“®“Iƒƒ‚ƒŠŠm•Û
+	//	buffer = new char[bufferNum];	//å‹•çš„ãƒ¡ãƒ¢ãƒªç¢ºä¿
+		buffer = (freeType*)malloc(sizeof(freeType)*bufferNum);	//å‹•çš„ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	}
 	void init(uint16_t _bufferNum){
 		setBufferNum(_bufferNum);
 	}
 
-	//æ“ª‚É‘}“ü
+	//å…ˆé ­ã«æŒ¿å…¥
 	bool firstIn(freeType data){
-		if(isFull()){	//buffer‚ªfull
-			// out();	//ŒÃ‚¢ƒf[ƒ^‚ðŽÌ‚Ä‚é
+		if(isFull()){	//bufferãŒfull
+			// out();	//å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ¨ã¦ã‚‹
 			// buffer[tail]=data;
 			// tail = (tail+1) % bufferNum;
 			return false;
@@ -52,10 +52,10 @@ class RingArray{
 			return true;
 		}
 	}
-	//return=¬”Û
-	bool lastIn(freeType data){	//’Ç‰Á
-		if(isFull()){	//buffer‚ªfull
-			// out();	//ŒÃ‚¢ƒf[ƒ^‚ðŽÌ‚Ä‚é
+	//return=æˆå¦
+	bool lastIn(freeType data){	//è¿½åŠ 
+		if(isFull()){	//bufferãŒfull
+			// out();	//å¤ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ¨ã¦ã‚‹
 			// buffer[tail]=data;
 			// tail = (tail+1) % bufferNum;
 			return false;
@@ -67,20 +67,20 @@ class RingArray{
 		}
 	}
 
-	//”²‚«o‚µ‚½ƒf[ƒ^A‹ó‚È‚ç-1
+	//æŠœãå‡ºã—ãŸãƒ‡ãƒ¼ã‚¿ã€ç©ºãªã‚‰-1
 	int16_t firstOut(){
 		freeType data;
-		if( !isEmpty() ){	//buffer‚ª‹ó‚Å‚È‚¢
+		if( !isEmpty() ){	//bufferãŒç©ºã§ãªã„
 			data = buffer[head];
 			head = (head+1) % bufferNum;
 			return data;
 		}
 		return -1;
 	}
-	//––”ö‚©‚çŽæ‚èo‚µA‹ó‚È‚ç-1
+	//æœ«å°¾ã‹ã‚‰å–ã‚Šå‡ºã—ã€ç©ºãªã‚‰-1
 	int16_t lastOut(){
 		freeType data;
-		if( !isEmpty() ){	//buffer‚ª‹ó‚Å‚È‚¢
+		if( !isEmpty() ){	//bufferãŒç©ºã§ãªã„
 			tail = (tail+(bufferNum-1)) % bufferNum;
 			data = buffer[tail];
 			return data;
@@ -97,7 +97,7 @@ class RingArray{
 	void doEmpty(){
 		head = tail;
 	}
-	uint16_t len(){//Š—Lƒf[ƒ^”
+	uint16_t len(){//æ‰€æœ‰ãƒ‡ãƒ¼ã‚¿æ•°
 		return (tail+(bufferNum-head)) % bufferNum;
 	}
 	bool overWrite(freeType data, uint16_t adrs){
@@ -130,7 +130,7 @@ class RingArray{
 			return buffer[(tail+(bufferNum+adrs)) % bufferNum];
 		}
 	}
-	//’l‚ª‚È‚¢‚Æ‚«‚Í-1
+	//å€¤ãŒãªã„ã¨ãã¯-1
 	int32_t index(freeType value){
 		for(uint16_t i=0; i<len(); i++){
 			if(look(i)==value){

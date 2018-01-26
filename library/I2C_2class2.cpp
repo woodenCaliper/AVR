@@ -5,7 +5,7 @@
 #include ".\BIT_CTRL.cpp"
 #include ".\TRANSCEIVER_QUEUE.cpp"
 #include ".\RING_ARRAY.cpp"
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 
 
 class I2c{
@@ -42,21 +42,21 @@ class I2c{
 	I2cTransceiver master, slave;
 
 	volatile uint8_t opponetAddress;
-	volatile uint16_t masterGetDataLen;		//master—v‹ƒf[ƒ^”
-	volatile uint16_t masterSnycDataNum;	//master‚Ì—İŒv’ÊMƒf[ƒ^”
+	volatile uint16_t masterGetDataLen;		//masterè¦æ±‚ãƒ‡ãƒ¼ã‚¿æ•°
+	volatile uint16_t masterSnycDataNum;	//masterã®ç´¯è¨ˆé€šä¿¡ãƒ‡ãƒ¼ã‚¿æ•°
 
-	I2c(){	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	I2c(){	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		slave.init(50,50);
 		master.init(50,50);
 	}
 	void begin(uint8_t myAddress, uint32_t speed=400000){
 		setMyAddress(myAddress);
 		setSpeed(speed);
-		//	sbi(TWAR, TWGCE);   //ˆêÄŒÄ‚Ño‚µŒŸo‹–‰Â
-		sbi(TWCR, TWIE);	//Š„‚è‚İ‹–‰Â
-		sbi(TWCR, TWEN);	//TWI“®ì‹–‰Â
+		//	sbi(TWAR, TWGCE);   //ä¸€æ–‰å‘¼ã³å‡ºã—æ¤œå‡ºè¨±å¯
+		sbi(TWCR, TWIE);	//å‰²ã‚Šè¾¼ã¿è¨±å¯
+		sbi(TWCR, TWEN);	//TWIå‹•ä½œè¨±å¯
 		setTWCR(0,0,0,1);
-		TWAMR=0x00;	//ƒ}ƒXƒN
+		TWAMR=0x00;	//ãƒã‚¹ã‚¯
 		sei();
 	}
 	void stop(){
@@ -90,8 +90,8 @@ class I2c{
 	char getTWDR(){
 		return TWDR;
 	}
-	//TWSTA=ŠJnğŒ¶¬‹–‰Â	TWSTO=’â~ğŒ¶¬‹–‰Â
-	//TWINT=TWIŠ„‚è‚İ—v‹ƒtƒ‰ƒO	TWEA =TWI“®ì‹–‰Â
+	//TWSTA=é–‹å§‹æ¡ä»¶ç”Ÿæˆè¨±å¯	TWSTO=åœæ­¢æ¡ä»¶ç”Ÿæˆè¨±å¯
+	//TWINT=TWIå‰²ã‚Šè¾¼ã¿è¦æ±‚ãƒ•ãƒ©ã‚°	TWEA =TWIå‹•ä½œè¨±å¯
 	void setTWCR(char twsta, char twsto, char twint, char twea){
 		char twcr = (twint<<TWINT)| (twea<<TWEA)| (twsta<<TWSTA)| (twsto<<TWSTO);//| (1<< TWEN);
 		changebyte(TWCR, twcr, 0xF0);
@@ -100,23 +100,23 @@ class I2c{
 		return (TWSR&0xF8);
 	}
 
-//MASTER+WRITE(ƒf[ƒ^‘—M‘¤)
+//MASTER+WRITE(ãƒ‡ãƒ¼ã‚¿é€ä¿¡å´)
 	void beginTransmission(uint8_t address){
-		opponetAddress = (address<<1) | 0x00;	//LSB=0‚ªWriteİ’è
+		opponetAddress = (address<<1) | 0x00;	//LSB=0ãŒWriteè¨­å®š
 		master.transmitter.doEmpty();
 	}
-//MASTER+READ(ƒf[ƒ^—v‹‘¤)
+//MASTER+READ(ãƒ‡ãƒ¼ã‚¿è¦æ±‚å´)
 	void requestFrom(uint8_t address, uint16_t count){
-		opponetAddress = (address<<1) | 0x01;	//LSB=0‚ªReadİ’è
+		opponetAddress = (address<<1) | 0x01;	//LSB=0ãŒReadè¨­å®š
 		masterGetDataLen = count;
 	}
-//MASTER+(WRITE_READ)‘—MŠJn
+//MASTER+(WRITE_READ)é€ä¿¡é–‹å§‹
 	uint16_t endTransmission(bool wait=true){
 		while( master.comuniFlag || slave.comuniFlag );
 		master.comuniFlag = true;
-		setTWCR(1,0,1,1);	//ŠJnğŒ‘—M
+		setTWCR(1,0,1,1);	//é–‹å§‹æ¡ä»¶é€ä¿¡
 		if(wait){
-			while(master.comuniFlag);	//’ÊMI—¹‚Ü‚Åƒ‹[ƒv
+			while(master.comuniFlag);	//é€šä¿¡çµ‚äº†ã¾ã§ãƒ«ãƒ¼ãƒ—
 			return masterSnycDataNum;
 		}
 		return 0;
@@ -133,114 +133,114 @@ ISR(TWI_vect){
 
 	switch(twsr){
 //MASTER>>>>>
-		case 0x08:	//ŠJnğŒ‘—M‚µ‚½
-		case 0x10:	//Ä‘—ŠJnğŒ‘—M‚µ‚½
-			TWDR = i2c.opponetAddress;	//ƒXƒŒ[ƒuƒAƒhƒŒƒXƒZƒbƒgSLA+W
+		case 0x08:	//é–‹å§‹æ¡ä»¶é€ä¿¡ã—ãŸ
+		case 0x10:	//å†é€é–‹å§‹æ¡ä»¶é€ä¿¡ã—ãŸ
+			TWDR = i2c.opponetAddress;	//ã‚¹ãƒ¬ãƒ¼ãƒ–ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚»ãƒƒãƒˆSLA+W
 			i2c.setTWCR(0,0,1,1);
 			i2c.masterSnycDataNum=0;
 		break;
 
-//MASTER+WRITE(ƒf[ƒ^‘—M‘¤)>>>>>
-		case 0x18:	//ƒAƒhƒŒƒX‘—M¨ACKóM
-		case 0x28:	//ƒf[ƒ^‘—M¨ACK‘—óM
-			if( !(i2c.master.transmitter.isEmpty()) ){	//‹ó‚Å‚È‚¢‚È‚ç
+//MASTER+WRITE(ãƒ‡ãƒ¼ã‚¿é€ä¿¡å´)>>>>>
+		case 0x18:	//ã‚¢ãƒ‰ãƒ¬ã‚¹é€ä¿¡â†’ACKå—ä¿¡
+		case 0x28:	//ãƒ‡ãƒ¼ã‚¿é€ä¿¡â†’ACKé€å—ä¿¡
+			if( !(i2c.master.transmitter.isEmpty()) ){	//ç©ºã§ãªã„ãªã‚‰
 				TWDR = i2c.master.txOut();
 				i2c.masterSnycDataNum++;
 				i2c.setTWCR(0,0,1,1);
 			}
 			else{
-				i2c.setTWCR(0,1,1,1);	//STOP‘—M
+				i2c.setTWCR(0,1,1,1);	//STOPé€ä¿¡
 				i2c.master.comuniFlag = false;
 			}
 		break;
-		case 0x20:	//ƒAƒhƒŒƒX‘—M¨NACKóM
-		case 0x30:	//ƒf[ƒ^‘—M¨NACK‘—M
-			i2c.setTWCR(0,1,1,1);	//STOP‘—M
+		case 0x20:	//ã‚¢ãƒ‰ãƒ¬ã‚¹é€ä¿¡â†’NACKå—ä¿¡
+		case 0x30:	//ãƒ‡ãƒ¼ã‚¿é€ä¿¡â†’NACKé€ä¿¡
+			i2c.setTWCR(0,1,1,1);	//STOPé€ä¿¡
 			i2c.master.comuniFlag = false;
 		break;
-//<<<<<MASTER+WRITE(ƒf[ƒ^‘—M‘¤)
+//<<<<<MASTER+WRITE(ãƒ‡ãƒ¼ã‚¿é€ä¿¡å´)
 
-//MASTER+READ(ƒf[ƒ^—v‹‘¤)>>>>>
-		case 0x40:	//ƒAƒhƒŒƒX‘—M+ACKóM
-			i2c.setTWCR(0,0,1,1);	//ACK‚Å‰“š—\’è
+//MASTER+READ(ãƒ‡ãƒ¼ã‚¿è¦æ±‚å´)>>>>>
+		case 0x40:	//ã‚¢ãƒ‰ãƒ¬ã‚¹é€ä¿¡+ACKå—ä¿¡
+			i2c.setTWCR(0,0,1,1);	//ACKã§å¿œç­”äºˆå®š
 		break;
-		case 0x50:	//ƒf[ƒ^óM¨ACK‰“š‚µ‚½
+		case 0x50:	//ãƒ‡ãƒ¼ã‚¿å—ä¿¡â†’ACKå¿œç­”ã—ãŸ
 			i2c.master.rxIn(TWDR);
 			i2c.masterSnycDataNum++;
 			if(i2c.masterSnycDataNum < i2c.masterGetDataLen){
-				i2c.setTWCR(0,0,1,1);	//ACK‰“š
+				i2c.setTWCR(0,0,1,1);	//ACKå¿œç­”
 			}
 			else{
-				i2c.setTWCR(0,0,1,0);	//NACK‰“š
+				i2c.setTWCR(0,0,1,0);	//NACKå¿œç­”
 			}
 		break;
-		case 0x58:	//NACK‰“š‚µ‚½
-		case 0x48:	//ƒAƒhƒŒƒX‘—M¨‰“š‚È‚µ
-			i2c.setTWCR(0,1,1,1);	//STOP‘—M
+		case 0x58:	//NACKå¿œç­”ã—ãŸ
+		case 0x48:	//ã‚¢ãƒ‰ãƒ¬ã‚¹é€ä¿¡â†’å¿œç­”ãªã—
+			i2c.setTWCR(0,1,1,1);	//STOPé€ä¿¡
 			i2c.master.comuniFlag = false;
 		break;
-//<<<<<MASTER+READ(ƒf[ƒ^—v‹‘¤)
+//<<<<<MASTER+READ(ãƒ‡ãƒ¼ã‚¿è¦æ±‚å´)
 
-//SLAVE+READ(ƒf[ƒ^‚ğó‚¯æ‚é‘¤)>>>>>
-		case 0x60:	//SLA+W‚ğóM¨ACK‰“š‚µ‚½
-		case 0x70:	//ˆêÄŒÄ‚Ño‚µóM¨ACK‰“š
+//SLAVE+READ(ãƒ‡ãƒ¼ã‚¿ã‚’å—ã‘å–ã‚‹å´)>>>>>
+		case 0x60:	//SLA+Wã‚’å—ä¿¡â†’ACKå¿œç­”ã—ãŸ
+		case 0x70:	//ä¸€æ–‰å‘¼ã³å‡ºã—å—ä¿¡â†’ACKå¿œç­”
 			i2c.slave.comuniFlag = true;
 			slaveLenNum=0;
-			i2c.setTWCR(0,0,1,1);	//ACK‰“š—\’è
+			i2c.setTWCR(0,0,1,1);	//ACKå¿œç­”äºˆå®š
 		break;
-		case 0x80:	//ƒf[ƒ^óM¨ACK‰“š
-		case 0x90:	//ˆêÄŒÄ‚Ño‚µ‚Åƒf[ƒ^óM¨ACK‰“š
+		case 0x80:	//ãƒ‡ãƒ¼ã‚¿å—ä¿¡â†’ACKå¿œç­”
+		case 0x90:	//ä¸€æ–‰å‘¼ã³å‡ºã—ã§ãƒ‡ãƒ¼ã‚¿å—ä¿¡â†’ACKå¿œç­”
 			i2c.slave.rxIn(i2c.getTWDR());
 			slaveLenNum++;
-		 	i2c.setTWCR(0,0,1,1);	//ACKóM—\’è
+		 	i2c.setTWCR(0,0,1,1);	//ACKå—ä¿¡äºˆå®š
 		break;
-		case 0x88:	//ƒf[ƒ^óM¨NACK‰“š
-		case 0x98:	//ˆêÄŒÄ‚Ño‚µ‚Åƒf[ƒ^óM¨NACK‰“š
+		case 0x88:	//ãƒ‡ãƒ¼ã‚¿å—ä¿¡â†’NACKå¿œç­”
+		case 0x98:	//ä¸€æ–‰å‘¼ã³å‡ºã—ã§ãƒ‡ãƒ¼ã‚¿å—ä¿¡â†’NACKå¿œç­”
 			i2c.slave.rxIn(i2c.getTWDR());
 			slaveLenNum++;
-			i2c.setTWCR(0,0,1,1);	//’ÊMI—¹
+			i2c.setTWCR(0,0,1,1);	//é€šä¿¡çµ‚äº†
 			i2c.slave.comuniFlag = false;
 		break;
-		case 0xA0:	//’â~ğŒorÄ‘—ğŒŒŸo
-			i2c.setTWCR(0,0,1,1);	//’ÊMI—¹
+		case 0xA0:	//åœæ­¢æ¡ä»¶orå†é€æ¡ä»¶æ¤œå‡º
+			i2c.setTWCR(0,0,1,1);	//é€šä¿¡çµ‚äº†
 			i2c.slave.snycLen.lastIn(slaveLenNum);
 			i2c.slave.comuniFlag = false;
 		break;
-		case 0x68:	//©ƒAƒhƒŒƒXóM‚É’²’â”s‘Ş¨ACK‰“š
-		case 0x78:	//ˆêÄŒÄ‚Ño‚µ‚Å’²’â”s‘Ş¨ACK‰“š
-			i2c.setTWCR(0,0,1,0);	//NACK‰“š—\’è
+		case 0x68:	//è‡ªã‚¢ãƒ‰ãƒ¬ã‚¹å—ä¿¡æ™‚ã«èª¿åœæ•—é€€â†’ACKå¿œç­”
+		case 0x78:	//ä¸€æ–‰å‘¼ã³å‡ºã—ã§èª¿åœæ•—é€€â†’ACKå¿œç­”
+			i2c.setTWCR(0,0,1,0);	//NACKå¿œç­”äºˆå®š
 		break;
-//<<<<<SLAVE+READ(ƒf[ƒ^‚ğó‚¯æ‚é‘¤)
+//<<<<<SLAVE+READ(ãƒ‡ãƒ¼ã‚¿ã‚’å—ã‘å–ã‚‹å´)
 
-//SLAVE+WRITE(ƒf[ƒ^‚ğ“Ç‚Ü‚ê‚é‘¤)>>>>>
-		case 0xA8:	//SLA+R‚ğóM¨ACK‰“š
-		case 0xB0:	//©ƒAƒhƒŒƒXóM(SLA+R)‚É’²’â”s‘Ş¨ACK‰“š
+//SLAVE+WRITE(ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¾ã‚Œã‚‹å´)>>>>>
+		case 0xA8:	//SLA+Rã‚’å—ä¿¡â†’ACKå¿œç­”
+		case 0xB0:	//è‡ªã‚¢ãƒ‰ãƒ¬ã‚¹å—ä¿¡(SLA+R)æ™‚ã«èª¿åœæ•—é€€â†’ACKå¿œç­”
 			i2c.slave.comuniFlag = true;
-		case 0xB8:	//ƒf[ƒ^‘—M¨ACK‰“š
-			if( !(i2c.slave.transmitter.isEmpty()) ){	//ÅIƒf[ƒ^‚ğ‘—M‚©‚Ì”»’f
+		case 0xB8:	//ãƒ‡ãƒ¼ã‚¿é€ä¿¡â†’ACKå¿œç­”
+			if( !(i2c.slave.transmitter.isEmpty()) ){	//æœ€çµ‚ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡ã‹ã®åˆ¤æ–­
 				TWDR = i2c.slave.txOut();
-				i2c.setTWCR(0,0,1,1);	//ACKóM—\’è
+				i2c.setTWCR(0,0,1,1);	//ACKå—ä¿¡äºˆå®š
 			}
 			else{
-				i2c.setTWCR(0,0,1,0);	//NACKóM—\’è
+				i2c.setTWCR(0,0,1,0);	//NACKå—ä¿¡äºˆå®š
 			}
 		break;
-		case 0xC0:	//ƒf[ƒ^‘—M¨NACKóM
-		case 0xC8:	//ÅIƒf[ƒ^ƒoƒCƒg‘—M‚µ‚½‚Ì‚É¨ACKóM
-			i2c.setTWCR(0,0,1,1);	//’ÊMI—¹
+		case 0xC0:	//ãƒ‡ãƒ¼ã‚¿é€ä¿¡â†’NACKå—ä¿¡
+		case 0xC8:	//æœ€çµ‚ãƒ‡ãƒ¼ã‚¿ãƒã‚¤ãƒˆé€ä¿¡ã—ãŸã®ã«â†’ACKå—ä¿¡
+			i2c.setTWCR(0,0,1,1);	//é€šä¿¡çµ‚äº†
 			i2c.slave.comuniFlag = false;
 		break;
-//<<<<<SLAVE+WRITE(ƒf[ƒ^‚ğ“Ç‚Ü‚ê‚é‘¤)
+//<<<<<SLAVE+WRITE(ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¾ã‚Œã‚‹å´)
 
-//—áŠO>>>>>
-		case 0x38:	//ƒAƒhƒŒƒX‘—Morƒf[ƒ^‘—M¨ƒpƒX‹£‡
-			i2c.setTWCR(1,0,1,1);	//‰Â”\‚É‚È‚èŸ‘æŠJn
+//ä¾‹å¤–>>>>>
+		case 0x38:	//ã‚¢ãƒ‰ãƒ¬ã‚¹é€ä¿¡orãƒ‡ãƒ¼ã‚¿é€ä¿¡â†’ãƒ‘ã‚¹ç«¶åˆ
+			i2c.setTWCR(1,0,1,1);	//å¯èƒ½ã«ãªã‚Šæ¬¡ç¬¬é–‹å§‹
 		break;
-		case 0x00:	//•s³‚ÈŠJnğŒ/’â~ğŒ‚Å‚ÌÊŞ½ˆÙí
+		case 0x00:	//ä¸æ­£ãªé–‹å§‹æ¡ä»¶/åœæ­¢æ¡ä»¶ã§ã®ï¾Šï¾ï½½ç•°å¸¸
 		default:
-			i2c.setTWCR(0,1,1,1);	//STOP‘—M
+			i2c.setTWCR(0,1,1,1);	//STOPé€ä¿¡
 		break;
-//<<<<<—áŠO
+//<<<<<ä¾‹å¤–
 	}
 }
 #endif

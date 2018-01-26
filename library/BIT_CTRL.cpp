@@ -1,9 +1,9 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef BIT_CTRL_H_
 #define BIT_CTRL_H_
 
 #ifndef sbi
-#define sbi(PORT,BIT) (PORT |= (1<<BIT))	//ƒrƒbƒg‘€ì‚Ìƒ}ƒNƒ’è‹`
+#define sbi(PORT,BIT) (PORT |= (1<<BIT))	//ãƒ“ãƒƒãƒˆæ“ä½œã®ãƒã‚¯ãƒ­å®šç¾©
 #endif
 #ifndef cbi
 #define cbi(PORT,BIT) (PORT &=~(1<<BIT))

@@ -1,8 +1,8 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef TIMER_CTRL_H_
 #define TIMER_CTRL_H_
 
-#include <avr/interrupt.h>	//Š„‚è‚İƒwƒbƒ_
+#include <avr/interrupt.h>	//å‰²ã‚Šè¾¼ã¿ãƒ˜ãƒƒãƒ€
 #include ".\BIT_CTRL.cpp"
 
 namespace Tm0Ctrl{
@@ -12,11 +12,11 @@ namespace Tm0Ctrl{
 	inline void setCOMB(int8_t comb){
 		changebyte(TCCR0A, comb<<4, 0b00110000);
 	}
-	inline void setWGM(int8_t wgm){	//‹@”\İ’è
+	inline void setWGM(int8_t wgm){	//æ©Ÿèƒ½è¨­å®š
 		changebyte(TCCR0A, wgm, 0b00000011);
 		changebyte(TCCR0B, wgm<<1, 0b00001000);
 	}
-	inline void setCSR(int8_t csr){	//•ªü”ä
+	inline void setCSR(int8_t csr){	//åˆ†å‘¨æ¯”
 		changebyte(TCCR0B, csr, 0b00000111);
 	}
 	inline void enableOvfIrpt(){	sbi(TIMSK0, TOIE0);		}
@@ -118,11 +118,11 @@ namespace Tm1Ctrl{
 	inline void setCOMB(int8_t comb){
 		changebyte(TCCR1A, comb<<4, 0b00110000);
 	}
-	inline void setWGM(int8_t wgm){	//‹@”\İ’è
+	inline void setWGM(int8_t wgm){	//æ©Ÿèƒ½è¨­å®š
 		changebyte(TCCR1A, wgm,    0b00000011);
 		changebyte(TCCR1B, wgm<<1, 0b00011000);
 	}
-	inline void setCSR(int8_t csr){	//•ªü”ä
+	inline void setCSR(int8_t csr){	//åˆ†å‘¨æ¯”
 		changebyte(TCCR1B, csr, 0b00000111);
 	}
 	inline void enableOvfIrpt(){	sbi(TIMSK1, TOIE1);		}
@@ -225,11 +225,11 @@ namespace Tm2Ctrl{
 	inline void setCOMB(int8_t comb){
 		changebyte(TCCR2A, comb<<4, 0b00110000);
 	}
-	inline void setWGM(int8_t wgm){	//‹@”\İ’è
+	inline void setWGM(int8_t wgm){	//æ©Ÿèƒ½è¨­å®š
 		changebyte(TCCR2A, wgm, 0b00000011);
 		changebyte(TCCR2B, wgm<<1, 0b00001000);
 	}
-	inline void setCSR(int8_t csr){	//•ªü”ä
+	inline void setCSR(int8_t csr){	//åˆ†å‘¨æ¯”
 		changebyte(TCCR2B, csr, 0b00000111);
 	}
 	inline void enableOvfIrpt(){	sbi(TIMSK2, TOIE2);		}

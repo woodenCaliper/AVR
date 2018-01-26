@@ -1,4 +1,4 @@
-//“®ì–¢Šm”F
+//å‹•ä½œæœªç¢ºèª
 #ifndef STRING_CTRL_H_
 #define STRING_CTRL_H_
 
@@ -68,7 +68,7 @@ void numToStr(unsigned int num, char *str, char format){
 		case 16:
 			*(str+0)='0';
 			*(str+1)='x';
-			sprintf((str+2), "%x", num);	//1500byte‚­‚ç‚¢H‚¤
+			sprintf((str+2), "%x", num);	//1500byteãã‚‰ã„é£Ÿã†
 		break;
 	}
 }
@@ -96,28 +96,28 @@ int16_t strToNum(const char* str, uint16_t len){
 
 }
 
-//–ß‚è’l
-//³ : cmd•¶š”
-//‚O : checkCmd‚ªtrueCmd‚É‘Î‚µ‚Ä­‚È‚¢itrueCmd•¶š”‚æ‚ècheckCmdNum‚Ì‚Ù‚¤‚ª­‚È‚¢j
-//•‰ : -–ß‚è’l•¶š–Ú‚ªŠÔˆá‚Á‚Ä‚¢‚éA
-//trueCmd‚ÍNULL•¶š‚ª•K—v
+//æˆ»ã‚Šå€¤
+//æ­£ : cmdæ–‡å­—æ•°
+//ï¼ : checkCmdãŒtrueCmdã«å¯¾ã—ã¦å°‘ãªã„ï¼ˆtrueCmdæ–‡å­—æ•°ã‚ˆã‚ŠcheckCmdNumã®ã»ã†ãŒå°‘ãªã„ï¼‰
+//è²  : -æˆ»ã‚Šå€¤æ–‡å­—ç›®ãŒé–“é•ã£ã¦ã„ã‚‹ã€
+//trueCmdã¯NULLæ–‡å­—ãŒå¿…è¦
 int16_t cmdCheck(const char* trueCmd, const char* checkCmd, uint16_t checkCmdNum){
 	uint16_t checkingTrueCmdNum=0, checkingCheckCmdNum=0;
 	char checkChara;
 	while(1){
-		if(*(trueCmd+checkingTrueCmdNum) == '\0'){	//³‚µ‚¢cmd‚Æ‚Ì”äŠr‚ªÅŒã(NULL•¶š)‚Ü‚Å¬Œ÷‚µ‚½‚Æ‚«
+		if(*(trueCmd+checkingTrueCmdNum) == '\0'){	//æ­£ã—ã„cmdã¨ã®æ¯”è¼ƒãŒæœ€å¾Œ(NULLæ–‡å­—)ã¾ã§æˆåŠŸã—ãŸã¨ã
 			return checkingCheckCmdNum;
 		}
-		if( checkCmdNum==checkingCheckCmdNum ){	//Š®‘S‚É”äŠrƒf[ƒ^‚ª‘µ‚¢‚«‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©
-			return 0;	//Š®‘S‚É”äŠrƒf[ƒ^ij‚ª‘µ‚¢‚«‚Á‚Ä‚¢‚È‚¢
+		if( checkCmdNum==checkingCheckCmdNum ){	//å®Œå…¨ã«æ¯”è¼ƒãƒ‡ãƒ¼ã‚¿ãŒæƒã„ãã£ã¦ã„ã‚‹ã‹ã©ã†ã‹
+			return 0;	//å®Œå…¨ã«æ¯”è¼ƒãƒ‡ãƒ¼ã‚¿ï¼ˆï¼‰ãŒæƒã„ãã£ã¦ã„ãªã„
 		}
 
-		checkChara = *(checkCmd+checkingCheckCmdNum);	//‡’v‚µ‚Ä‚¢‚é‚©’²‚×‚é•¶š‚Ì‘ã“ü
+		checkChara = *(checkCmd+checkingCheckCmdNum);	//åˆè‡´ã—ã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹æ–‡å­—ã®ä»£å…¥
 
-		if(*(trueCmd+checkingTrueCmdNum) == checkChara){	//ˆê•¶š‚Ì‚Æ‚«‚É‡’v‚µ‚Ä‚¢‚é‚©’²¸
+		if(*(trueCmd+checkingTrueCmdNum) == checkChara){	//ä¸€æ–‡å­—ã®ã¨ãã«åˆè‡´ã—ã¦ã„ã‚‹ã‹èª¿æŸ»
 			checkingTrueCmdNum++;
 		}
-		else if(*(trueCmd+checkingTrueCmdNum) == '?'){	//”’l•¶š‚É‡’v‚µ‚Ä‚¢‚é‚©’²¸
+		else if(*(trueCmd+checkingTrueCmdNum) == '?'){	//æ•°å€¤æ–‡å­—ã«åˆè‡´ã—ã¦ã„ã‚‹ã‹èª¿æŸ»
 			if(checkChara<'0' || '9'<checkChara){
 				return -checkingCheckCmdNum-1;
 			}
@@ -125,15 +125,15 @@ int16_t cmdCheck(const char* trueCmd, const char* checkCmd, uint16_t checkCmdNum
 				checkingTrueCmdNum++;
 			}
 		}
-		else if(*(trueCmd+checkingTrueCmdNum) == '{'){	//•¡”•¶šŠJn•¶š( { )‚Ì‚Æ‚«‚É‡’v‚µ‚Ä‚¢‚é‚©’²¸
+		else if(*(trueCmd+checkingTrueCmdNum) == '{'){	//è¤‡æ•°æ–‡å­—é–‹å§‹æ–‡å­—( { )ã®ã¨ãã«åˆè‡´ã—ã¦ã„ã‚‹ã‹èª¿æŸ»
 			bool flag=false;
 			while(1){
 				checkingTrueCmdNum++;
 				if(*(trueCmd+checkingTrueCmdNum) == checkChara){
 					flag=true;
 				}
-				else if(*(trueCmd+checkingTrueCmdNum) == '}'){	//•¡”•¶šI—¹•¶š( } )‚Ì‚Æ‚«‚É‡’v‚µ‚Ä‚¢‚é‚©’²¸
-					if(flag){	//Šù‚Écmd‚É‡’v‚µ‚Ä‚¢‚½‚ç
+				else if(*(trueCmd+checkingTrueCmdNum) == '}'){	//è¤‡æ•°æ–‡å­—çµ‚äº†æ–‡å­—( } )ã®ã¨ãã«åˆè‡´ã—ã¦ã„ã‚‹ã‹èª¿æŸ»
+					if(flag){	//æ—¢ã«cmdã«åˆè‡´ã—ã¦ã„ãŸã‚‰
 						checkingTrueCmdNum++;
 						break;
 					}
@@ -143,7 +143,7 @@ int16_t cmdCheck(const char* trueCmd, const char* checkCmd, uint16_t checkCmdNum
 				}
 			}
 		}
-		else{	//‚Ç‚ê‚É‚à‡’v‚µ‚È‚©‚Á‚½‚Æ‚«
+		else{	//ã©ã‚Œã«ã‚‚åˆè‡´ã—ãªã‹ã£ãŸã¨ã
 			return -checkingCheckCmdNum-1;
 		}
 		checkingCheckCmdNum++;
