@@ -31,11 +31,9 @@ namespace Tm0Cntr{
 		count++;
 	}
 }
-
 /*
 ISR(TIMER0_OVF_vect){
 	Tm0Cntr::count++;
 }
 */
-
 #endif
