@@ -127,7 +127,7 @@ ISR(TIMER1_OVF_vect){
 
 ISR(TIMER1_CAPT_vect){
 	static uint8_t measuringObj=0;
-	sbi(PORTD,4);
+	// sbi(PORTD,4);
 	//uint16_t _icr1 = ICR1;
 
 	if(MeasureRc::__isDownMode()){	//立ち下がったのなら
@@ -144,6 +144,6 @@ ISR(TIMER1_CAPT_vect){
 			}
 		}
 	}
-	cbi(PORTD,4);
+	// cbi(PORTD,4);
 }
 #endif

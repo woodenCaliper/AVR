@@ -241,6 +241,7 @@ class GateDriveB : public Ir2302Tm0{
 		return OCR0B;
 	}
 }gateDriveB;
+
 ISR(TIMER0_COMPA_vect){//OFFに当たる動作
 	gateDriveA.__offAction();
 }

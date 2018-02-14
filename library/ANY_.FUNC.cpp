@@ -12,6 +12,16 @@ freeType margeNum(freeType num, freeType min, freeType max){
 	return num;
 }
 
+
+template <class freeType1, class freeType2, class freeType3>
+freeType1 margeNum(freeType1 num, freeType2 min, freeType3 max){
+	if((freeType1)num <= (freeType1)min)
+		return min;
+	else if((freeType1)max <= (freeType1)num)
+		return max;
+	return num;
+}
+
 void byteToStr(char byte, char* str){
 	*(str+0)='0';
 	*(str+1)='b';
