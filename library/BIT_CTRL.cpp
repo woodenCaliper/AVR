@@ -2,6 +2,8 @@
 #ifndef BIT_CTRL_H_
 #define BIT_CTRL_H_
 
+#include <avr/io.h>
+
 //ビット操作のマクロ定義>>>>>
 #ifndef sbi
 #define sbi(PORT,BIT) (PORT |= (1<<BIT))
@@ -24,84 +26,84 @@
 //<<<<<ビット操作のマクロ定義
 
 //ATMEGA88_PDIPのピン配置と名前>>>>>
-const uint8_t PB0_PIN 14
-const uint8_t PB1_PIN 15
-const uint8_t PB2_PIN 16
-const uint8_t PB3_PIN 17
-const uint8_t PB4_PIN 18
-const uint8_t PB5_PIN 19
-const uint8_t PB6_PIN 9
-const uint8_t PB7_PIN 10
+const uint8_t PB0_PIN=14;
+const uint8_t PB1_PIN=15;
+const uint8_t PB2_PIN=16;
+const uint8_t PB3_PIN=17;
+const uint8_t PB4_PIN=18;
+const uint8_t PB5_PIN=19;
+const uint8_t PB6_PIN=9;
+const uint8_t PB7_PIN=10;
 
-const uint8_t PC0_PIN 23
-const uint8_t PC1_PIN 24
-const uint8_t PC2_PIN 25
-const uint8_t PC3_PIN 26
-const uint8_t PC4_PIN 27
-const uint8_t PC5_PIN 28
-const uint8_t PC6_PIN 1
+const uint8_t PC0_PIN=23;
+const uint8_t PC1_PIN=24;
+const uint8_t PC2_PIN=25;
+const uint8_t PC3_PIN=26;
+const uint8_t PC4_PIN=27;
+const uint8_t PC5_PIN=28;
+const uint8_t PC6_PIN=1;
 
-const uint8_t PD0_PIN 2
-const uint8_t PD1_PIN 3
-const uint8_t PD2_PIN 4
-const uint8_t PD3_PIN 5
-const uint8_t PD4_PIN 6
-const uint8_t PD5_PIN 11
-const uint8_t PD6_PIN 12
-const uint8_t PD7_PIN 13
+const uint8_t PD0_PIN=2;
+const uint8_t PD1_PIN=3;
+const uint8_t PD2_PIN=4;
+const uint8_t PD3_PIN=5;
+const uint8_t PD4_PIN=6;
+const uint8_t PD5_PIN=11;
+const uint8_t PD6_PIN=12;
+const uint8_t PD7_PIN=13;
 
-const uint8_t PCINT0_PIN 14
-const uint8_t PCINT1_PIN 15
-const uint8_t PCINT2_PIN 16
-const uint8_t PCINT3_PIN 17
-const uint8_t PCINT4_PIN 18
-const uint8_t PCINT5_PIN 19
-const uint8_t PCINT6_PIN 9
-const uint8_t PCINT7_PIN 10
-const uint8_t PCINT8_PIN 23
-const uint8_t PCINT9_PIN 24
-const uint8_t PCINT10_PIN 25
-const uint8_t PCINT11_PIN 26
-const uint8_t PCINT12_PIN 27
-const uint8_t PCINT13_PIN 28
-const uint8_t PCINT14_PIN 1
-const uint8_t PCINT16_PIN 2
-const uint8_t PCINT17_PIN 3
-const uint8_t PCINT18_PIN 4
-const uint8_t PCINT19_PIN 5
-const uint8_t PCINT20_PIN 6
-const uint8_t PCINT21_PIN 11
-const uint8_t PCINT22_PIN 12
-const uint8_t PCINT23_PIN 13
+const uint8_t PCINT0_PIN=14;
+const uint8_t PCINT1_PIN=15;
+const uint8_t PCINT2_PIN=16;
+const uint8_t PCINT3_PIN=17;
+const uint8_t PCINT4_PIN=18;
+const uint8_t PCINT5_PIN=19;
+const uint8_t PCINT6_PIN=9;
+const uint8_t PCINT7_PIN=10;
+const uint8_t PCINT8_PIN=23;
+const uint8_t PCINT9_PIN=24;
+const uint8_t PCINT10_PIN=25;
+const uint8_t PCINT11_PIN=26;
+const uint8_t PCINT12_PIN=27;
+const uint8_t PCINT13_PIN=28;
+const uint8_t PCINT14_PIN=1;
+const uint8_t PCINT16_PIN=2;
+const uint8_t PCINT17_PIN=3;
+const uint8_t PCINT18_PIN=4;
+const uint8_t PCINT19_PIN=5;
+const uint8_t PCINT20_PIN=6;
+const uint8_t PCINT21_PIN=11;
+const uint8_t PCINT22_PIN=12;
+const uint8_t PCINT23_PIN=13;
 
-const uint8_t ADC0_PIN 23
-const uint8_t ADC1_PIN 24
-const uint8_t ADC2_PIN 25
-const uint8_t ADC3_PIN 26
-const uint8_t ADC4_PIN 27
-const uint8_t ADC5_PIN 28
+const uint8_t ADC0_PIN=23;
+const uint8_t ADC1_PIN=24;
+const uint8_t ADC2_PIN=25;
+const uint8_t ADC3_PIN=26;
+const uint8_t ADC4_PIN=27;
+const uint8_t ADC5_PIN=28;
 
-const uint8_t AIN0_PIN 12
-const uint8_t AIN1_PIN 13
+const uint8_t AIN0_PIN=12;
+const uint8_t AIN1_PIN=13;
 
-const uint8_t TXD_PIN 3
-const uint8_t RXD_PIN 2
+const uint8_t TXD_PIN=3;
+const uint8_t RXD_PIN=2;
 
-const uint8_t SCK_PIN 19
-const uint8_t MISO_PIN 18
-const uint8_t MOSI_PIN 17
+const uint8_t SCK_PIN=19;
+const uint8_t MISO_PIN=18;
+const uint8_t MOSI_PIN=17;
 
-const uint8_t OC0A_PIN 12
-const uint8_t OC0B_PIN 11
-const uint8_t OC1A_PIN 15
-const uint8_t OC1B_PIN 16
-const uint8_t OC2A_PIN 17
-const uint8_t OC2B_PIN 5
+const uint8_t OC0A_PIN=12;
+const uint8_t OC0B_PIN=11;
+const uint8_t OC1A_PIN=15;
+const uint8_t OC1B_PIN=16;
+const uint8_t OC2A_PIN=17;
+const uint8_t OC2B_PIN=5;
 
-const uint8_t ICP1_PIN 14
+const uint8_t ICP1_PIN=14;
 
-const uint8_t INT0_PIN 4
-const uint8_t INT1_PIN 5
+const uint8_t INT0_PIN=4;
+const uint8_t INT1_PIN=5;
 //<<<<<ATMEGA88_PDIPのピン配置と名前
 
 /**
@@ -179,7 +181,7 @@ const avrPin avrPins[28] = {
 /**
  * @brief 入出力設定のパラメータ
 */
-const uint8_t MODE_INPUT=0, MODE_OUTPUT=1, MODE_INPUT_PULLUP=2, MODE_OUTPUT_LOW;
+const uint8_t MODE_INPUT=0, MODE_OUTPUT=1, MODE_INPUT_PULLUP=2, MODE_OUTPUT_LOW=3;
 
 /**
  * @brief 出力状態のパラメータ
@@ -190,6 +192,12 @@ const uint8_t OUTPUT_LOW=0, OUTPUT_HIGH=1;
  * @brief プルアップ状態のパラメータ
 */
 const uint8_t PULLUP_OFF=0, PULLUP_ON=1;
+
+void pinMode(uint8_t pinNum, uint8_t mode);
+void pinOutput(uint8_t pinNum, uint8_t output);
+inline void pinPullup(uint8_t pinNum, uint8_t pullup);
+bool readInput(uint8_t pinNum);
+
 
 /**
 * @brief 入出力の設定(DDR操作)を行う
@@ -206,16 +214,16 @@ void pinMode(uint8_t pinNum, uint8_t mode){
 		case MODE_OUTPUT:
 			*(avrPins[pinNum].ddr) |= (avrPins[pinNum].pinMask);
 			break;
-		case MODE_OUTPUT:
+		case MODE_INPUT:
 			*(avrPins[pinNum].ddr) &= ~(avrPins[pinNum].pinMask);
 			break;
 		case MODE_INPUT_PULLUP:
 			*(avrPins[pinNum].ddr) &= ~(avrPins[pinNum].pinMask);
-			pinPullup(pinNum,PULLUP_ON);
+			pinPullup(pinNum+1,PULLUP_ON);
 			break;
 		case MODE_OUTPUT_LOW:
 			*(avrPins[pinNum].ddr) |= (avrPins[pinNum].pinMask);
-			pinOutput(pinNum, OUTPUT_LOW);
+			pinOutput(pinNum+1, OUTPUT_LOW);
 			break;
 		default:
 			break;
@@ -258,7 +266,8 @@ inline void pinPullup(uint8_t pinNum, uint8_t pullup){
 * @retval false Low
 */
 bool readInput(uint8_t pinNum){
-	return 	(bool)( *(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
-	//return 	(bool)(*(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) ) >> (avrPins[pinNum].pinMask);
+	pinNum-=1;	//pin番号は1から始まるため
+	//return 	(bool)( *(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
+	return (bool)(*(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
 }
 #endif
