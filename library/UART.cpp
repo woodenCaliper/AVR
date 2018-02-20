@@ -2,7 +2,7 @@
 #define UART_H_
 
 #include ".\BIT_CTRL.cpp"
-#include ".\TRANSCEIVER_QUEUE.cpp"
+#include ".\TRANSCEIVER_RINGARRAY.cpp"
 #include <avr/interrupt.h>
 
 #ifndef TX_BUFFER_NUM

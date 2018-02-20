@@ -2,12 +2,12 @@
 #define TRANSCEIVER_QUEUE_H_
 
 #include <stdlib.h>
-#include ".\RING_ARRAY.cpp"
+#include ".\RING_QUEUE.cpp"
 #include ".\STRING_CTRL.cpp"
 
 class TransceiverQueue{
 	public:
-	RingArray transmitter, receiver;
+	Queue transmitter, receiver;
 	TransceiverQueue(){
 	}
 	TransceiverQueue(uint16_t txBufferNum, uint16_t rxBufferNum){
@@ -21,16 +21,16 @@ class TransceiverQueue{
 
 //オーバーライド用関数>>>>>
 	virtual	int16_t txIn(char data){
-		return transmitter.lastIn(data);
+		return transmitter.in(data);
 	}
 	virtual int16_t txOut(){
-		return transmitter.firstOut();
+		return transmitter.out();
 	}
 	virtual int16_t rxIn(char data){
-		return receiver.lastIn(data);
+		return receiver.in(data);
 	}
 	virtual int16_t rxOut(){
-		return receiver.firstOut();
+		return receiver.out();
 	}
 //<<<<<オーバーライド用関数
 
@@ -39,7 +39,7 @@ class TransceiverQueue{
 	//cmdが届ききっていない場合、何もしない。一致したならキューを取り出す。不一致なら削除
 	//MD???{+-}{01}???
 	int8_t cmdCheckQueue(const char* trueCmd, char* resultStrage){
-		uint16_t len = receiver.index(*trueCmd)+1;
+		uint16_t len = receiver.untilValueLen(*trueCmd);
 		if(len==0){	//存在しないなら空に
 			receiver.doEmpty();
 			return -1;
@@ -50,7 +50,7 @@ class TransceiverQueue{
 			}
 		}
 		char bufferCopy[20];
-		uint16_t copyNum = receiver.copy(bufferCopy);
+		uint16_t copyNum = receiver.copyBuffer(bufferCopy);
 		int16_t	cmdError = cmdCheck(trueCmd, bufferCopy, copyNum);
 
 		if(cmdError>0){	//全一致ならキューを取り出して渡す
@@ -70,10 +70,6 @@ class TransceiverQueue{
 		}
 	}
 //<<<<<bufferCtrl
-	uint16_t len(){
-		return receiver.len();
-	}
-
 
 //read>>>>>
 	int16_t read(){	//空なら-1
@@ -81,10 +77,10 @@ class TransceiverQueue{
 	}
 	template <class freeType>
 	int16_t read(char* dataPath, freeType len){	//指定数を取り出す
-		if(receiver.len() < (uint16_t)len){
+		if(receiver.getBufferLen() < (uint16_t)len){
 			return -1;
 		}
-		for(freeType i=0; i<(freeType)len; i++){
+		for(freeType i=0; i<(uint16_t)len; i++){
 			*(dataPath+i) = read();
 		}
 		return len;
@@ -92,26 +88,13 @@ class TransceiverQueue{
 
 	//stopDataまで(stopDataを含め)を取り出す、なければ-1
 	int16_t read(char* dataPath, char stopData){
-		return read(dataPath, receiver.index(stopData)+1);
+		return read(dataPath, receiver.untilValueLen(stopData));
 	}
-
-	template <class freeType>
-	int16_t read(int16_t zero, freeType len){	//指定数を取り出す
-		if(receiver.len() < (uint16_t)len){
-			return -1;
-		}
-		for(uint16_t i=0; i<(uint16_t)len; i++){
-			read();
-		}
-		return len;
-	}
-
-
 	int16_t readStr(char* strPath){	//\0がなければ-1
 		return read(strPath, '\0');
 	}
 	int32_t readStrInt(char stopData='\0'){	//戻り値がintのため、floatを返せない
-		uint16_t strLen = receiver.index(stopData)+1;
+		uint16_t strLen = receiver.untilValueLen(stopData);
 		char str[12];
 		if(strLen <= 1){
 			if(strLen == 1){
@@ -124,8 +107,8 @@ class TransceiverQueue{
 		return atol(str);
 	}
 	float readStrFloat(char stopData='\0'){
-		uint16_t strLen = receiver.index(stopData)+1;
-		uint16_t dotLen = receiver.index('.')+1;
+		uint16_t strLen = receiver.untilValueLen(stopData);
+		uint16_t dotLen = receiver.untilValueLen('.');
 		char str[20];
 		if(strLen <= 1){
 			if(strLen == 1){

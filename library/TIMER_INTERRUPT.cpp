@@ -27,10 +27,15 @@ namespace Tm0Irpt{
 		sei();
 		//割り込み間隔 = irpt_bit(OCR0A) * 分周比 / CLK
 	}
-	void setUsecA(uint32_t usec){
+	void setUsecA(uint32_t usec, uint16_t division=0){
 		uint8_t irpt_bit;
-		uint16_t division;
-		Tm0Ctrl::getTopDivision(usec, &irpt_bit, &division);
+		if(division==0){
+			division = Tm0Ctrl::getDivision();
+			Tm0Ctrl::getTop(usec, &irpt_bit, division);
+		}
+		else{
+			Tm0Ctrl::getTopDivision(usec, &irpt_bit, &division);
+		}
 		Tm0Irpt::setBitA(irpt_bit, division);
 		sei();
 	}
@@ -63,9 +68,15 @@ namespace Tm1Irpt{
 		sei();
 		//割り込み間隔 = irpt_bit(OCR0A) * 分周比 / CLK
 	}
-	void setUsecA(uint32_t usec){
-		uint16_t irpt_bit, division;
-		Tm1Ctrl::getTopDivision(usec, &irpt_bit, &division);
+	void setUsecA(uint32_t use, uint16_t division=0){
+		uint16_t irpt_bit;
+		if(division==0){
+			division = Tm1Ctrl::getDivision();
+			Tm1Ctrl::getTop(usec, &irpt_bit, division);
+		}
+		else{
+			Tm1Ctrl::getTopDivision(usec, &irpt_bit, &division);
+		}
 		Tm1Irpt::setBitA(irpt_bit, division);
 		sei();
 	}
@@ -90,10 +101,16 @@ namespace Tm2Irpt{
 		//割り込み間隔 = irpt_bit(OCR0A) * 分周比 / CLK
 		sei();
 	}
-	void setUsec(uint32_t usec){
+	void setUsecA(uint32_t usec, uint16_t division=0){
 		uint8_t irpt_bit;
-		uint16_t division;
-		Tm2Ctrl::getTopDivision(usec, &irpt_bit, &division);
+
+		if(division==0){
+			division = Tm2Ctrl::getDivision();
+			Tm2Ctrl::getTop(usec, &irpt_bit, division);
+		}
+		else{
+			Tm2Ctrl::getTopDivision(usec, &irpt_bit, &division);
+		}
 		Tm2Irpt::setBitA(irpt_bit, division);
 		sei();
 	}

@@ -11,11 +11,17 @@
 #ifndef cbi
 #define cbi(PORT,BIT) (PORT &=~(1<<BIT))
 #endif
+#ifndef sbiMask
+#define sbiMask(PORT,BYTE) (PORT |= BYTE)
+#endif
+#ifndef cbiMask
+#define cbiMask(PORT,BYTE) (PORT &=~BYTE)
+#endif
 #ifndef changeBit
 #define changeBit(PORT,BIT,result) (PORT = (PORT & ~(1<<BIT)) | (result<<BIT) )
 #endif
 #ifndef checkBit
-#define checkBit(PIN,BIT) ((PIN >> BIT) & 1)
+#define checkBit(PIN,BIT) ((PIN >> BIT) & 0b1)
 #endif
 #ifndef toggleBit
 #define toggleBit(PORT, BIT) (PORT ^= (1<<BIT))
@@ -209,21 +215,20 @@ MODE_INPUT_PULLUP:入力設定&プルアップ<br>
 MODE_OUTPUT_LOW:出力設定&出力LOW
 */
 void pinMode(uint8_t pinNum, uint8_t mode){
-	pinNum-=1;	//pin番号は1から始まるため
 	switch(mode){
 		case MODE_OUTPUT:
-			*(avrPins[pinNum].ddr) |= (avrPins[pinNum].pinMask);
+			*(avrPins[pinNum-1].ddr) |= (avrPins[pinNum-1].pinMask);
 			break;
 		case MODE_INPUT:
-			*(avrPins[pinNum].ddr) &= ~(avrPins[pinNum].pinMask);
+			*(avrPins[pinNum-1].ddr) &= ~(avrPins[pinNum-1].pinMask);
 			break;
 		case MODE_INPUT_PULLUP:
-			*(avrPins[pinNum].ddr) &= ~(avrPins[pinNum].pinMask);
-			pinPullup(pinNum+1,PULLUP_ON);
+			*(avrPins[pinNum-1].ddr) &= ~(avrPins[pinNum-1].pinMask);
+			pinPullup(pinNum,PULLUP_ON);
 			break;
 		case MODE_OUTPUT_LOW:
-			*(avrPins[pinNum].ddr) |= (avrPins[pinNum].pinMask);
-			pinOutput(pinNum+1, OUTPUT_LOW);
+			*(avrPins[pinNum-1].ddr) |= (avrPins[pinNum-1].pinMask);
+			pinOutput(pinNum, OUTPUT_LOW);
 			break;
 		default:
 			break;
@@ -238,12 +243,11 @@ OUTPUT_LOW:Lowを出力<br>
 OUTPUT_HIGH:Highを出力<br>
 */
 void pinOutput(uint8_t pinNum, uint8_t output){
-	pinNum-=1;	//pin番号は1から始まるため
 	if(output==OUTPUT_HIGH){
-		*(avrPins[pinNum].port) |= (avrPins[pinNum].pinMask);
+		*(avrPins[pinNum-1].port) |= (avrPins[pinNum-1].pinMask);
 	}
 	else{
-		*(avrPins[pinNum].port) &= ~(avrPins[pinNum].pinMask);
+		*(avrPins[pinNum-1].port) &= ~(avrPins[pinNum-1].pinMask);
 	}
 }
 
@@ -266,8 +270,7 @@ inline void pinPullup(uint8_t pinNum, uint8_t pullup){
 * @retval false Low
 */
 bool readInput(uint8_t pinNum){
-	pinNum-=1;	//pin番号は1から始まるため
 	//return 	(bool)( *(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
-	return (bool)(*(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
+	return (bool)(*(avrPins[pinNum-1].pin) & (avrPins[pinNum-1].pinMask) );
 }
 #endif
