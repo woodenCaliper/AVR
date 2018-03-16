@@ -1,0 +1,2401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>msAVR_library: TransceiverQueue クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">msAVR_library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="class_transceiver_queue-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">TransceiverQueue クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+TransceiverQueue の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_transceiver_queue.png" usemap="#TransceiverQueue_map" alt=""/>
+  <map id="TransceiverQueue_map" name="TransceiverQueue_map">
+<area href="class_i2c_1_1_i2c_transceiver.html" alt="I2c::I2cTransceiver" shape="rect" coords="0,56,120,80"/>
+<area href="class_i2c_1_1_i2c_transceiver.html" alt="I2c::I2cTransceiver" shape="rect" coords="130,56,250,80"/>
+<area href="class_uart.html" alt="Uart" shape="rect" coords="260,56,380,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a24a373ffd112562f9d5b6ab1aac9d7b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a24a373ffd112562f9d5b6ab1aac9d7b3">TransceiverQueue</a> ()</td></tr>
+<tr class="separator:a24a373ffd112562f9d5b6ab1aac9d7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad027b36e3fe7efb8b62112990c320f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ad027b36e3fe7efb8b62112990c320f32">TransceiverQueue</a> (uint16_t txBufferNum, uint16_t rxBufferNum)</td></tr>
+<tr class="separator:ad027b36e3fe7efb8b62112990c320f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108ff47f8ef73be4d0b62e804c573a44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a108ff47f8ef73be4d0b62e804c573a44">init</a> (uint16_t txBufferNum, uint16_t rxBufferNum)</td></tr>
+<tr class="separator:a108ff47f8ef73be4d0b62e804c573a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b6448e3afbeefee724b05834d0d7d4"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a91b6448e3afbeefee724b05834d0d7d4">txIn</a> (char data)</td></tr>
+<tr class="separator:a91b6448e3afbeefee724b05834d0d7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b85fc118db1d8f725fd5381796ecfa4"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9b85fc118db1d8f725fd5381796ecfa4">txOut</a> ()</td></tr>
+<tr class="separator:a9b85fc118db1d8f725fd5381796ecfa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bf99a40f7f716d3232354c204cfcfb"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a10bf99a40f7f716d3232354c204cfcfb">rxIn</a> (char data)</td></tr>
+<tr class="separator:a10bf99a40f7f716d3232354c204cfcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf38d60ebe16eed75438f919e05452b5"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#adf38d60ebe16eed75438f919e05452b5">rxOut</a> ()</td></tr>
+<tr class="separator:adf38d60ebe16eed75438f919e05452b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d36c874456b2600faf18d820232b8c8"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a0d36c874456b2600faf18d820232b8c8">cmdCheckQueue</a> (const char *trueCmd, char *resultStrage)</td></tr>
+<tr class="separator:a0d36c874456b2600faf18d820232b8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f5ed1232059dba8f25ce8dc3ce941f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a> ()</td></tr>
+<tr class="separator:a06f5ed1232059dba8f25ce8dc3ce941f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f4196f7feedc60d7286004781099a81"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a7f4196f7feedc60d7286004781099a81">read</a> ()</td></tr>
+<tr class="separator:a7f4196f7feedc60d7286004781099a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memTemplParams" colspan="2">template&lt;class freeType &gt; </td></tr>
+<tr class="memitem:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a062c3ad7d88a92fd7b64b2b83881c53a">read</a> (char *dataPath, freeType <a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a>)</td></tr>
+<tr class="separator:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4209b380d4faef271b69fd281937734a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4209b380d4faef271b69fd281937734a">read</a> (char *dataPath, char stopData)</td></tr>
+<tr class="separator:a4209b380d4faef271b69fd281937734a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98901013161ad7d66f7b91dfdcd0c13d"><td class="memTemplParams" colspan="2">template&lt;class freeType &gt; </td></tr>
+<tr class="memitem:a98901013161ad7d66f7b91dfdcd0c13d"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a98901013161ad7d66f7b91dfdcd0c13d">read</a> (int16_t zero, freeType <a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a>)</td></tr>
+<tr class="separator:a98901013161ad7d66f7b91dfdcd0c13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e56c7f8a81a4fb33283129e6d42d5fb"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a2e56c7f8a81a4fb33283129e6d42d5fb">readStr</a> (char *strPath)</td></tr>
+<tr class="separator:a2e56c7f8a81a4fb33283129e6d42d5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edc089ccf4fae4791e33dfa0d5fc99e"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a3edc089ccf4fae4791e33dfa0d5fc99e">readStrInt</a> (char stopData='\0')</td></tr>
+<tr class="separator:a3edc089ccf4fae4791e33dfa0d5fc99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c7ed8f07d3991806d5dce3fafb07ac"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#aa5c7ed8f07d3991806d5dce3fafb07ac">readStrFloat</a> (char stopData='\0')</td></tr>
+<tr class="separator:aa5c7ed8f07d3991806d5dce3fafb07ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391b84488abdda3b547c1f8f8800696f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a391b84488abdda3b547c1f8f8800696f">write</a> (char data)</td></tr>
+<tr class="separator:a391b84488abdda3b547c1f8f8800696f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481cccde6c3978deeed66d8c806d880f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a481cccde6c3978deeed66d8c806d880f">write</a> (char *buf, uint16_t size)</td></tr>
+<tr class="separator:a481cccde6c3978deeed66d8c806d880f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ddcece3b78312014a534854cb6bbdbf"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4ddcece3b78312014a534854cb6bbdbf">write</a> (char *str)</td></tr>
+<tr class="separator:a4ddcece3b78312014a534854cb6bbdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733eb311be1914cee007bbd70eb1b8a8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a733eb311be1914cee007bbd70eb1b8a8">write</a> (const char *data)</td></tr>
+<tr class="separator:a733eb311be1914cee007bbd70eb1b8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62b226723755648e15a3bce8db38285"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ab62b226723755648e15a3bce8db38285">print</a> (unsigned long n, int base=10)</td></tr>
+<tr class="separator:ab62b226723755648e15a3bce8db38285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba7e2ee1a26c1cc984d02092db3cf12"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9ba7e2ee1a26c1cc984d02092db3cf12">print</a> (long n, int base=10)</td></tr>
+<tr class="separator:a9ba7e2ee1a26c1cc984d02092db3cf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362f775ec50c8bed9e16829e463c29f1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a362f775ec50c8bed9e16829e463c29f1">print</a> (double num, int digits=8)</td></tr>
+<tr class="separator:a362f775ec50c8bed9e16829e463c29f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a1fd4d69cb79e1eb5ce089fe9d4a0b2c5">print</a> (char data)</td></tr>
+<tr class="separator:a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a330167e48c9819c0781a32c9e5ef55"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9a330167e48c9819c0781a32c9e5ef55">print</a> (char *data, int <a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a>)</td></tr>
+<tr class="separator:a9a330167e48c9819c0781a32c9e5ef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550fe9b6595e36ab3ad36c0527ba3c71"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a550fe9b6595e36ab3ad36c0527ba3c71">print</a> (char *str)</td></tr>
+<tr class="separator:a550fe9b6595e36ab3ad36c0527ba3c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f86966afbfa3ad3248ad26fac084fd1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a6f86966afbfa3ad3248ad26fac084fd1">print</a> (bool data)</td></tr>
+<tr class="separator:a6f86966afbfa3ad3248ad26fac084fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769d1db54591f638654587107344014d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a769d1db54591f638654587107344014d">print</a> (int data, int base=10)</td></tr>
+<tr class="separator:a769d1db54591f638654587107344014d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285e68c72dd9152ab40ad03fe8868d46"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a285e68c72dd9152ab40ad03fe8868d46">print</a> (unsigned int data, int base=10)</td></tr>
+<tr class="separator:a285e68c72dd9152ab40ad03fe8868d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d28951ba6d62a27d6469639caae46d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a05d28951ba6d62a27d6469639caae46d">print</a> (unsigned char data, int base=10)</td></tr>
+<tr class="separator:a05d28951ba6d62a27d6469639caae46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57007591fd2d52ba6bbff344bd301274"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a57007591fd2d52ba6bbff344bd301274">print</a> (float data, int digit=8)</td></tr>
+<tr class="separator:a57007591fd2d52ba6bbff344bd301274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a40d8d56533250477fd5746f75c5c7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a02a40d8d56533250477fd5746f75c5c7">print</a> (const char *data)</td></tr>
+<tr class="separator:a02a40d8d56533250477fd5746f75c5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ec17435657e505dad442fb72c17735"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a81ec17435657e505dad442fb72c17735">println</a> ()</td></tr>
+<tr class="separator:a81ec17435657e505dad442fb72c17735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memTemplParams" colspan="2">template&lt;class freeType &gt; </td></tr>
+<tr class="memitem:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4e8d52da1bb5498ee3125ff9e5cd9b17">println</a> (freeType data)</td></tr>
+<tr class="separator:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d206172665cc85f4099024517da00e6"><td class="memTemplParams" colspan="2">template&lt;class freeType1 , class freeType2 &gt; </td></tr>
+<tr class="memitem:a4d206172665cc85f4099024517da00e6"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4d206172665cc85f4099024517da00e6">println</a> (freeType1 data1, freeType2 data2)</td></tr>
+<tr class="separator:a4d206172665cc85f4099024517da00e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a373ffd112562f9d5b6ab1aac9d7b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a24a373ffd112562f9d5b6ab1aac9d7b3">TransceiverQueue</a> ()</td></tr>
+<tr class="separator:a24a373ffd112562f9d5b6ab1aac9d7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad027b36e3fe7efb8b62112990c320f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ad027b36e3fe7efb8b62112990c320f32">TransceiverQueue</a> (uint16_t txBufferNum, uint16_t rxBufferNum)</td></tr>
+<tr class="separator:ad027b36e3fe7efb8b62112990c320f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108ff47f8ef73be4d0b62e804c573a44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a108ff47f8ef73be4d0b62e804c573a44">init</a> (uint16_t txBufferNum, uint16_t rxBufferNum)</td></tr>
+<tr class="separator:a108ff47f8ef73be4d0b62e804c573a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b6448e3afbeefee724b05834d0d7d4"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a91b6448e3afbeefee724b05834d0d7d4">txIn</a> (char data)</td></tr>
+<tr class="separator:a91b6448e3afbeefee724b05834d0d7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b85fc118db1d8f725fd5381796ecfa4"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9b85fc118db1d8f725fd5381796ecfa4">txOut</a> ()</td></tr>
+<tr class="separator:a9b85fc118db1d8f725fd5381796ecfa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bf99a40f7f716d3232354c204cfcfb"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a10bf99a40f7f716d3232354c204cfcfb">rxIn</a> (char data)</td></tr>
+<tr class="separator:a10bf99a40f7f716d3232354c204cfcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf38d60ebe16eed75438f919e05452b5"><td class="memItemLeft" align="right" valign="top">virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#adf38d60ebe16eed75438f919e05452b5">rxOut</a> ()</td></tr>
+<tr class="separator:adf38d60ebe16eed75438f919e05452b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d36c874456b2600faf18d820232b8c8"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a0d36c874456b2600faf18d820232b8c8">cmdCheckQueue</a> (const char *trueCmd, char *resultStrage)</td></tr>
+<tr class="separator:a0d36c874456b2600faf18d820232b8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f4196f7feedc60d7286004781099a81"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a7f4196f7feedc60d7286004781099a81">read</a> ()</td></tr>
+<tr class="separator:a7f4196f7feedc60d7286004781099a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memTemplParams" colspan="2">template&lt;class freeType &gt; </td></tr>
+<tr class="memitem:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a062c3ad7d88a92fd7b64b2b83881c53a">read</a> (char *dataPath, freeType <a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a>)</td></tr>
+<tr class="separator:a062c3ad7d88a92fd7b64b2b83881c53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4209b380d4faef271b69fd281937734a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4209b380d4faef271b69fd281937734a">read</a> (char *dataPath, char stopData)</td></tr>
+<tr class="separator:a4209b380d4faef271b69fd281937734a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e56c7f8a81a4fb33283129e6d42d5fb"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a2e56c7f8a81a4fb33283129e6d42d5fb">readStr</a> (char *strPath)</td></tr>
+<tr class="separator:a2e56c7f8a81a4fb33283129e6d42d5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edc089ccf4fae4791e33dfa0d5fc99e"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a3edc089ccf4fae4791e33dfa0d5fc99e">readStrInt</a> (char stopData='\0')</td></tr>
+<tr class="separator:a3edc089ccf4fae4791e33dfa0d5fc99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c7ed8f07d3991806d5dce3fafb07ac"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#aa5c7ed8f07d3991806d5dce3fafb07ac">readStrFloat</a> (char stopData='\0')</td></tr>
+<tr class="separator:aa5c7ed8f07d3991806d5dce3fafb07ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391b84488abdda3b547c1f8f8800696f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a391b84488abdda3b547c1f8f8800696f">write</a> (char data)</td></tr>
+<tr class="separator:a391b84488abdda3b547c1f8f8800696f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481cccde6c3978deeed66d8c806d880f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a481cccde6c3978deeed66d8c806d880f">write</a> (char *buf, uint16_t size)</td></tr>
+<tr class="separator:a481cccde6c3978deeed66d8c806d880f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ddcece3b78312014a534854cb6bbdbf"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4ddcece3b78312014a534854cb6bbdbf">write</a> (char *str)</td></tr>
+<tr class="separator:a4ddcece3b78312014a534854cb6bbdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733eb311be1914cee007bbd70eb1b8a8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a733eb311be1914cee007bbd70eb1b8a8">write</a> (const char *data)</td></tr>
+<tr class="separator:a733eb311be1914cee007bbd70eb1b8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62b226723755648e15a3bce8db38285"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ab62b226723755648e15a3bce8db38285">print</a> (unsigned long n, int base=10)</td></tr>
+<tr class="separator:ab62b226723755648e15a3bce8db38285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba7e2ee1a26c1cc984d02092db3cf12"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9ba7e2ee1a26c1cc984d02092db3cf12">print</a> (long n, int base=10)</td></tr>
+<tr class="separator:a9ba7e2ee1a26c1cc984d02092db3cf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362f775ec50c8bed9e16829e463c29f1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a362f775ec50c8bed9e16829e463c29f1">print</a> (double num, int digits=8)</td></tr>
+<tr class="separator:a362f775ec50c8bed9e16829e463c29f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a1fd4d69cb79e1eb5ce089fe9d4a0b2c5">print</a> (char data)</td></tr>
+<tr class="separator:a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a330167e48c9819c0781a32c9e5ef55"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a9a330167e48c9819c0781a32c9e5ef55">print</a> (char *data, int <a class="el" href="class_transceiver_queue.html#a06f5ed1232059dba8f25ce8dc3ce941f">len</a>)</td></tr>
+<tr class="separator:a9a330167e48c9819c0781a32c9e5ef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550fe9b6595e36ab3ad36c0527ba3c71"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a550fe9b6595e36ab3ad36c0527ba3c71">print</a> (char *str)</td></tr>
+<tr class="separator:a550fe9b6595e36ab3ad36c0527ba3c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f86966afbfa3ad3248ad26fac084fd1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a6f86966afbfa3ad3248ad26fac084fd1">print</a> (bool data)</td></tr>
+<tr class="separator:a6f86966afbfa3ad3248ad26fac084fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769d1db54591f638654587107344014d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a769d1db54591f638654587107344014d">print</a> (int data, int base=10)</td></tr>
+<tr class="separator:a769d1db54591f638654587107344014d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285e68c72dd9152ab40ad03fe8868d46"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a285e68c72dd9152ab40ad03fe8868d46">print</a> (unsigned int data, int base=10)</td></tr>
+<tr class="separator:a285e68c72dd9152ab40ad03fe8868d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d28951ba6d62a27d6469639caae46d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a05d28951ba6d62a27d6469639caae46d">print</a> (unsigned char data, int base=10)</td></tr>
+<tr class="separator:a05d28951ba6d62a27d6469639caae46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57007591fd2d52ba6bbff344bd301274"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a57007591fd2d52ba6bbff344bd301274">print</a> (float data, int digit=8)</td></tr>
+<tr class="separator:a57007591fd2d52ba6bbff344bd301274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a40d8d56533250477fd5746f75c5c7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a02a40d8d56533250477fd5746f75c5c7">print</a> (const char *data)</td></tr>
+<tr class="separator:a02a40d8d56533250477fd5746f75c5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ec17435657e505dad442fb72c17735"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a81ec17435657e505dad442fb72c17735">println</a> ()</td></tr>
+<tr class="separator:a81ec17435657e505dad442fb72c17735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memTemplParams" colspan="2">template&lt;class freeType &gt; </td></tr>
+<tr class="memitem:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4e8d52da1bb5498ee3125ff9e5cd9b17">println</a> (freeType data)</td></tr>
+<tr class="separator:a4e8d52da1bb5498ee3125ff9e5cd9b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d206172665cc85f4099024517da00e6"><td class="memTemplParams" colspan="2">template&lt;class freeType1 , class freeType2 &gt; </td></tr>
+<tr class="memitem:a4d206172665cc85f4099024517da00e6"><td class="memTemplItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a4d206172665cc85f4099024517da00e6">println</a> (freeType1 data1, freeType2 data2)</td></tr>
+<tr class="separator:a4d206172665cc85f4099024517da00e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:ae48aa969e7f14e99e20f30a479688a09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ring_array.html">RingArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ae48aa969e7f14e99e20f30a479688a09">transmitter</a></td></tr>
+<tr class="separator:ae48aa969e7f14e99e20f30a479688a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af938797bb606600023136fb6dfa86a79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ring_array.html">RingArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#af938797bb606600023136fb6dfa86a79">receiver</a></td></tr>
+<tr class="separator:af938797bb606600023136fb6dfa86a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b9c60e51dd4b4450058e3410de8444"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_queue.html">Queue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#ab9b9c60e51dd4b4450058e3410de8444">transmitter</a></td></tr>
+<tr class="separator:ab9b9c60e51dd4b4450058e3410de8444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c747cf3a46e66d6ee035442cb26210"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_queue.html">Queue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transceiver_queue.html#a02c747cf3a46e66d6ee035442cb26210">receiver</a></td></tr>
+<tr class="separator:a02c747cf3a46e66d6ee035442cb26210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a24a373ffd112562f9d5b6ab1aac9d7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a373ffd112562f9d5b6ab1aac9d7b3">&#9670;&nbsp;</a></span>TransceiverQueue() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TransceiverQueue::TransceiverQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad027b36e3fe7efb8b62112990c320f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad027b36e3fe7efb8b62112990c320f32">&#9670;&nbsp;</a></span>TransceiverQueue() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TransceiverQueue::TransceiverQueue </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>txBufferNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rxBufferNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24a373ffd112562f9d5b6ab1aac9d7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a373ffd112562f9d5b6ab1aac9d7b3">&#9670;&nbsp;</a></span>TransceiverQueue() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TransceiverQueue::TransceiverQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad027b36e3fe7efb8b62112990c320f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad027b36e3fe7efb8b62112990c320f32">&#9670;&nbsp;</a></span>TransceiverQueue() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TransceiverQueue::TransceiverQueue </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>txBufferNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rxBufferNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a0d36c874456b2600faf18d820232b8c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d36c874456b2600faf18d820232b8c8">&#9670;&nbsp;</a></span>cmdCheckQueue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t TransceiverQueue::cmdCheckQueue </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>trueCmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>resultStrage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d36c874456b2600faf18d820232b8c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d36c874456b2600faf18d820232b8c8">&#9670;&nbsp;</a></span>cmdCheckQueue() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t TransceiverQueue::cmdCheckQueue </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>trueCmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>resultStrage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a108ff47f8ef73be4d0b62e804c573a44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108ff47f8ef73be4d0b62e804c573a44">&#9670;&nbsp;</a></span>init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TransceiverQueue::init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>txBufferNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rxBufferNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a108ff47f8ef73be4d0b62e804c573a44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108ff47f8ef73be4d0b62e804c573a44">&#9670;&nbsp;</a></span>init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TransceiverQueue::init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>txBufferNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rxBufferNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06f5ed1232059dba8f25ce8dc3ce941f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f5ed1232059dba8f25ce8dc3ce941f">&#9670;&nbsp;</a></span>len()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t TransceiverQueue::len </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab62b226723755648e15a3bce8db38285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62b226723755648e15a3bce8db38285">&#9670;&nbsp;</a></span>print() <span class="overload">[1/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ba7e2ee1a26c1cc984d02092db3cf12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba7e2ee1a26c1cc984d02092db3cf12">&#9670;&nbsp;</a></span>print() <span class="overload">[2/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a362f775ec50c8bed9e16829e463c29f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a362f775ec50c8bed9e16829e463c29f1">&#9670;&nbsp;</a></span>print() <span class="overload">[3/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>digits</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd4d69cb79e1eb5ce089fe9d4a0b2c5">&#9670;&nbsp;</a></span>print() <span class="overload">[4/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab62b226723755648e15a3bce8db38285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62b226723755648e15a3bce8db38285">&#9670;&nbsp;</a></span>print() <span class="overload">[5/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a330167e48c9819c0781a32c9e5ef55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a330167e48c9819c0781a32c9e5ef55">&#9670;&nbsp;</a></span>print() <span class="overload">[6/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ba7e2ee1a26c1cc984d02092db3cf12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba7e2ee1a26c1cc984d02092db3cf12">&#9670;&nbsp;</a></span>print() <span class="overload">[7/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a550fe9b6595e36ab3ad36c0527ba3c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550fe9b6595e36ab3ad36c0527ba3c71">&#9670;&nbsp;</a></span>print() <span class="overload">[8/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a362f775ec50c8bed9e16829e463c29f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a362f775ec50c8bed9e16829e463c29f1">&#9670;&nbsp;</a></span>print() <span class="overload">[9/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>digits</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fd4d69cb79e1eb5ce089fe9d4a0b2c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd4d69cb79e1eb5ce089fe9d4a0b2c5">&#9670;&nbsp;</a></span>print() <span class="overload">[10/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f86966afbfa3ad3248ad26fac084fd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f86966afbfa3ad3248ad26fac084fd1">&#9670;&nbsp;</a></span>print() <span class="overload">[11/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a330167e48c9819c0781a32c9e5ef55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a330167e48c9819c0781a32c9e5ef55">&#9670;&nbsp;</a></span>print() <span class="overload">[12/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a550fe9b6595e36ab3ad36c0527ba3c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550fe9b6595e36ab3ad36c0527ba3c71">&#9670;&nbsp;</a></span>print() <span class="overload">[13/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a769d1db54591f638654587107344014d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769d1db54591f638654587107344014d">&#9670;&nbsp;</a></span>print() <span class="overload">[14/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a285e68c72dd9152ab40ad03fe8868d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285e68c72dd9152ab40ad03fe8868d46">&#9670;&nbsp;</a></span>print() <span class="overload">[15/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05d28951ba6d62a27d6469639caae46d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d28951ba6d62a27d6469639caae46d">&#9670;&nbsp;</a></span>print() <span class="overload">[16/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57007591fd2d52ba6bbff344bd301274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57007591fd2d52ba6bbff344bd301274">&#9670;&nbsp;</a></span>print() <span class="overload">[17/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>digit</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02a40d8d56533250477fd5746f75c5c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a40d8d56533250477fd5746f75c5c7">&#9670;&nbsp;</a></span>print() <span class="overload">[18/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f86966afbfa3ad3248ad26fac084fd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f86966afbfa3ad3248ad26fac084fd1">&#9670;&nbsp;</a></span>print() <span class="overload">[19/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a769d1db54591f638654587107344014d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769d1db54591f638654587107344014d">&#9670;&nbsp;</a></span>print() <span class="overload">[20/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a285e68c72dd9152ab40ad03fe8868d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285e68c72dd9152ab40ad03fe8868d46">&#9670;&nbsp;</a></span>print() <span class="overload">[21/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05d28951ba6d62a27d6469639caae46d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d28951ba6d62a27d6469639caae46d">&#9670;&nbsp;</a></span>print() <span class="overload">[22/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57007591fd2d52ba6bbff344bd301274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57007591fd2d52ba6bbff344bd301274">&#9670;&nbsp;</a></span>print() <span class="overload">[23/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>digit</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02a40d8d56533250477fd5746f75c5c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a40d8d56533250477fd5746f75c5c7">&#9670;&nbsp;</a></span>print() <span class="overload">[24/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::print </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81ec17435657e505dad442fb72c17735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ec17435657e505dad442fb72c17735">&#9670;&nbsp;</a></span>println() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e8d52da1bb5498ee3125ff9e5cd9b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e8d52da1bb5498ee3125ff9e5cd9b17">&#9670;&nbsp;</a></span>println() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramtype">freeType&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d206172665cc85f4099024517da00e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d206172665cc85f4099024517da00e6">&#9670;&nbsp;</a></span>println() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType1 , class freeType2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramtype">freeType1&#160;</td>
+          <td class="paramname"><em>data1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">freeType2&#160;</td>
+          <td class="paramname"><em>data2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81ec17435657e505dad442fb72c17735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ec17435657e505dad442fb72c17735">&#9670;&nbsp;</a></span>println() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e8d52da1bb5498ee3125ff9e5cd9b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e8d52da1bb5498ee3125ff9e5cd9b17">&#9670;&nbsp;</a></span>println() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramtype">freeType&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d206172665cc85f4099024517da00e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d206172665cc85f4099024517da00e6">&#9670;&nbsp;</a></span>println() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType1 , class freeType2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::println </td>
+          <td>(</td>
+          <td class="paramtype">freeType1&#160;</td>
+          <td class="paramname"><em>data1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">freeType2&#160;</td>
+          <td class="paramname"><em>data2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f4196f7feedc60d7286004781099a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f4196f7feedc60d7286004781099a81">&#9670;&nbsp;</a></span>read() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f4196f7feedc60d7286004781099a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f4196f7feedc60d7286004781099a81">&#9670;&nbsp;</a></span>read() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a062c3ad7d88a92fd7b64b2b83881c53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062c3ad7d88a92fd7b64b2b83881c53a">&#9670;&nbsp;</a></span>read() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dataPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">freeType&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a062c3ad7d88a92fd7b64b2b83881c53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062c3ad7d88a92fd7b64b2b83881c53a">&#9670;&nbsp;</a></span>read() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dataPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">freeType&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4209b380d4faef271b69fd281937734a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4209b380d4faef271b69fd281937734a">&#9670;&nbsp;</a></span>read() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dataPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4209b380d4faef271b69fd281937734a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4209b380d4faef271b69fd281937734a">&#9670;&nbsp;</a></span>read() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dataPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98901013161ad7d66f7b91dfdcd0c13d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98901013161ad7d66f7b91dfdcd0c13d">&#9670;&nbsp;</a></span>read() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class freeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::read </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>zero</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">freeType&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e56c7f8a81a4fb33283129e6d42d5fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e56c7f8a81a4fb33283129e6d42d5fb">&#9670;&nbsp;</a></span>readStr() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::readStr </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>strPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e56c7f8a81a4fb33283129e6d42d5fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e56c7f8a81a4fb33283129e6d42d5fb">&#9670;&nbsp;</a></span>readStr() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::readStr </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>strPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5c7ed8f07d3991806d5dce3fafb07ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c7ed8f07d3991806d5dce3fafb07ac">&#9670;&nbsp;</a></span>readStrFloat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TransceiverQueue::readStrFloat </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em> = <code>'\0'</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5c7ed8f07d3991806d5dce3fafb07ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c7ed8f07d3991806d5dce3fafb07ac">&#9670;&nbsp;</a></span>readStrFloat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TransceiverQueue::readStrFloat </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em> = <code>'\0'</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3edc089ccf4fae4791e33dfa0d5fc99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edc089ccf4fae4791e33dfa0d5fc99e">&#9670;&nbsp;</a></span>readStrInt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t TransceiverQueue::readStrInt </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em> = <code>'\0'</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3edc089ccf4fae4791e33dfa0d5fc99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edc089ccf4fae4791e33dfa0d5fc99e">&#9670;&nbsp;</a></span>readStrInt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t TransceiverQueue::readStrInt </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>stopData</em> = <code>'\0'</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10bf99a40f7f716d3232354c204cfcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10bf99a40f7f716d3232354c204cfcfb">&#9670;&nbsp;</a></span>rxIn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::rxIn </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10bf99a40f7f716d3232354c204cfcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10bf99a40f7f716d3232354c204cfcfb">&#9670;&nbsp;</a></span>rxIn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::rxIn </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf38d60ebe16eed75438f919e05452b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf38d60ebe16eed75438f919e05452b5">&#9670;&nbsp;</a></span>rxOut() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::rxOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_i2c_1_1_i2c_transceiver.html#aa47289a28b193da3d9f18169639ff84b">I2c::I2cTransceiver</a>, <a class="el" href="class_i2c_1_1_i2c_transceiver.html#aa47289a28b193da3d9f18169639ff84b">I2c::I2cTransceiver</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="adf38d60ebe16eed75438f919e05452b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf38d60ebe16eed75438f919e05452b5">&#9670;&nbsp;</a></span>rxOut() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::rxOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_i2c_1_1_i2c_transceiver.html#aa47289a28b193da3d9f18169639ff84b">I2c::I2cTransceiver</a>, <a class="el" href="class_i2c_1_1_i2c_transceiver.html#aa47289a28b193da3d9f18169639ff84b">I2c::I2cTransceiver</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="a91b6448e3afbeefee724b05834d0d7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91b6448e3afbeefee724b05834d0d7d4">&#9670;&nbsp;</a></span>txIn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::txIn </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_uart.html#aa1e341efdaa539be9c5e41a8c0b81bec">Uart</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="a91b6448e3afbeefee724b05834d0d7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91b6448e3afbeefee724b05834d0d7d4">&#9670;&nbsp;</a></span>txIn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::txIn </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_uart.html#aa1e341efdaa539be9c5e41a8c0b81bec">Uart</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="a9b85fc118db1d8f725fd5381796ecfa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b85fc118db1d8f725fd5381796ecfa4">&#9670;&nbsp;</a></span>txOut() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::txOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b85fc118db1d8f725fd5381796ecfa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b85fc118db1d8f725fd5381796ecfa4">&#9670;&nbsp;</a></span>txOut() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int16_t TransceiverQueue::txOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a391b84488abdda3b547c1f8f8800696f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391b84488abdda3b547c1f8f8800696f">&#9670;&nbsp;</a></span>write() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a481cccde6c3978deeed66d8c806d880f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a481cccde6c3978deeed66d8c806d880f">&#9670;&nbsp;</a></span>write() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ddcece3b78312014a534854cb6bbdbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddcece3b78312014a534854cb6bbdbf">&#9670;&nbsp;</a></span>write() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a391b84488abdda3b547c1f8f8800696f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391b84488abdda3b547c1f8f8800696f">&#9670;&nbsp;</a></span>write() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a733eb311be1914cee007bbd70eb1b8a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733eb311be1914cee007bbd70eb1b8a8">&#9670;&nbsp;</a></span>write() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a481cccde6c3978deeed66d8c806d880f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a481cccde6c3978deeed66d8c806d880f">&#9670;&nbsp;</a></span>write() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ddcece3b78312014a534854cb6bbdbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddcece3b78312014a534854cb6bbdbf">&#9670;&nbsp;</a></span>write() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a733eb311be1914cee007bbd70eb1b8a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733eb311be1914cee007bbd70eb1b8a8">&#9670;&nbsp;</a></span>write() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t TransceiverQueue::write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="af938797bb606600023136fb6dfa86a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af938797bb606600023136fb6dfa86a79">&#9670;&nbsp;</a></span>receiver <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ring_array.html">RingArray</a> TransceiverQueue::receiver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02c747cf3a46e66d6ee035442cb26210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c747cf3a46e66d6ee035442cb26210">&#9670;&nbsp;</a></span>receiver <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_queue.html">Queue</a> TransceiverQueue::receiver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9b9c60e51dd4b4450058e3410de8444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9b9c60e51dd4b4450058e3410de8444">&#9670;&nbsp;</a></span>transmitter <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_queue.html">Queue</a> TransceiverQueue::transmitter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae48aa969e7f14e99e20f30a479688a09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48aa969e7f14e99e20f30a479688a09">&#9670;&nbsp;</a></span>transmitter <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ring_array.html">RingArray</a> TransceiverQueue::transmitter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/lss/OneDrive/Documents/AVR/library/<a class="el" href="_t_r_a_n_s_c_e_i_v_e_r___q_u_e_u_e_8cpp.html">TRANSCEIVER_QUEUE.cpp</a></li>
+<li>C:/Users/lss/OneDrive/Documents/AVR/library/<a class="el" href="_t_r_a_n_s_c_e_i_v_e_r___q_u_e_u_e3_8cpp.html">TRANSCEIVER_QUEUE3.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

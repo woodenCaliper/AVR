@@ -1,0 +1,1033 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>msAVR_library: C:/Users/lss/OneDrive/Documents/AVR/library/BIT_CTRL_test.cpp ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">msAVR_library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e3d620c6b6fdb93ed3bc6186215bde2e.html">library</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<div class="title">BIT_CTRL_test.cpp ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structavr_pin.html">avrPin</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a28d2c38274954b355fd226f6b2a75ac7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a28d2c38274954b355fd226f6b2a75ac7">BIT_CTRL_H_</a></td></tr>
+<tr class="separator:a28d2c38274954b355fd226f6b2a75ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270f379056af25a9d9a5f5af222ffc06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a270f379056af25a9d9a5f5af222ffc06">sbi</a>(PORT,  BIT)&#160;&#160;&#160;(PORT |= (1&lt;&lt;BIT))</td></tr>
+<tr class="separator:a270f379056af25a9d9a5f5af222ffc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f357ddca1501d1d895c91b0c84a9e22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a8f357ddca1501d1d895c91b0c84a9e22">cbi</a>(PORT,  BIT)&#160;&#160;&#160;(PORT &amp;=~(1&lt;&lt;BIT))</td></tr>
+<tr class="separator:a8f357ddca1501d1d895c91b0c84a9e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02abe006e9561449a97eb7483b3b3450"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a02abe006e9561449a97eb7483b3b3450">changeBit</a>(PORT,  BIT,  result)&#160;&#160;&#160;(PORT = (PORT &amp; ~(1&lt;&lt;BIT)) | (result&lt;&lt;BIT) )</td></tr>
+<tr class="separator:a02abe006e9561449a97eb7483b3b3450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4809208eab98bea91413051638496f41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a4809208eab98bea91413051638496f41">checkBit</a>(PIN,  BIT)&#160;&#160;&#160;((PIN &gt;&gt; BIT) &amp; 1)</td></tr>
+<tr class="separator:a4809208eab98bea91413051638496f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad77235fc0ccfe587bf54f2cb4a5d4e15"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#ad77235fc0ccfe587bf54f2cb4a5d4e15">toggleBit</a>(PORT,  BIT)&#160;&#160;&#160;(PORT ^= (1&lt;&lt;BIT))</td></tr>
+<tr class="separator:ad77235fc0ccfe587bf54f2cb4a5d4e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d982187295f6493a2c7dfbb82621d4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a3d982187295f6493a2c7dfbb82621d4f">changebyte</a>(fromByte,  toByte,  mask_bits)&#160;&#160;&#160;fromByte=(((toByte&amp;mask_bits)|fromByte)&amp;(~mask_bits|toByte))</td></tr>
+<tr class="separator:a3d982187295f6493a2c7dfbb82621d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a3899356962737cf1cdb5f73abdf250f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a3899356962737cf1cdb5f73abdf250f2">pinMode</a> (uint8_t pinNum, uint8_t mode)</td></tr>
+<tr class="memdesc:a3899356962737cf1cdb5f73abdf250f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">入出力の設定(DDR操作)を行う  <a href="#a3899356962737cf1cdb5f73abdf250f2">[詳解]</a><br /></td></tr>
+<tr class="separator:a3899356962737cf1cdb5f73abdf250f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5165e80451c5e1b978d0380a4cff61ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a5165e80451c5e1b978d0380a4cff61ea">pinOutput</a> (uint8_t pinNum, uint8_t output)</td></tr>
+<tr class="memdesc:a5165e80451c5e1b978d0380a4cff61ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力状態の設定(PORT操作)を行う  <a href="#a5165e80451c5e1b978d0380a4cff61ea">[詳解]</a><br /></td></tr>
+<tr class="separator:a5165e80451c5e1b978d0380a4cff61ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b8cfdcfe5c030e917cbc8ffaae42325"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a9b8cfdcfe5c030e917cbc8ffaae42325">pinPullup</a> (uint8_t pinNum, uint8_t pullup)</td></tr>
+<tr class="memdesc:a9b8cfdcfe5c030e917cbc8ffaae42325"><td class="mdescLeft">&#160;</td><td class="mdescRight">プルアップ状態の設定(PORT操作)を行う  <a href="#a9b8cfdcfe5c030e917cbc8ffaae42325">[詳解]</a><br /></td></tr>
+<tr class="separator:a9b8cfdcfe5c030e917cbc8ffaae42325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f22a6883a881ee1c664f714e78078a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a04f22a6883a881ee1c664f714e78078a">readInput</a> (uint8_t pinNum)</td></tr>
+<tr class="memdesc:a04f22a6883a881ee1c664f714e78078a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピンの入力の読み込み(PIN読み込み)を行う  <a href="#a04f22a6883a881ee1c664f714e78078a">[詳解]</a><br /></td></tr>
+<tr class="separator:a04f22a6883a881ee1c664f714e78078a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:af34849b51ea0b86fc78376fad0c29587"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#af34849b51ea0b86fc78376fad0c29587">avrPinB0</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000001}</td></tr>
+<tr class="separator:af34849b51ea0b86fc78376fad0c29587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfce3faa8bbbef52a8d632a2ff239332"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#adfce3faa8bbbef52a8d632a2ff239332">avrPinB1</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000010}</td></tr>
+<tr class="separator:adfce3faa8bbbef52a8d632a2ff239332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b433d1b5b59bef19cfe07c83e16d01"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#ab5b433d1b5b59bef19cfe07c83e16d01">avrPinB2</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000100}</td></tr>
+<tr class="separator:ab5b433d1b5b59bef19cfe07c83e16d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a41c2d46750a83825210159d23ebc6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a61a41c2d46750a83825210159d23ebc6">avrPinB3</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00001000}</td></tr>
+<tr class="separator:a61a41c2d46750a83825210159d23ebc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2370d42b7613feb8d774ae871b1ad141"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a2370d42b7613feb8d774ae871b1ad141">avrPinB4</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00010000}</td></tr>
+<tr class="separator:a2370d42b7613feb8d774ae871b1ad141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cdb1447fd167999af4b6f2cb08c0e20"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a6cdb1447fd167999af4b6f2cb08c0e20">avrPinB5</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00100000}</td></tr>
+<tr class="separator:a6cdb1447fd167999af4b6f2cb08c0e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbc610e71464825418572eafd67cf9b8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#adbc610e71464825418572eafd67cf9b8">avrPinB6</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b01000000}</td></tr>
+<tr class="separator:adbc610e71464825418572eafd67cf9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab054731eadec554138dba7e27bc2eeb1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#ab054731eadec554138dba7e27bc2eeb1">avrPinB7</a> = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b10000000}</td></tr>
+<tr class="separator:ab054731eadec554138dba7e27bc2eeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba535e301bbab1de6097a143465b8b2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#acba535e301bbab1de6097a143465b8b2">avrPinC0</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000001}</td></tr>
+<tr class="separator:acba535e301bbab1de6097a143465b8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e4c8ba92c3baabff140be674ea775a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a90e4c8ba92c3baabff140be674ea775a">avrPinC1</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000010}</td></tr>
+<tr class="separator:a90e4c8ba92c3baabff140be674ea775a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ca748ea5960cc7fbd06033cf52756f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a35ca748ea5960cc7fbd06033cf52756f">avrPinC2</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000100}</td></tr>
+<tr class="separator:a35ca748ea5960cc7fbd06033cf52756f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d1deed18b1333ebe1bf2b7840c2be4a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a9d1deed18b1333ebe1bf2b7840c2be4a">avrPinC3</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00001000}</td></tr>
+<tr class="separator:a9d1deed18b1333ebe1bf2b7840c2be4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf22a2a55b5f1f9c87d9757d1fb4ece9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#adf22a2a55b5f1f9c87d9757d1fb4ece9">avrPinC4</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00010000}</td></tr>
+<tr class="separator:adf22a2a55b5f1f9c87d9757d1fb4ece9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eee2a0383cb0f1bd05d7ee8376f148b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a7eee2a0383cb0f1bd05d7ee8376f148b">avrPinC5</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00100000}</td></tr>
+<tr class="separator:a7eee2a0383cb0f1bd05d7ee8376f148b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d7b5873b999b3775aff6cf1021c0618"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a6d7b5873b999b3775aff6cf1021c0618">avrPinC6</a> = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b01000000}</td></tr>
+<tr class="separator:a6d7b5873b999b3775aff6cf1021c0618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f0f45c93013a5c7a569632eaa60df5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a24f0f45c93013a5c7a569632eaa60df5">avrPinD0</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000001}</td></tr>
+<tr class="separator:a24f0f45c93013a5c7a569632eaa60df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232687f9ccf8eec275de2c6a9f1d9717"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a232687f9ccf8eec275de2c6a9f1d9717">avrPinD1</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000010}</td></tr>
+<tr class="separator:a232687f9ccf8eec275de2c6a9f1d9717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3adbfbf651d12c87e1ed51b7d236680e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a3adbfbf651d12c87e1ed51b7d236680e">avrPinD2</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000100}</td></tr>
+<tr class="separator:a3adbfbf651d12c87e1ed51b7d236680e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114eea4f8f8a3df8be38f77f2e0653d7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a114eea4f8f8a3df8be38f77f2e0653d7">avrPinD3</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00001000}</td></tr>
+<tr class="separator:a114eea4f8f8a3df8be38f77f2e0653d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e4da3aec125837f51d0f8c5c0570b0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a10e4da3aec125837f51d0f8c5c0570b0">avrPinD4</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00010000}</td></tr>
+<tr class="separator:a10e4da3aec125837f51d0f8c5c0570b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847ffab5bccb00119d9106da39b3bf9c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a847ffab5bccb00119d9106da39b3bf9c">avrPinD5</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00100000}</td></tr>
+<tr class="separator:a847ffab5bccb00119d9106da39b3bf9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab26c246cc7d0a2c51b9b8da2c8de4cd9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#ab26c246cc7d0a2c51b9b8da2c8de4cd9">avrPinD6</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b01000000}</td></tr>
+<tr class="separator:ab26c246cc7d0a2c51b9b8da2c8de4cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8d2a1757357f3a65d3e5ee82e24069"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#aad8d2a1757357f3a65d3e5ee82e24069">avrPinD7</a> = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b10000000}</td></tr>
+<tr class="separator:aad8d2a1757357f3a65d3e5ee82e24069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bdf626739d3fe32214cd8a0e999872e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a> = {0,0,0,0}</td></tr>
+<tr class="separator:a3bdf626739d3fe32214cd8a0e999872e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7362e07402ff774ca5966fc19c55f8ea"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structavr_pin.html">avrPin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a7362e07402ff774ca5966fc19c55f8ea">avrPins</a> [28]</td></tr>
+<tr class="separator:a7362e07402ff774ca5966fc19c55f8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a710a64e4af5fa5bb5c170951bc29f57f"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a710a64e4af5fa5bb5c170951bc29f57f">MODE_INPUT</a> =0</td></tr>
+<tr class="separator:a710a64e4af5fa5bb5c170951bc29f57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5652fcd0abcd8a362768488961dab988"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a5652fcd0abcd8a362768488961dab988">MODE_OUTPUT</a> =1</td></tr>
+<tr class="separator:a5652fcd0abcd8a362768488961dab988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a327f8322bd1f92e336b1d7e2303dc52e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a327f8322bd1f92e336b1d7e2303dc52e">MODE_INPUT_PULLUP</a> =2</td></tr>
+<tr class="separator:a327f8322bd1f92e336b1d7e2303dc52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6aaeb817dc7c3bcb8dffe3127b06ee3"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#ac6aaeb817dc7c3bcb8dffe3127b06ee3">MODE_OUTPUT_LOW</a></td></tr>
+<tr class="separator:ac6aaeb817dc7c3bcb8dffe3127b06ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a693db03bd6d8fa3552e2547d9f267cb7"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a693db03bd6d8fa3552e2547d9f267cb7">OUTPUT_LOW</a> =0</td></tr>
+<tr class="separator:a693db03bd6d8fa3552e2547d9f267cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ab3b27418f9c2344487d45efc8f72e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a59ab3b27418f9c2344487d45efc8f72e">OUTPUT_HIGH</a> =1</td></tr>
+<tr class="separator:a59ab3b27418f9c2344487d45efc8f72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273427cd4020cdd7da699cd9a22a8c68"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#a273427cd4020cdd7da699cd9a22a8c68">PULLUP_OFF</a> =0</td></tr>
+<tr class="separator:a273427cd4020cdd7da699cd9a22a8c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5fad4bac15d20a3d8137e2ea3ab7e8e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_b_i_t___c_t_r_l__test_8cpp.html#aa5fad4bac15d20a3d8137e2ea3ab7e8e">PULLUP_ON</a> =1</td></tr>
+<tr class="separator:aa5fad4bac15d20a3d8137e2ea3ab7e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a28d2c38274954b355fd226f6b2a75ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d2c38274954b355fd226f6b2a75ac7">&#9670;&nbsp;</a></span>BIT_CTRL_H_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BIT_CTRL_H_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f357ddca1501d1d895c91b0c84a9e22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f357ddca1501d1d895c91b0c84a9e22">&#9670;&nbsp;</a></span>cbi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define cbi</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PORT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">BIT&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(PORT &amp;=~(1&lt;&lt;BIT))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02abe006e9561449a97eb7483b3b3450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02abe006e9561449a97eb7483b3b3450">&#9670;&nbsp;</a></span>changeBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define changeBit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PORT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">BIT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">result&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(PORT = (PORT &amp; ~(1&lt;&lt;BIT)) | (result&lt;&lt;BIT) )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d982187295f6493a2c7dfbb82621d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d982187295f6493a2c7dfbb82621d4f">&#9670;&nbsp;</a></span>changebyte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define changebyte</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fromByte, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">toByte, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">mask_bits&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;fromByte=(((toByte&amp;mask_bits)|fromByte)&amp;(~mask_bits|toByte))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4809208eab98bea91413051638496f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4809208eab98bea91413051638496f41">&#9670;&nbsp;</a></span>checkBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define checkBit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PIN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">BIT&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((PIN &gt;&gt; BIT) &amp; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a270f379056af25a9d9a5f5af222ffc06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270f379056af25a9d9a5f5af222ffc06">&#9670;&nbsp;</a></span>sbi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define sbi</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PORT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">BIT&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(PORT |= (1&lt;&lt;BIT))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad77235fc0ccfe587bf54f2cb4a5d4e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad77235fc0ccfe587bf54f2cb4a5d4e15">&#9670;&nbsp;</a></span>toggleBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define toggleBit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PORT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">BIT&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(PORT ^= (1&lt;&lt;BIT))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a3899356962737cf1cdb5f73abdf250f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3899356962737cf1cdb5f73abdf250f2">&#9670;&nbsp;</a></span>pinMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pinMode </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pinNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>入出力の設定(DDR操作)を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pinNum</td><td>実ピン番号 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>入出力の設定<br />
+ MODE_INPUT:入力設定<br />
+ MODE_OUTPUT:出力設定<br />
+ MODE_INPUT_PULLUP:入力設定&amp;プルアップ<br />
+ MODE_OUTPUT_LOW:出力設定&amp;出力LOW </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5165e80451c5e1b978d0380a4cff61ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5165e80451c5e1b978d0380a4cff61ea">&#9670;&nbsp;</a></span>pinOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pinOutput </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pinNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>出力状態の設定(PORT操作)を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pinNum</td><td>実ピン番号 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">output</td><td>出力の状態<br />
+ OUTPUT_LOW:Lowを出力<br />
+ OUTPUT_HIGH:Highを出力<br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b8cfdcfe5c030e917cbc8ffaae42325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b8cfdcfe5c030e917cbc8ffaae42325">&#9670;&nbsp;</a></span>pinPullup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pinPullup </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pinNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pullup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>プルアップ状態の設定(PORT操作)を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pinNum</td><td>実ピン番号 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pullup</td><td>プルアップの状態<br />
+ PULLUP_ON:プルアップ有効<br />
+ PULLUP_OFF:プルアップ無効<br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04f22a6883a881ee1c664f714e78078a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f22a6883a881ee1c664f714e78078a">&#9670;&nbsp;</a></span>readInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool readInput </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pinNum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ピンの入力の読み込み(PIN読み込み)を行う </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pinNum</td><td>実ピン番号 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool ピンの状態<br />
+ true:HIGH<br />
+ false:Low </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="af34849b51ea0b86fc78376fad0c29587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34849b51ea0b86fc78376fad0c29587">&#9670;&nbsp;</a></span>avrPinB0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB0 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000001}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfce3faa8bbbef52a8d632a2ff239332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfce3faa8bbbef52a8d632a2ff239332">&#9670;&nbsp;</a></span>avrPinB1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB1 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000010}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5b433d1b5b59bef19cfe07c83e16d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b433d1b5b59bef19cfe07c83e16d01">&#9670;&nbsp;</a></span>avrPinB2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB2 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00000100}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61a41c2d46750a83825210159d23ebc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a41c2d46750a83825210159d23ebc6">&#9670;&nbsp;</a></span>avrPinB3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB3 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00001000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2370d42b7613feb8d774ae871b1ad141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2370d42b7613feb8d774ae871b1ad141">&#9670;&nbsp;</a></span>avrPinB4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB4 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00010000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6cdb1447fd167999af4b6f2cb08c0e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cdb1447fd167999af4b6f2cb08c0e20">&#9670;&nbsp;</a></span>avrPinB5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB5 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b00100000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbc610e71464825418572eafd67cf9b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc610e71464825418572eafd67cf9b8">&#9670;&nbsp;</a></span>avrPinB6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB6 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b01000000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab054731eadec554138dba7e27bc2eeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab054731eadec554138dba7e27bc2eeb1">&#9670;&nbsp;</a></span>avrPinB7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinB7 = {&amp;DDRB, &amp;PORTB, &amp;PINB, 0b10000000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acba535e301bbab1de6097a143465b8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba535e301bbab1de6097a143465b8b2">&#9670;&nbsp;</a></span>avrPinC0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC0 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000001}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90e4c8ba92c3baabff140be674ea775a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e4c8ba92c3baabff140be674ea775a">&#9670;&nbsp;</a></span>avrPinC1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC1 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000010}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35ca748ea5960cc7fbd06033cf52756f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35ca748ea5960cc7fbd06033cf52756f">&#9670;&nbsp;</a></span>avrPinC2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC2 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00000100}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d1deed18b1333ebe1bf2b7840c2be4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d1deed18b1333ebe1bf2b7840c2be4a">&#9670;&nbsp;</a></span>avrPinC3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC3 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00001000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf22a2a55b5f1f9c87d9757d1fb4ece9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf22a2a55b5f1f9c87d9757d1fb4ece9">&#9670;&nbsp;</a></span>avrPinC4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC4 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00010000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7eee2a0383cb0f1bd05d7ee8376f148b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eee2a0383cb0f1bd05d7ee8376f148b">&#9670;&nbsp;</a></span>avrPinC5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC5 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b00100000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d7b5873b999b3775aff6cf1021c0618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d7b5873b999b3775aff6cf1021c0618">&#9670;&nbsp;</a></span>avrPinC6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinC6 = {&amp;DDRC, &amp;PORTC, &amp;PINC, 0b01000000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24f0f45c93013a5c7a569632eaa60df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f0f45c93013a5c7a569632eaa60df5">&#9670;&nbsp;</a></span>avrPinD0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD0 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000001}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a232687f9ccf8eec275de2c6a9f1d9717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232687f9ccf8eec275de2c6a9f1d9717">&#9670;&nbsp;</a></span>avrPinD1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD1 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000010}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3adbfbf651d12c87e1ed51b7d236680e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3adbfbf651d12c87e1ed51b7d236680e">&#9670;&nbsp;</a></span>avrPinD2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD2 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00000100}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a114eea4f8f8a3df8be38f77f2e0653d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114eea4f8f8a3df8be38f77f2e0653d7">&#9670;&nbsp;</a></span>avrPinD3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD3 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00001000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10e4da3aec125837f51d0f8c5c0570b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e4da3aec125837f51d0f8c5c0570b0">&#9670;&nbsp;</a></span>avrPinD4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD4 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00010000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a847ffab5bccb00119d9106da39b3bf9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847ffab5bccb00119d9106da39b3bf9c">&#9670;&nbsp;</a></span>avrPinD5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD5 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b00100000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab26c246cc7d0a2c51b9b8da2c8de4cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26c246cc7d0a2c51b9b8da2c8de4cd9">&#9670;&nbsp;</a></span>avrPinD6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD6 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b01000000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad8d2a1757357f3a65d3e5ee82e24069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8d2a1757357f3a65d3e5ee82e24069">&#9670;&nbsp;</a></span>avrPinD7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinD7 = {&amp;DDRD, &amp;PORTD, &amp;PIND, 0b10000000}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bdf626739d3fe32214cd8a0e999872e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bdf626739d3fe32214cd8a0e999872e">&#9670;&nbsp;</a></span>avrPinNull</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPinNull = {0,0,0,0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7362e07402ff774ca5966fc19c55f8ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7362e07402ff774ca5966fc19c55f8ea">&#9670;&nbsp;</a></span>avrPins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structavr_pin.html">avrPin</a> avrPins[28]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a6d7b5873b999b3775aff6cf1021c0618">avrPinC6</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a24f0f45c93013a5c7a569632eaa60df5">avrPinD0</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a232687f9ccf8eec275de2c6a9f1d9717">avrPinD1</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3adbfbf651d12c87e1ed51b7d236680e">avrPinD2</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a114eea4f8f8a3df8be38f77f2e0653d7">avrPinD3</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a10e4da3aec125837f51d0f8c5c0570b0">avrPinD4</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a>, </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a>, </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#adbc610e71464825418572eafd67cf9b8">avrPinB6</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#ab054731eadec554138dba7e27bc2eeb1">avrPinB7</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a847ffab5bccb00119d9106da39b3bf9c">avrPinD5</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#ab26c246cc7d0a2c51b9b8da2c8de4cd9">avrPinD6</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#aad8d2a1757357f3a65d3e5ee82e24069">avrPinD7</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#af34849b51ea0b86fc78376fad0c29587">avrPinB0</a>,   </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#adfce3faa8bbbef52a8d632a2ff239332">avrPinB1</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#ab5b433d1b5b59bef19cfe07c83e16d01">avrPinB2</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a61a41c2d46750a83825210159d23ebc6">avrPinB3</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a2370d42b7613feb8d774ae871b1ad141">avrPinB4</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a6cdb1447fd167999af4b6f2cb08c0e20">avrPinB5</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a>, </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a>, </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a>, </div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#acba535e301bbab1de6097a143465b8b2">avrPinC0</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a90e4c8ba92c3baabff140be674ea775a">avrPinC1</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a35ca748ea5960cc7fbd06033cf52756f">avrPinC2</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a9d1deed18b1333ebe1bf2b7840c2be4a">avrPinC3</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#adf22a2a55b5f1f9c87d9757d1fb4ece9">avrPinC4</a>,</div><div class="line">    <a class="code" href="_b_i_t___c_t_r_l__test_8cpp.html#a7eee2a0383cb0f1bd05d7ee8376f148b">avrPinC5</a>    </div><div class="line">}</div><div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_af34849b51ea0b86fc78376fad0c29587"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#af34849b51ea0b86fc78376fad0c29587">avrPinB0</a></div><div class="ttdeci">const avrPin avrPinB0</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:116</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a90e4c8ba92c3baabff140be674ea775a"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a90e4c8ba92c3baabff140be674ea775a">avrPinC1</a></div><div class="ttdeci">const avrPin avrPinC1</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:126</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_acba535e301bbab1de6097a143465b8b2"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#acba535e301bbab1de6097a143465b8b2">avrPinC0</a></div><div class="ttdeci">const avrPin avrPinC0</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:125</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_adbc610e71464825418572eafd67cf9b8"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#adbc610e71464825418572eafd67cf9b8">avrPinB6</a></div><div class="ttdeci">const avrPin avrPinB6</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:122</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a7eee2a0383cb0f1bd05d7ee8376f148b"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a7eee2a0383cb0f1bd05d7ee8376f148b">avrPinC5</a></div><div class="ttdeci">const avrPin avrPinC5</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:130</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a3adbfbf651d12c87e1ed51b7d236680e"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a3adbfbf651d12c87e1ed51b7d236680e">avrPinD2</a></div><div class="ttdeci">const avrPin avrPinD2</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:135</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a6cdb1447fd167999af4b6f2cb08c0e20"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a6cdb1447fd167999af4b6f2cb08c0e20">avrPinB5</a></div><div class="ttdeci">const avrPin avrPinB5</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:121</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a847ffab5bccb00119d9106da39b3bf9c"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a847ffab5bccb00119d9106da39b3bf9c">avrPinD5</a></div><div class="ttdeci">const avrPin avrPinD5</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:138</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a114eea4f8f8a3df8be38f77f2e0653d7"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a114eea4f8f8a3df8be38f77f2e0653d7">avrPinD3</a></div><div class="ttdeci">const avrPin avrPinD3</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:136</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a9d1deed18b1333ebe1bf2b7840c2be4a"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a9d1deed18b1333ebe1bf2b7840c2be4a">avrPinC3</a></div><div class="ttdeci">const avrPin avrPinC3</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:128</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a35ca748ea5960cc7fbd06033cf52756f"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a35ca748ea5960cc7fbd06033cf52756f">avrPinC2</a></div><div class="ttdeci">const avrPin avrPinC2</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:127</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a3bdf626739d3fe32214cd8a0e999872e"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a3bdf626739d3fe32214cd8a0e999872e">avrPinNull</a></div><div class="ttdeci">const avrPin avrPinNull</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:142</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_adfce3faa8bbbef52a8d632a2ff239332"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#adfce3faa8bbbef52a8d632a2ff239332">avrPinB1</a></div><div class="ttdeci">const avrPin avrPinB1</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:117</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_ab5b433d1b5b59bef19cfe07c83e16d01"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#ab5b433d1b5b59bef19cfe07c83e16d01">avrPinB2</a></div><div class="ttdeci">const avrPin avrPinB2</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:118</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_ab26c246cc7d0a2c51b9b8da2c8de4cd9"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#ab26c246cc7d0a2c51b9b8da2c8de4cd9">avrPinD6</a></div><div class="ttdeci">const avrPin avrPinD6</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:139</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a24f0f45c93013a5c7a569632eaa60df5"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a24f0f45c93013a5c7a569632eaa60df5">avrPinD0</a></div><div class="ttdeci">const avrPin avrPinD0</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:133</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a10e4da3aec125837f51d0f8c5c0570b0"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a10e4da3aec125837f51d0f8c5c0570b0">avrPinD4</a></div><div class="ttdeci">const avrPin avrPinD4</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:137</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a2370d42b7613feb8d774ae871b1ad141"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a2370d42b7613feb8d774ae871b1ad141">avrPinB4</a></div><div class="ttdeci">const avrPin avrPinB4</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:120</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_aad8d2a1757357f3a65d3e5ee82e24069"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#aad8d2a1757357f3a65d3e5ee82e24069">avrPinD7</a></div><div class="ttdeci">const avrPin avrPinD7</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:140</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_adf22a2a55b5f1f9c87d9757d1fb4ece9"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#adf22a2a55b5f1f9c87d9757d1fb4ece9">avrPinC4</a></div><div class="ttdeci">const avrPin avrPinC4</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:129</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a61a41c2d46750a83825210159d23ebc6"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a61a41c2d46750a83825210159d23ebc6">avrPinB3</a></div><div class="ttdeci">const avrPin avrPinB3</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:119</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_ab054731eadec554138dba7e27bc2eeb1"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#ab054731eadec554138dba7e27bc2eeb1">avrPinB7</a></div><div class="ttdeci">const avrPin avrPinB7</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:123</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a232687f9ccf8eec275de2c6a9f1d9717"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a232687f9ccf8eec275de2c6a9f1d9717">avrPinD1</a></div><div class="ttdeci">const avrPin avrPinD1</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:134</div></div>
+<div class="ttc" id="_b_i_t___c_t_r_l__test_8cpp_html_a6d7b5873b999b3775aff6cf1021c0618"><div class="ttname"><a href="_b_i_t___c_t_r_l__test_8cpp.html#a6d7b5873b999b3775aff6cf1021c0618">avrPinC6</a></div><div class="ttdeci">const avrPin avrPinC6</div><div class="ttdef"><b>Definition:</b> BIT_CTRL_test.cpp:131</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a710a64e4af5fa5bb5c170951bc29f57f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a710a64e4af5fa5bb5c170951bc29f57f">&#9670;&nbsp;</a></span>MODE_INPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MODE_INPUT =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a327f8322bd1f92e336b1d7e2303dc52e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327f8322bd1f92e336b1d7e2303dc52e">&#9670;&nbsp;</a></span>MODE_INPUT_PULLUP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MODE_INPUT_PULLUP =2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5652fcd0abcd8a362768488961dab988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5652fcd0abcd8a362768488961dab988">&#9670;&nbsp;</a></span>MODE_OUTPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MODE_OUTPUT =1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6aaeb817dc7c3bcb8dffe3127b06ee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6aaeb817dc7c3bcb8dffe3127b06ee3">&#9670;&nbsp;</a></span>MODE_OUTPUT_LOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MODE_OUTPUT_LOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59ab3b27418f9c2344487d45efc8f72e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ab3b27418f9c2344487d45efc8f72e">&#9670;&nbsp;</a></span>OUTPUT_HIGH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t OUTPUT_HIGH =1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a693db03bd6d8fa3552e2547d9f267cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a693db03bd6d8fa3552e2547d9f267cb7">&#9670;&nbsp;</a></span>OUTPUT_LOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t OUTPUT_LOW =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273427cd4020cdd7da699cd9a22a8c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273427cd4020cdd7da699cd9a22a8c68">&#9670;&nbsp;</a></span>PULLUP_OFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t PULLUP_OFF =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5fad4bac15d20a3d8137e2ea3ab7e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5fad4bac15d20a3d8137e2ea3ab7e8e">&#9670;&nbsp;</a></span>PULLUP_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t PULLUP_ON =1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
