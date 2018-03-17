@@ -31,7 +31,8 @@
 #endif
 //<<<<<ビット操作のマクロ定義
 
-//ATMEGA88_PDIPのピン配置と名前>>>>>
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//ATMEGA88_PDIPのピン配置と名前
 const uint8_t PB0_PIN=14;
 const uint8_t PB1_PIN=15;
 const uint8_t PB2_PIN=16;
@@ -57,7 +58,11 @@ const uint8_t PD4_PIN=6;
 const uint8_t PD5_PIN=11;
 const uint8_t PD6_PIN=12;
 const uint8_t PD7_PIN=13;
+//ATMEGA88_PDIPのピン配置と名前
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//pin interrupt
 const uint8_t PCINT0_PIN=14;
 const uint8_t PCINT1_PIN=15;
 const uint8_t PCINT2_PIN=16;
@@ -81,13 +86,19 @@ const uint8_t PCINT20_PIN=6;
 const uint8_t PCINT21_PIN=11;
 const uint8_t PCINT22_PIN=12;
 const uint8_t PCINT23_PIN=13;
+//pininterrupt
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//ADC
 const uint8_t ADC0_PIN=23;
 const uint8_t ADC1_PIN=24;
 const uint8_t ADC2_PIN=25;
 const uint8_t ADC3_PIN=26;
 const uint8_t ADC4_PIN=27;
 const uint8_t ADC5_PIN=28;
+//ADC
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 const uint8_t AIN0_PIN=12;
 const uint8_t AIN1_PIN=13;
