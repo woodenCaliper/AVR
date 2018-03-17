@@ -5,7 +5,6 @@
 
 class Queue{
 	protected:
-	public:
 	volatile char* buffer;
 	volatile uint16_t head, tail;
 	volatile uint16_t bufferNum;
