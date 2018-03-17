@@ -13,7 +13,7 @@ class IncrementalEncoder{
 	uint8_t oldEncState;
 
 	public:
-	MeasureEncoder(uint16_t pulseParRotation, bool phaseA, bool phaseB){
+	IncrementalEncoder(uint16_t pulseParRotation, bool phaseA, bool phaseB){
 		radParPulse =  (2.0*PI) / (pulseParRotation*4);
 		count=0;
 		oldEncState = ((uint8_t)phaseA<<1) | (phaseA^phaseB);
@@ -27,10 +27,10 @@ class IncrementalEncoder{
 
 	void changedPulse(bool phaseA, bool phaseB){
 		uint8_t currentEncState = ((uint8_t)phaseA<<1) | (phaseA^phaseB);	//00->01->10->11->00
-		if( (oldEncState+1)&0b0011 == currentEncState){
+		if( ((oldEncState+1)&0b0011) == currentEncState){
 			count++;
 		}
-		else if( (oldEncState-1)&0b0011 == currentEncState){
+		else if( ((oldEncState-1)&0b0011) == currentEncState){
 			count--;
 		}
 		else{	//error
@@ -44,5 +44,5 @@ class IncrementalEncoder{
 	inline void changedPulseB(bool phaseB){
 		changedPulse((bool)(oldEncState&0b0010), phaseB);
 	}
-}
+};
 #endif
