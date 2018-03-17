@@ -8,15 +8,11 @@ use interrupt: pin_interrupt, timer2
 	 #define USE_COUNTER_TIMER 0
 */
 
-#ifndef MESURE_ENCODER_TM2_H_
-#define MESURE_ENCODER_TM2_H_
+#ifndef MESURE_ENCODER_H_
+#define MESURE_ENCODER_H_
 
 #include <avr/interrupt.h>	//割り込みヘッダ
 #include ".\BIT_CTRL.cpp"
-
-#define USE_COUNTER_TIMER 2
-#include ".\COUNTER.cpp"
-
 
 #ifndef PI
 #define PI 3.14159265359
@@ -39,31 +35,30 @@ class MeasureEncode{
 	}
 }
 
-namespace MeasureEncoder{
+class MeasureEncoder{
+	protected:
 	float radParPulse;
-
-	int32_t counts;
+	int32_t count;
 	uint8_t oldEncState;
 
 	void begin(uint16_t pulseParRotation, bool Aphase, bool Bphase){
 		radParPulse =  (2*PI) / (pulseParRotation*4);
-		counts=0;
+		count=0;
 		oldEncState = ((uint8_t)Aphase<<1) | Bphase;
 	}
 
 	void changedPulse(bool Aphase, bool Bphase){
 		uint8_t currentEncState = (Aphase<<1) | (Aphase^Bphase);	//00->01->10->11->00
 		if( (oldEncState+1)&0b0011 == currentEncState){
-			counts[0]++;
+			count[0]++;
 		}
 		else if( (oldEncState-1)&0b0011 == currentEncState){
-			counts[0]--;
+			count[0]--;
 		}
 		else{	//error
 			return;
 		}
 		oldEncState = currentEncState;
-		return;
 	}
 
 	inline void changedPulseA(bool phaseA){
@@ -73,15 +68,15 @@ namespace MeasureEncoder{
 		changedPulse((bool)(oldEncState&0b0010), phaseB);
 	}
 	void setCurrentRad(float rad){
-		if(counts[1]==counts[0]-1){
-			counts = rad / radParPulse;
+		if(count[1]==count[0]-1){
+			count = rad / radParPulse;
 		}
-		else if(counts[1]==counts[0]+1){
-			counts = rad / radParPulse;
+		else if(count[1]==count[0]+1){
+			count = rad / radParPulse;
 		}
 	}
 	float getCurrentRad(){
-		return counts * radParPulse;
+		return count * radParPulse;
 	}
 }
 #endif
