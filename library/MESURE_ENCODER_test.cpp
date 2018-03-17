@@ -24,8 +24,6 @@ use interrupt: pin_interrupt, timer2
 
 
 class Encoder;
-
-
 class MeasureEncode{
 	// changedPulseA(bool input){
 
@@ -44,60 +42,46 @@ class MeasureEncode{
 namespace MeasureEncoder{
 	float radParPulse;
 
-	float times[2];
-	int32_t counts[2];
+	int32_t counts;
 	uint8_t oldEncState;
 
-	void begin(uint16_t pulseParRotation, bool Aphase, bool Bphase, float differentialTime=100){
-		uint16_t timerDivision=64;
+	void begin(uint16_t pulseParRotation, bool Aphase, bool Bphase){
 		radParPulse =  (2*PI) / (pulseParRotation*4);
-
-		for(uint8_t i=0;i<2;i++){
-			times[i]=Counter::getUsec();
-			counts[i]=i;
-		}
+		counts=0;
 		oldEncState = ((uint8_t)Aphase<<1) | Bphase;
-		Counter::begin(timerDivision);
 	}
-	void changedPulse(bool Aphase, bool Bphase){
-		float time = Counter::getUsec();
 
-		uint8_t encRotationState = (((uint8_t)Bphase<<1) | Aphase) ^ oldEncState;	//00:前と同じ、01:正転、10:逆転、11:値が飛んでいる
-		if(encRotationState  == 0b01 || encRotationState == 0b10){
-			times[1]  = times[0];
-			times[0]  = time;
-			counts[1] = counts[0];
-			if(encRotationState == 0b01){
-				counts[0]++;
-			}
-			else if(encRotationState == 0b10){
-				counts[0]--;
-			}
-			oldEncState = (Aphase<<1) | Bphase;
+	void changedPulse(bool Aphase, bool Bphase){
+		uint8_t currentEncState = (Aphase<<1) | (Aphase^Bphase);	//00->01->10->11->00
+		if( (oldEncState+1)&0b0011 == currentEncState){
+			counts[0]++;
 		}
+		else if( (oldEncState-1)&0b0011 == currentEncState){
+			counts[0]--;
+		}
+		else{	//error
+			return;
+		}
+		oldEncState = currentEncState;
+		return;
 	}
+
 	inline void changedPulseA(bool phaseA){
-		changedPulse(phaseA, (bool)(oldEncState&0b00000001));
+		changedPulse(phaseA, (bool)(oldEncState&0b0001));
 	}
 	inline void changedPulseB(bool phaseB){
-		changedPulse((bool)(oldEncState&0b00000010), phaseB);
+		changedPulse((bool)(oldEncState&0b0010), phaseB);
 	}
 	void setCurrentRad(float rad){
 		if(counts[1]==counts[0]-1){
-			counts[0] = rad / radParPulse;
-			counts[1] = counts[0]-1;
+			counts = rad / radParPulse;
 		}
 		else if(counts[1]==counts[0]+1){
-			counts[0] = rad / radParPulse;
-			counts[1] = counts[0]+1;
+			counts = rad / radParPulse;
 		}
 	}
 	float getCurrentRad(){
-		return counts[0] * radParPulse;
-	}
-	float getCurrentVel(){
-		return (counts[0]-counts[1]) / (Counter::getUsec()-times[1]);
+		return counts * radParPulse;
 	}
 }
-
 #endif
