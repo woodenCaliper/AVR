@@ -47,12 +47,13 @@ class Uart : public TransceiverRingArray{
 
 //オーバーライド>>>>>
 	int16_t txIn(char data){	//キューに追加した文字数
-		bool success = transmitter.lastIn(data);
-		if(success){
+		int8_t error;
+		transmitter.inTail(data, &error);
+		if(error==0){
 			sbi(UCSR0B, 5);
 			return 1;
 		}
-		return 0;
+		return 0;		
 	}
 //<<<<<オーバーライド
 

@@ -7,30 +7,51 @@
 
 class TransceiverRingArray{
 	public:
-	RingArray transmitter, receiver;
+	RingArray <char>transmitter;
+	RingArray <char>receiver;
 	TransceiverRingArray(){
 	}
 	TransceiverRingArray(uint16_t txBufferNum, uint16_t rxBufferNum){
-		init(txBufferNum, rxBufferNum);
+		transmitter.resizeBuffer(txBufferNum);
+		receiver.resizeBuffer(rxBufferNum);
 	}
 	void init(uint16_t txBufferNum, uint16_t rxBufferNum){
-		transmitter.setBufferNum(txBufferNum);
-		receiver.setBufferNum(rxBufferNum);
+		transmitter.resizeBuffer(txBufferNum);
+		receiver.resizeBuffer(rxBufferNum);
 	}
-
 
 //オーバーライド用関数>>>>>
 	virtual	int16_t txIn(char data){
-		return transmitter.lastIn(data);
+		int8_t error;
+		transmitter.inTail(data, &error);
+		if(error==0){			
+			return 1;
+		}
+		return 0;
 	}
 	virtual int16_t txOut(){
-		return transmitter.firstOut();
+		int8_t error;
+		int16_t data=transmitter.outHead(&error);
+		if(error==0){
+			return data;
+		}
+		return error;	
 	}
 	virtual int16_t rxIn(char data){
-		return receiver.lastIn(data);
+		int8_t error;
+		receiver.inTail(data, &error);
+		if(error==0){
+			return 1;
+		}
+		return 0;
 	}
 	virtual int16_t rxOut(){
-		return receiver.firstOut();
+		int8_t error;
+		int16_t data=receiver.outHead(&error);
+		if(error==0){
+			return data;
+		}
+		return error;
 	}
 //<<<<<オーバーライド用関数
 
