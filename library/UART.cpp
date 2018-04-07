@@ -40,10 +40,10 @@
 #define SERIAL_7O2 0x3C
 #define SERIAL_8O2 0x3E
 
-class Uart : public TransceiverQueue{
+class Uart : public TransceiverRingArray{
 	public:
-	Uart() : TransceiverQueue(50, 50){	}
-	Uart(uint16_t txBuffer, uint16_t rxBuffer) : TransceiverQueue(txBuffer, rxBuffer){	}
+	Uart() : TransceiverRingArray(50, 50){	}
+	Uart(uint16_t txBuffer, uint16_t rxBuffer) : TransceiverRingArray(txBuffer, rxBuffer){	}
 
 //オーバーライド>>>>>
 	int16_t txIn(char data){	//キューに追加した文字数

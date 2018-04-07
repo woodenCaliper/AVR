@@ -1,16 +1,16 @@
-#ifndef TRANSCEIVER_QUEUE_H_
-#define TRANSCEIVER_QUEUE_H_
+#ifndef TRANSCEIVER_RINGARRAY_H_
+#define TRANSCEIVER_RINGARRAY_H_
 
 #include <stdlib.h>
-#include ".\RING_ARRAY_TEMPLATE.cpp"
+#include ".\RING_ARRAY.cpp"
 #include ".\STRING_CTRL.cpp"
 
-class TransceiverQueue{
+class TransceiverRingArray{
 	public:
-	RingArrayTemplate <char> transmitter, receiver;
-	TransceiverQueue(){
+	RingArray transmitter, receiver;
+	TransceiverRingArray(){
 	}
-	TransceiverQueue(uint16_t txBufferNum, uint16_t rxBufferNum){
+	TransceiverRingArray(uint16_t txBufferNum, uint16_t rxBufferNum){
 		init(txBufferNum, rxBufferNum);
 	}
 	void init(uint16_t txBufferNum, uint16_t rxBufferNum){
