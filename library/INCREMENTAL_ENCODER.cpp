@@ -13,14 +13,28 @@ class IncrementalEncoder{
 	uint8_t oldEncState;
 
 	public:
+	/**
+	* @brief エンコーダの分解能と現在の状態を設定
+	* @param[in] pulseParRotation エンコーダの分解能
+	* @param[in] phaseA A相の状態
+	* @param[in] phaseA B相の状態
+	*/
 	IncrementalEncoder(uint16_t pulseParRotation, bool phaseA, bool phaseB){
 		radParPulse =  (2.0*PI) / (pulseParRotation*4);
 		count=0;
 		oldEncState = ((uint8_t)phaseA<<1) | (phaseA^phaseB);
 	}
+	/**
+	* @brief 現在のエンコーダの角度を設定
+	* @param[in] rad エンコーダの角度[rad]
+	*/
 	void setCurrentRad(float rad){
 		count = rad / radParPulse;
 	}
+	/**
+	* @brief 現在のエンコーダの角度の取得
+	* @return bool 現在の角度[rad]
+	*/
 	float getCurrentRad(){
 		return count * radParPulse;
 	}
