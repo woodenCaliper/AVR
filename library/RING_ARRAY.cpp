@@ -3,145 +3,212 @@
 
 #include <stdlib.h>
 
+template <class freeType>
 class RingArray{
 	protected:
-	volatile char* buffer;
+	volatile freeType* buffer;
 	//head=データが入っている先頭
 	//tail=データが入ってない末尾
 	volatile uint16_t head, tail;
-	volatile uint16_t bufferNum;
+	volatile uint16_t bufferSize;
 
 	public:
 	//コンストラクタ・デトラクタ>>>>>
 	RingArray(){
 		head=0;
 		tail=0;
-		bufferNum=0;
+		bufferSize=0;
 	}
-	RingArray(uint16_t _bufferNum){
+	RingArray(uint16_t _bufferSize){
 		head=0;
 		tail=0;
-		setBufferNum(_bufferNum);
+		resizeBuffer(_bufferSize);
 	}
 	~RingArray(){
 		free((void*)buffer);
 	}
 	//<<<<<コンストラクタ・デトラクタ
 
-	void setBufferNum(uint16_t _bufferNum){
-		bufferNum = _bufferNum+1;
-	//	buffer = new char[bufferNum];	//動的メモリ確保
-		buffer = (char*)malloc(sizeof(char)*bufferNum);	//動的メモリ確保
-	}
-	void init(uint16_t _bufferNum){
-		setBufferNum(_bufferNum);
+	/**
+	* @brief 配列の最大サイズの変更
+	* @param[in] _bufferSize 配列の最大サイズ
+	**/
+	void resizeBuffer(uint16_t _bufferSize){
+		bufferSize = _bufferSize+1;
+		buffer = (freeType*)malloc(sizeof(freeType)*bufferSize);	//動的メモリ確保
 	}
 
-	//先頭に挿入
-	bool firstIn(char data){
+
+	/**
+	* @brief 先頭に挿入
+	* @param[in] data 挿入データ
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	**/
+	void inHead(freeType data, int8_t *error=0){
 		if(isFull()){	//bufferがfull
 			// out();	//古いデータを捨てる
 			// buffer[tail]=data;
-			// tail = (tail+1) % bufferNum;
-			return false;
+			// tail = (tail+1) % bufferSize;
+			*error = -1;
 		}
 		else{
-			head = (head+(bufferNum-1)) % bufferNum;
+			head = (head+(bufferSize-1)) % bufferSize;
 			buffer[head]=data;
-			return true;
+			*error = 0;
 		}
 	}
-	//return=成否
-	bool lastIn(char data){	//追加
+	/**
+	* @brief 末尾に挿入
+	* @param[in] data 挿入データ
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	**/
+	void inTail(freeType data, int8_t *error=0){	//追加
 		if(isFull()){	//bufferがfull
 			// out();	//古いデータを捨てる
 			// buffer[tail]=data;
-			// tail = (tail+1) % bufferNum;
-			return false;
+			// tail = (tail+1) % bufferSize;
+			*error = -1;
 		}
 		else{
 			buffer[tail]=data;
-			tail = (tail+1) % bufferNum;
-			return true;
+			tail = (tail+1) % bufferSize;
+			*error = 0;
 		}
 	}
 
-	//抜き出したデータ、空なら-1
-	int16_t firstOut(){
-		char data;
+	/**
+	* @brief 先頭の要素を取り出し
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	* @return 要素
+	**/
+	freeType outHead(int8_t *error=0){
+		freeType data;
 		if( !isEmpty() ){	//bufferが空でない
 			data = buffer[head];
-			head = (head+1) % bufferNum;
+			head = (head+1) % bufferSize;
+			*error = 0;
 			return data;
 		}
-		return -1;
+		*error = -1;
+		return 0;
 	}
-	//末尾から取り出し、空なら-1
-	int16_t lastOut(){
-		char data;
+
+	/**
+	* @brief 末尾の要素を取り出し
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	* @return 要素
+	**/
+	freeType outTail(int8_t *error=0){
+		freeType data;
 		if( !isEmpty() ){	//bufferが空でない
-			tail = (tail+(bufferNum-1)) % bufferNum;
+			tail = (tail+(bufferSize-1)) % bufferSize;
 			data = buffer[tail];
+			*error = 0;
 			return data;
 		}
-		return -1;
+		*error = -1;
+		return 0;
 	}
 
 	bool isEmpty(){
 		return head == tail;
 	}
 	bool isFull(){
-		return head == (tail+1) % bufferNum;
+		return head == (tail+1) % bufferSize;
 	}
+
+	/**
+	* @brief 配列の初期化
+	**/
 	void doEmpty(){
 		head = tail;
 	}
+
+	/**
+	* @brief 配列の長さの取得
+	* @return 配列長さ
+	**/
 	uint16_t len(){//所有データ数
-		return (tail+(bufferNum-head)) % bufferNum;
+		return (tail+(bufferSize-head)) % bufferSize;
 	}
-	bool overWrite(char data, uint16_t adrs){
+
+	/**
+	* @brief 配列の要素を上書き
+	* @param[in] data 上書きする値
+	* @param[in] adrs 要素番号
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	**/
+	void overWrite(freeType data, uint16_t adrs, int8_t *error=0){
 		if(adrs>=0){
 			if(adrs>=len()){
-				return false;
+				*error = -1;
+				return;
 			}
-			buffer[(head+adrs) % bufferNum] = data;
-			return true;
+			buffer[(head+adrs) % bufferSize] = data;
+			*error = 0;
+				return;
 		}
 		else{
 			if (-adrs>len()){
-				return false;
+				*error = -1;
+				return;
 			}
-			buffer[(tail+(bufferNum+adrs)) % bufferNum] = data;
-			return true;
+			buffer[(tail+(bufferSize+adrs)) % bufferSize] = data;
+			*error = 0;
+			return;
 		}
 	}
-	char look(int32_t adrs){
+	/**
+	* @brief 配列の要素を取得
+	* @param[in] adrs 要素番号
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	* @return 要素
+	**/
+	freeType look(int32_t adrs, int8_t *error=0){
 		if(adrs>=0){
 			if(adrs>=len()){
+				*error = -1;
 				return 0;
 			}
-			return buffer[(head+adrs) % bufferNum];
+
+			*error = 0;
+			return buffer[(head+adrs) % bufferSize];
 		}
 		else{
 			if (-adrs>len()){
+				*error = -1;
 				return 0;
 			}
-			return buffer[(tail+(bufferNum+adrs)) % bufferNum];
+			*error = 0;
+			return buffer[(tail+(bufferSize+adrs)) % bufferSize];
 		}
 	}
-	//値がないときは-1
-	int32_t index(char value){
+
+	/**
+	* @brief 配列から値の探索
+	* @param[in] value 探索する値
+	* @param[out] *error エラーコード[0:正常, -1:エラー]
+	* @return 配列番号
+	**/
+	uint16_t index(freeType value, int8_t *error=0){
 		for(uint16_t i=0; i<len(); i++){
 			if(look(i)==value){
+				*error=0;
 				return i;
 			}
 		}
-		return -1;
+		*error=-1;
+		return 0;
 	}
-	uint16_t copy(char* array){
+	/**
+	* @brief 配列をコピー
+	* @param[out] *array コピー先
+	* @return 配列長さ
+	**/
+	uint16_t copy(freeType* array){
 		uint16_t length = len();
 		for(uint16_t i=0; i<length; i++){
-			*(array+i) = buffer[(head+i) % bufferNum];
+			*(array+i) = buffer[(head+i) % bufferSize];
 		}
 		return length;
 	}
