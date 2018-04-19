@@ -1,17 +1,17 @@
-#ifndef TRANSCEIVER_RINGARRAY_H_
-#define TRANSCEIVER_RINGARRAY_H_
+#ifndef SERIAL_TRANSCEIVER_CPP_
+#define SERIAL_TRANSCEIVER_CPP_
 
 #include <stdlib.h>
 #include ".\RING_ARRAY.cpp"
 #include ".\STRING_CTRL.cpp"
 
-class TransceiverRingArray{
+class SerialTransceiver{
 	public:
 	RingArray <char>transmitter;
 	RingArray <char>receiver;
-	TransceiverRingArray(){
+	SerialTransceiver(){
 	}
-	TransceiverRingArray(uint16_t txBufferNum, uint16_t rxBufferNum){
+	SerialTransceiver(uint16_t txBufferNum, uint16_t rxBufferNum){
 		transmitter.resizeBuffer(txBufferNum);
 		receiver.resizeBuffer(rxBufferNum);
 	}
@@ -24,7 +24,7 @@ class TransceiverRingArray{
 	virtual	int16_t txIn(char data){
 		int8_t error;
 		transmitter.inTail(data, &error);
-		if(error==0){			
+		if(error==0){
 			return 1;
 		}
 		return 0;
@@ -35,7 +35,7 @@ class TransceiverRingArray{
 		if(error==0){
 			return data;
 		}
-		return error;	
+		return -1;
 	}
 	virtual int16_t rxIn(char data){
 		int8_t error;
@@ -51,15 +51,19 @@ class TransceiverRingArray{
 		if(error==0){
 			return data;
 		}
-		return error;
+		return -1;
 	}
 //<<<<<オーバーライド用関数
 
 //>>>>>bufferCtrl
-	//成功時=1、無行動時=0、失敗時=-1
-	//cmdが届ききっていない場合、何もしない。一致したならキューを取り出す。不一致なら削除
-	//MD???{+-}{01}???
-	int8_t cmdCheckQueue(const char* trueCmd, char* resultStrage){
+	/**
+	* @brief 配列から一定規則の文字列を探す
+	         <br>完全一致(配列から取り出し)、途中まで一致(無行動)、不一致(配列から削除)
+	* @param[in] trueCmd 探索する表現、例 MD???{+-}{01}???、?は0~9の値にヒットする
+	* @param[out] resultStrage 一致した文字列を返す
+	* @return 完全一致=1、途中まで一致=0、不一致=-1
+	**/
+	int8_t cmdCheckBuffer(const char* trueCmd, char* resultStrage){
 		uint16_t len = receiver.index(*trueCmd)+1;
 		if(len==0){	//存在しないなら空に
 			receiver.doEmpty();
@@ -97,7 +101,11 @@ class TransceiverRingArray{
 
 
 //read>>>>>
-	int16_t read(){	//空なら-1
+	/**
+	* @brief バッファから一文字取り出し
+	* @return 取り出し文字数、バッファが空なら-1
+	**/
+	inline int16_t read(){
 		return rxOut();
 	}
 	template <class freeType>
@@ -111,7 +119,12 @@ class TransceiverRingArray{
 		return len;
 	}
 
-	//stopDataまで(stopDataを含め)を取り出す、なければ-1
+	/**
+	* @brief stopDataまで(stopDataを含め)を取り出す
+	* @param[in] dataPath
+	* @param[in] stopData
+	* @return 取り出し文字数、バッファが空orStopDataがなければ-1
+	**/
 	int16_t read(char* dataPath, char stopData){
 		return read(dataPath, receiver.index(stopData)+1);
 	}
@@ -126,7 +139,6 @@ class TransceiverRingArray{
 		}
 		return len;
 	}
-
 
 	int16_t readStr(char* strPath){	//\0がなければ-1
 		return read(strPath, '\0');
@@ -164,34 +176,56 @@ class TransceiverRingArray{
 //read<<<<<
 
 //write>>>>>
-	int16_t write(char data){	//キューに追加した文字数
-		return txIn(data);
+	/**
+	* @brief 1文字を送信バッファに蓄える
+	* @param[in] charactor 文字
+	* @return 送信文字数
+	**/
+	int16_t write(char charactor){	//キューに追加した文字数
+		return txIn(charactor);
 	}
-	int16_t write(char* buf, uint16_t size){
+
+	/**
+	* @brief 配列を送信バッファに蓄える
+	* @param[in] arrayAdrs 配列のアドレス
+	* @param[in] size 配列の長さ
+	* @return 送信文字数
+	**/
+	int16_t write(char* arrayAdrs, uint16_t size){
 		int16_t success;
 		uint16_t i;
 		for(i=0; i<size; i++){
-			success = write(*(buf+i));
+			success = write(*(arrayAdrs+i));
 			if(success==0){
 				break;
 			}
 		}
 		return i;
 	}
-	int16_t write(char* str){	//0も含めて送る
+
+	/**
+	* @brief 文字列(\0を含む)を送信バッファに蓄える
+	* @param[in] stringAdrs 文字列のアドレス
+	* @return 送信文字数
+	**/
+	int16_t write(char* str){
 		int16_t n;
 		n = write(str, getStringLen(str));
 		n += write('\0');
 		return n;
 	}
-	int16_t write(const char* data)				{return write((char*)data);}
+	int16_t write(const char* data)		{return write((char*)data);}
 //<<<<<write
 
 //print>>>>>
-	int16_t print(unsigned long n, int base=10){	//数値を文字列として送信(整数)
+	int16_t print(bool data){
+		if(data){	return print("true");	}
+		else{		return print("false");	}
+	}
+	int16_t print(uint32_t n, uint8_t base=10){	//数値を文字列として送信(整数)
 		return printNumber(n, base);
 	}
-	int16_t print(long n, int base=10){	//数値を文字列として送信(整数)
+	int16_t print(int32_t n, uint8_t base=10){	//数値を文字列として送信(整数)
 		if((base==10) && (n<0)){	//負の場合
 			int t = write('-');
 			return print((unsigned long)(-n), 10) + t;
@@ -200,42 +234,24 @@ class TransceiverRingArray{
 			return print((unsigned long)n, base);
 		}
 	}
-	int16_t print(double num, int digits=8){	//数値を文字列として送信(浮動小数点)
+	int16_t print(double num, uint8_t digits=8){	//数値を文字列として送信(浮動小数点)
 		return printFloat(num, digits);
 	}
-	int16_t print(char data){	//ASCコードを送信
-		return write(data);
+	inline int16_t print(char charactor){	//ASCコードを送信
+		return write(charactor);
 	}
-	int16_t print(char* data, int len){	//配列と長さ
+	inline int16_t print(char* data, uint16_t len){	//配列と長さ
 		return write(data, len);
 	}
 	int16_t print(char* str){	//文字列（\0は送らない）
-		int n=0;
-		int16_t success;
-		while(*str != '\0'){
-			success = write(*str);
-			if(success==0){
-				break;
-			}
-			str++;
-			n++;
-		}
-		return n;
-	}
-	int16_t print(bool data){
-		if(data){
-			return print("true");
-		}
-		else{
-			return print("false");
-		}
+		return write(str, getStringLen(str));
 	}
 
-	int16_t print(int data, int base=10)          {return print((long)data, base);}
-	int16_t print(unsigned int data, int base=10) {return print((long)data, base);}
-	int16_t print(unsigned char data, int base=10){return print((long)data, base);}
-	int16_t print(float data, int digit=8)		{return print((double)data, digit);}
-	int16_t print(const char* data)				{return print((char*)data);}
+	int16_t print(int data, uint8_t base=10)			{return print((long)data, base);}
+	int16_t print(unsigned int data, uint8_t base=10)	{return print((long)data, base);}
+	int16_t print(unsigned char data, uint8_t base=10)	{return print((long)data, base);}
+	int16_t print(float data, uint8_t digit=8)			{return print((double)data, digit);}
+	int16_t print(const char* data)						{return print((char*)data);}
 //<<<<<print
 
 

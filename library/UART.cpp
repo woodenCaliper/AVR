@@ -2,7 +2,7 @@
 #define UART_H_
 
 #include ".\BIT_CTRL.cpp"
-#include ".\TRANSCEIVER_RINGARRAY.cpp"
+#include ".\SERIAL_TRANSCEIVER.cpp"
 #include <avr/interrupt.h>
 
 #ifndef TX_BUFFER_NUM
@@ -40,10 +40,10 @@
 #define SERIAL_7O2 0x3C
 #define SERIAL_8O2 0x3E
 
-class Uart : public TransceiverRingArray{
+class Uart : public SerialTransceiver{
 	public:
-	Uart() : TransceiverRingArray(50, 50){	}
-	Uart(uint16_t txBuffer, uint16_t rxBuffer) : TransceiverRingArray(txBuffer, rxBuffer){	}
+	Uart() : SerialTransceiver(50, 50){	}
+	Uart(uint16_t txBuffer, uint16_t rxBuffer) : SerialTransceiver(txBuffer, rxBuffer){	}
 
 //オーバーライド>>>>>
 	int16_t txIn(char data){	//キューに追加した文字数
