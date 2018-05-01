@@ -277,11 +277,22 @@ inline void pinPullup(uint8_t pinNum, uint8_t pullup){
 * @brief ピンの入力の読み込み(PIN読み込み)を行う
 * @param[in] pinNum	実ピン番号
 * @return bool ピンの状態<br>
-* @retval true HIGH
-* @retval false Low
+* @retval true HIGH<br>
+* @retval false Low<br>
 */
 bool readInput(uint8_t pinNum){
 	//return 	(bool)( *(avrPins[pinNum].pin) & (avrPins[pinNum].pinMask) );
 	return (bool)(*(avrPins[pinNum-1].pin) & (avrPins[pinNum-1].pinMask) );
+}
+
+/**
+* @brief ピンの出力状態を読み取る
+* @param[in] pinNum	実ピン番号
+* @return bool ピンの状態<br>
+* @retval true HIGH<br>
+* @retval false Low<br>
+**/
+bool readOutput(uint8_t pinNum){
+	return (bool)(*(avrPins[pinNum-1].port) & (avrPins[pinNum-1].pinMask));
 }
 #endif
