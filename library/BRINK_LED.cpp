@@ -13,34 +13,40 @@
 
 class BrinkLed;
 BrinkLed *blPtr[20];
-uint8_t funcNum=0;
+uint8_t gFuncNum=0;
 
 class BrinkLed{
 	private:
-	volatile uint8_t *DDRx, *PORTx;
 	uint8_t pinNum;
 	uint16_t periodCount, brinkCount;
 	uint16_t brinkActionCount, periodActionCount;
 	uint8_t brinkNum, brinkActionNum;
 	static uint16_t count;
+	uint8_t funcNum;
 
 	public:
-	BrinkLed(volatile uint8_t *_DDR, volatile uint8_t *_PORT, uint8_t _pinNum){
-		DDRx = _DDR;
-		PORTx = _PORT;
+	BrinkLed(uint8_t _pinNum){
 		pinNum = _pinNum;
 
 		Tm2Ctrl::setDivision(1024);
 		Tm2Ctrl::setWGM(0b000);	//標準動作
 		sbi(TIMSK2, TOIE2);
+		funcNum = gFuncNum;
+		++gFuncNum;
 		blPtr[funcNum]=this;
-		funcNum++;
+		sei();
+	}
+	~BrinkLed(){
+		for(uint8_t i=funcNum; i<gFuncNum; i++){
+			blPtr[i] = blPtr[i+1];
+		}
+		--gFuncNum;
 	}
 
 	void begin(uint8_t _brinkNum, uint32_t brinkPeriodMsec=200, uint32_t ExecutionPeriodMsec=2000){
 		float msecToCount = (F_CPU/1000)/(1024.0*256);
-		sbi(*DDRx, pinNum);
-		cbi(*PORTx,pinNum);
+		pinMode(pinNum, MODE_OUTPUT);
+		pinOutput(pinNum, OUTPUT_LOW);
 
 		if(brinkPeriodMsec*_brinkNum*2 > ExecutionPeriodMsec){
 			ExecutionPeriodMsec = brinkPeriodMsec*_brinkNum*2;
@@ -52,7 +58,6 @@ class BrinkLed{
 		brinkActionNum   = 0;
 		brinkActionCount = count+brinkCount;
 		periodActionCount= count+periodCount;
-		sei();
 	}
 	void stop(){
 
@@ -63,13 +68,13 @@ class BrinkLed{
 	void brink(){
 		if(brinkNum > brinkActionNum){
 			if(count == brinkActionCount){
-				toggleBit(*PORTx, pinNum);
+				pinOutput(pinNum, !readOutput(pinNum));
 				brinkActionCount += brinkCount;
 				brinkActionNum++;
 			}
 		}
 		else if(count == periodActionCount){
-			cbi(*PORTx, pinNum);	//出力1
+			pinOutput(pinNum, OUTPUT_LOW);
 			brinkActionCount  = count + brinkCount;
 			periodActionCount += periodCount;
 			brinkActionNum    = 0;
@@ -80,7 +85,7 @@ uint16_t BrinkLed::count=0;
 
 ISR(TIMER2_OVF_vect){
 	BrinkLed::countUp();
-	for(int i=0; i<funcNum; i++){
+	for(int i=0; i<gFuncNum; i++){
 		blPtr[i]->brink();
 	}
 }
