@@ -1,50 +1,81 @@
 #ifndef ADC_ATMEGA88_H_
 #define ADC_ATMEGA88_H_
+#include ".\BIT_CTRL.cpp"
+
 
 namespace Adc{
 	void EnableInterrupt(){
 		sbi(ADCSRA,3);	//A/D変換完了割り込み許可
 	}
-	inline void setREFS(char refs){
+	inline void __setREFS(char refs){
 		changebyte(ADMUX, refs<<6, 0b11000000);
 	}
-	inline void setMUX(char mux){
+	inline void __setMUX(char mux){
 		changebyte(ADMUX, mux, 0b00001111);
 	}
-	inline void setADPS(char adps){
+	inline void __setADPS(char adps){
 		changebyte(ADCSRA, adps, 0b00000111);
 	}
 	unsigned int __doAdc(){
-		if( checkbit(ADCSRA,7)==0 ){	//A/D許可がされていない、
+		if( checkBit(ADCSRA,7)==0 ){	//A/D許可がされていない、
 			sbi(ADCSRA,7);		//A/D許可
 			__doAdc();	//初回起動のADC初期化のための空回し
 		}
 		sbi(ADCSRA,6);	//A/D変換開始
-		while( checkbit(ADCSRA,4)==0 );	//変換完了まで待機
+		while( checkBit(ADCSRA,4)==0 );	//変換完了まで待機
 		sbi(ADCSRA,4);	//A/D変換完了割り込み要求ﾌﾗｸのクリア（1の書き込み）
 		return ADCW;
 	}
 
-	unsigned int getBit(unsigned char channel){	//おおよそ88処理時間必要(8MHzなら11us)
-		unsigned int result;
-		setMUX(channel);
-		setREFS(0b01);
-		setADPS(0b111);
+	unsigned int getBit(uint8_t pin){	//おおよそ88処理時間必要(8MHzなら11us)
+		uint8_t channel=0;
+		switch(pin){
+			case ADC0_PIN:
+				channel = 0b0000;
+			break;
+			case ADC1_PIN:
+				channel = 0b0001;
+			break;
+			case ADC2_PIN:
+				channel = 0b0010;
+			break;
+			case ADC3_PIN:
+				channel = 0b0011;
+			break;
+			case ADC4_PIN:
+				channel = 0b0100;
+			break;
+			case ADC5_PIN:
+				channel = 0b0101;
+			break;
+			/*
+			case ADC6_PIN:
+				channel = 0b0110;
+			break;
+			case ADC7_PIN:
+				channel = 0b0111;
+			break;
+			*/
+		}
+		uint16_t result;
+		__setMUX(channel);
+		__setREFS(0b01);
+		__setADPS(0b111);
 		ADCSRB=0x00;
 		changebyte(DIDR0, 1<<channel, 0b00111111);	//ﾃﾞｼﾞﾀﾙ入力禁止(ADC5D～0D)
 		result = __doAdc();
 		DIDR0 = 0x00;
 		return result;
 	}
-	float getVolt(unsigned char channel, float refVolt=5.0){
-		return getBit(channel) * refVolt / 1024;
+	float getVolt(uint8_t pin, float refVolt=5.0){
+		return getBit(pin) * refVolt / 1024;
 	}
 
-	float getVolt1v1(unsigned char channel, unsigned char tryNum=100){
+	float getVolt1v1(uint8_t pin, unsigned char tryNum=100){
 		int before=-1, now=0;
-		setMUX(0b1110);
-		setREFS(0b01);
-		setADPS(0b111);
+		__setMUX(0b1110);
+		__setREFS(0b01);
+		__setADPS(0b111);
 		ADCSRB=0x00;
 		for(int i=0; i<tryNum; i++){	//結果が安定するまでループ
 			now = __doAdc();
@@ -55,7 +86,7 @@ namespace Adc{
 				before = now;
 			}
 		}
-		return getBit(channel) * 1.1 / now;
+		return getBit(pin) * 1.1 / now;
 	}
 
 	//ADCﾎﾟｰﾄ:channel(0~7),割り込み分周比:division(2,4,8,16,32,64,128)
@@ -64,7 +95,7 @@ namespace Adc{
 		//分周比設定
 		switch(division){
 			case 2:
-				division=0b000;
+				division = 0b000;
 			break;
 			case 4:
 				division = 0b010;
